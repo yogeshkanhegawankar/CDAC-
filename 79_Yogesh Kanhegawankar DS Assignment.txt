@@ -1,0 +1,1572 @@
+MET IIT CDAC-ATC Nashik
+Batch PGDAC SEP-2023
+Lab Assignments
+Date : 09-Nov-2023
+Due Date: 17-Nov-2023
+Module Name: Data Structure and Algorithams
+
+Name-Yogesh Kahegawankar
+Roll no-79
+
+
+1. Write a  program to create Circularly Doubly Linked list and display it.
+
+package assignmentdsa;
+
+import java.util.Scanner;
+
+class Node {
+	Node left, right;
+	int data;
+
+	Node(int data) {
+		this.data = data;
+		left = right = null;
+	}
+}
+
+public class DoublyLinkedList {
+	Node root, last;
+
+	void createList() {
+		root = last = null;
+	}
+
+	void insertLeft(int data) {
+		Node n = new Node(data);
+		if (root == null) {
+			root = last = n;
+		} else {
+			n.right = root;
+			n.left = last;
+			last.right = n;
+			root.left = n;
+			root = n;
+		}
+		System.out.println("Inserted");
+	}
+
+	void insertRight(int data) {
+		Node n = new Node(data);
+		if (root == null) {
+			root = last = n;
+		} else {
+			last.right = n;
+			n.right = root;
+			n.left = last;
+			root.left = n;
+			last = n;
+		}
+		System.out.println("Inserted");
+	}
+
+	void deleteLeft() {
+		if (root == null)
+			System.out.println("Empty list");
+		else {
+			root = root.right;
+			last.right = root;
+			root.left = last;
+		}
+		System.out.println("Deleted");
+	}
+
+	void deleteRight() {
+		if (root == null)
+			System.out.println("Empty list");
+		else {
+			last = last.left;
+			last.right = root;
+			root.left = last;
+		}
+		System.out.println("Deleted");
+	}
+
+	void printListLeftToRight() {
+		if (root == null)
+			System.out.println("Empty List");
+		else {
+			Node t = root;
+			do {
+				System.out.print("|" + t.data + "|-->");
+				t = t.right;
+			} while (t != root);
+		}
+	}
+
+	void printListRightToLeft() {
+		if (root == null)
+			System.out.println("Empty List");
+		else {
+			Node t = last;
+			do {
+				System.out.print("|" + t.data + "|-->");
+				t = t.left;
+			} while (t != last);
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		DoublyLinkedList obj = new DoublyLinkedList();
+
+		int ch;
+		obj.createList();
+
+		do {
+			System.out.println(
+					"\n1. insert left \n2. insert right \n3. delete left \n4. delete right \n5. print list left to right \n6. print list right to left \n0. exit\n");
+			ch = sc.nextInt();
+			switch (ch) {
+
+			case 1:
+				System.out.println("enter data");
+				obj.insertLeft(sc.nextInt());
+				break;
+
+			case 2:
+				System.out.println("enter data");
+				obj.insertRight(sc.nextInt());
+				break;
+
+			case 3:
+				obj.deleteLeft();
+				break;
+
+			case 4:
+				obj.deleteRight();
+				break;
+
+			case 5:
+				obj.printListLeftToRight();
+				break;
+
+			case 6:
+				obj.printListRightToLeft();
+				break;
+
+			case 0:
+				System.out.println("exiting..");
+				break;
+
+			default:
+				System.out.println("wrong choice");
+				break;
+			}
+		} while (ch != 0);
+	}
+
+}
+----------------------------------------------------------------------
+O/P:
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+1
+enter data
+10
+Inserted
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+2
+enter data
+20
+Inserted
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+1
+enter data
+0
+Inserted
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+2
+enter data
+30
+Inserted
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+5
+|0|-->|10|-->|20|-->|30|-->
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+6
+|30|-->|20|-->|10|-->|0|-->
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+3
+Deleted
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+5
+|10|-->|20|-->|30|-->
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+4
+Deleted
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+6
+|20|-->|10|-->
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list left to right 
+6. print list right to left 
+0. exit
+
+0
+exiting..
+======================================================================
+2.Write a program to create two singly linked list of elements of type integer and find the union of the linked lists.
+package assignmentdsa;
+
+import java.util.Scanner;
+
+class Node {
+	int data;
+	Node next;
+
+	Node(int data) {
+		this.data = data;
+		next = null;
+	}
+}
+
+public class UnionOfLinkedList {
+	Node root;
+
+	void createList() {
+		root = null;
+	}
+
+	void insertLeft(int data) {
+		Node n = new Node(data);
+		if (root == null) {
+			root = n;
+		} else {
+			n.next = root;
+			root = n;
+		}
+		System.out.println("Inserted at left");
+	}
+
+	void insertRight(int data) {
+		Node n = new Node(data);
+		if (root == null) {
+			root = n;
+		} else {
+			Node t = root;
+			while (t.next != null) {
+				t = t.next;
+			}
+			t.next = n;
+		}
+	}
+
+	void deleteLeft() {
+		if (root == null)
+			System.out.println("Empty List");
+		else {
+			root = root.next;
+		}
+		System.out.println("Deleted");
+	}
+
+	void deleteRight() {
+		if (root == null)
+			System.out.println("Empty List");
+		else {
+			Node t = root;
+			Node t2 = root;
+			while (t.next != null) {
+				t2 = t;
+				t = t.next;
+			}
+			if (t == root)
+				root = null;
+			else
+				t2.next = null;
+			System.out.println("Deleted");
+		}
+	}
+
+	void printList() {
+		if (root == null)
+			System.out.println("Empty List");
+		else {
+			Node t = root;
+			while (t != null) {
+				System.out.print("|" + t.data + "|-->");
+				t = t.next;
+			}
+		}
+	}
+
+	void unionOfList(UnionOfLinkedList list2) {
+		Node t = root;
+		Node t2 = list2.root;
+
+		if (t == null) {
+			root = list2.root;
+		} else {
+			while (t.next != null) {
+				t = t.next;
+			}
+
+			while (t2 != null) {
+				boolean flag = false;
+				Node current = root;
+
+				while (current != null) {
+					if (current.data == t2.data) {
+						flag = true;
+						break;
+					}
+					current = current.next;
+				}
+
+				if (!flag) {
+					insertRight(t2.data);
+				}
+				t2 = t2.next;
+			}
+		}
+		printList();
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		UnionOfLinkedList list1 = new UnionOfLinkedList();
+		UnionOfLinkedList list2 = new UnionOfLinkedList();
+
+		int ch;
+		list1.createList();
+		list2.createList();
+
+		do {
+			System.out.println(
+					"\n1. insert left \n2. insert right \n3. delete left \n4. delete right \n5. print list \n6. Union \n0. exit\n");
+			ch = sc.nextInt();
+			switch (ch) {
+
+			case 1:
+				System.out.println("1. for list 1   \t 2. for list 2");
+				int listNum = sc.nextInt();
+				System.out.println("enter data");
+				if (listNum == 1)
+					list1.insertLeft(sc.nextInt());
+				else if (listNum == 2)
+					list2.insertLeft(sc.nextInt());
+				else
+					System.out.println("wrong choice");
+				break;
+
+			case 2:
+				System.out.println("1. for list \t 2. for list");
+				listNum = sc.nextInt();
+				System.out.println("enter data");
+				if (listNum == 1)
+					list1.insertRight(sc.nextInt());
+				else if (listNum == 2)
+					list2.insertRight(sc.nextInt());
+				else
+					System.out.println("wrong choice");
+				break;
+
+			case 3:
+				System.out.println("1. for list \t 2. for list");
+				listNum = sc.nextInt();
+				if (listNum == 1) {
+					System.out.println("First List");
+					list1.deleteLeft();
+				} else if (listNum == 2) {
+					System.out.println("First List");
+					list2.deleteLeft();
+				} else
+					System.out.println("wrong choice");
+				break;
+
+			case 4:
+				System.out.println("1. for list \t 2. for list");
+				listNum = sc.nextInt();
+				if (listNum == 1)
+					list1.deleteRight();
+				else if (listNum == 2)
+					list2.deleteRight();
+				else
+					System.out.println("wrong choice");
+				break;
+
+			case 5:
+				System.out.println("1. for list \t 2. for list");
+				listNum = sc.nextInt();
+				if (listNum == 1)
+					list1.printList();
+				else if (listNum == 2)
+					list2.printList();
+				else
+					System.out.println("wrong choice");
+				break;
+
+			case 6:
+
+				list1.unionOfList(list2);
+				break;
+
+			case 0:
+				System.out.println("exiting..");
+				break;
+
+			default:
+				System.out.println("wrong choice");
+				break;
+			}
+		} while (ch != 0);
+	}
+
+}
+----------------------------------------------------------------------
+O/P:
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+1
+1. for list 1   	 2. for list 2
+1
+enter data
+20
+Inserted at left
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+1
+1. for list 1   	 2. for list 2
+1
+enter data
+10
+Inserted at left
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+1
+1. for list 1   	 2. for list 2
+1
+enter data
+5
+Inserted at left
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+2
+1. for list 	 2. for list
+2
+enter data
+10
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+2
+1. for list 	 2. for list
+2
+enter data
+15
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+2
+1. for list 	 2. for list
+2
+enter data
+25
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+5
+1. for list 	 2. for list
+1
+|5|-->|10|-->|20|-->
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+5
+1. for list 	 2. for list
+2
+|10|-->|15|-->|25|-->
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+6
+|5|-->|10|-->|20|-->|15|-->|25|-->
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+2
+1. for list 	 2. for list
+2
+enter data
+25
+
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+6
+|5|-->|10|-->|20|-->|15|-->|25|-->
+1. insert left 
+2. insert right 
+3. delete left 
+4. delete right 
+5. print list 
+6. Union 
+0. exit
+
+0
+exiting..
+======================================================================
+3..Write menu driven program  for Binary Search Tree. The menu includes 
+  -	Create a Binary Search Tree
+  -	Traverse it by using Preorder and Postorder traversing technique
+
+package assignmentdsa;
+
+import java.util.Scanner;
+
+class Node {
+	int data;
+	Node left, right;
+
+	Node(int data) {
+		this.data = data;
+		left = right = null;
+	}
+}
+
+public class BinarySearchTree {
+
+	Node root;
+
+	void createTree() {
+		root = null;
+		System.out.println("tree created succefully..");
+	}
+
+	void insert(Node r, Node n) {
+		if (root == null)
+			root = n;
+		else {
+			if (n.data < r.data) {
+				if (r.left == null)
+					r.left = n;
+				else
+					insert(r.left, n);
+			} else {
+				if (r.right == null)
+					r.right = n;
+				else
+					insert(r.right, n);
+			}
+		}
+	}
+
+	void preOrder(Node r) {
+		if (r != null) {
+			System.out.print(r.data + " ");
+			preOrder(r.left);
+			preOrder(r.right);
+		}
+	}
+
+	void inOrder(Node r) {
+		if (r != null) {
+			inOrder(r.left);
+			System.out.print(r.data + " ");
+			inOrder(r.right);
+		}
+	}
+
+	void postOrder(Node r) {
+		if (r != null) {
+			postOrder(r.right);
+			postOrder(r.left);
+			System.out.print(r.data + " ");
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		BinarySearchTree obj = new BinarySearchTree();
+		int ch;
+		do {
+			System.out.println("\n1.create tree\t2.insert\t3.pre order\t4.in order\t5.post order\t0.exit");
+			ch = sc.nextInt();
+			switch (ch) {
+			case 1:
+				obj.createTree();
+				break;
+
+			case 2:
+				obj.insert(obj.root, new Node(sc.nextInt()));
+				break;
+
+			case 3:
+				obj.preOrder(obj.root);
+				System.out.println();
+				break;
+
+			case 4:
+				obj.inOrder(obj.root);
+				System.out.println();
+				break;
+
+			case 5:
+				obj.postOrder(obj.root);
+				System.out.println();
+				break;
+
+			case 0:
+				System.out.println("Exiting..");
+				break;
+
+			default:
+				System.out.println("Wrong choice");
+				break;
+			}
+
+		} while (ch != 0);
+	}
+
+}
+----------------------------------------------------------------------
+O/P:
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+1
+tree created succefully..
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+2 10 2 15 2 5 2 32 2 20 2 11 2 22 2 4 2 6 2 1
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+3
+10 5 4 1 6 15 11 32 20 22 
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+4
+1 4 5 6 10 11 15 20 22 32 
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+5
+22 20 32 11 15 6 1 4 5 10 
+
+1.create tree	2.insert	3.pre order	4.in order	5.post order	0.exit
+======================================================================
+4.Write a  program to create a singly linked list and count total number of nodes in it and display the list and total number of Nodes.
+
+package assignmentdsa;
+
+import java.util.Scanner;
+
+class Node {
+	int data;
+	Node next;
+
+	Node(int data) {
+		this.data = data;
+		next = null;
+	}
+}
+
+public class CountNodeSList {
+	Node root;
+	static int count;
+
+	void createList() {
+		root = null;
+	}
+
+	void insertLeft(int data) {
+		Node n = new Node(data);
+		if (root == null)
+			root = n;
+		else {
+			n.next = root;
+			root = n;
+		}
+		CountNodeSList.count++;
+	}
+
+	void insertRight(int data) {
+		Node n = new Node(data);
+		if (root == null)
+			root = n;
+		else {
+			Node t = root;
+			while (t.next != null)
+				t = t.next;
+			t.next = n;
+		}
+		CountNodeSList.count++;
+	}
+
+	void displayList() {
+		Node t = root;
+		while (t != null) {
+			System.out.print("|" + t.data + "|->");
+			t = t.next;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		CountNodeSList obj = new CountNodeSList();
+		obj.createList();
+		int ch;
+
+		do {
+			System.out.println("\n1.insert left \t2.insert right\t3.display list\t4.count node\t0.exit");
+			ch = sc.nextInt();
+			switch (ch) {
+
+			case 1:
+				System.out.println("enter data");
+				obj.insertLeft(sc.nextInt());
+				break;
+
+			case 2:
+				System.out.println("enter data");
+				obj.insertRight(sc.nextInt());
+				break;
+
+			case 3:
+				obj.displayList();
+				break;
+
+			case 4:
+				System.out.println("Total Number of nodes : " + CountNodeSList.count);
+				break;
+
+			case 0:
+				System.out.println("exiting..");
+				break;
+
+			default:
+				System.out.println("wrong choice");
+				break;
+			}
+		} while (ch != 0);
+	}
+
+}
+
+----------------------------------------------------------------------
+O/P:
+1.insert left 	2.insert right	3.display list	4.count node	0.exit
+1
+enter data
+10
+
+1.insert left 	2.insert right	3.display list	4.count node	0.exit
+1
+enter data
+0
+
+1.insert left 	2.insert right	3.display list	4.count node	0.exit
+2
+enter data
+20
+
+1.insert left 	2.insert right	3.display list	4.count node	0.exit
+2
+enter data
+30
+
+1.insert left 	2.insert right	3.display list	4.count node	0.exit
+1
+enter data
+40
+
+1.insert left 	2.insert right	3.display list	4.count node	0.exit
+3
+|40|->|0|->|10|->|20|->|30|->
+1.insert left 	2.insert right	3.display list	4.count node	0.exit
+4
+Total Number of nodes : 5
+
+1.insert left 	2.insert right	3.display list	4.count node	0.exit
+0
+exiting..
+======================================================================
+5.Write a  program to create a singly linked list, reverse it and display both the list.
+package assignmentdsa;
+
+import java.util.Scanner;
+
+class Node {
+	Node next;
+	int data;
+
+	public Node(int data) {
+		this.data = data;
+		next = null;
+	}
+}
+
+public class ReverseList {
+	Node root;
+
+	void createList() {
+		root = null;
+	}
+
+	void insert(int data) {
+		Node n = new Node(data);
+		if (root == null) {
+			root = n;
+		} else {
+			Node t = root;
+			while (t.next != null) {
+				t = t.next;
+			}
+			t.next = n;
+		}
+	}
+
+	void printList() {
+		if (root == null) {
+			System.out.println("Empty List");
+		} else {
+			Node t = root;
+			while (t != null) {
+				System.out.print("|" + t.data + "|->");
+				t = t.next;
+			}
+		}
+	}
+
+	void reverseList() {
+		Node left, right;
+		left = right = null;
+		Node t = root;
+
+		while (t != null) {
+			right = t.next;
+			t.next = left;
+			left = t;
+			t = right;
+		}
+		root = left;
+	}
+
+	void printRevList() {
+		if (root == null) {
+			System.out.println("Empty List");
+		} else {
+			Node t = root;
+			while (t != null) {
+				System.out.print("|" + t.data + "|->");
+				t = t.next;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		ReverseList obj = new ReverseList();
+
+		obj.createList();
+		int ch;
+
+		do {
+			System.out.println("\n1.insert\t2.Reverse List\t3.print list\t4.print reverse list\t0.exit");
+			ch = sc.nextInt();
+			switch (ch) {
+
+			case 1:
+				System.out.println("enter data");
+				obj.insert(sc.nextInt());
+				break;
+
+			case 2:
+				obj.reverseList();
+				break;
+
+			case 3:
+				obj.printList();
+				break;
+
+			case 4:
+				obj.printRevList();
+				break;
+
+			case 0:
+				System.out.println("exiting..");
+				break;
+
+			default:
+				System.out.println("wrong choice");
+				break;
+			}
+		} while (ch != 0);
+	}
+
+}
+----------------------------------------------------------------------
+O/P:
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+1
+enter data
+10
+
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+1
+enter data
+20
+
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+1
+enter data
+30
+
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+1
+enter data
+40
+
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+1
+enter data
+50
+
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+3
+
+|10|->|20|->|30|->|40|->|50|->
+
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+2
+
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+4
+
+|50|->|40|->|30|->|20|->|10|->
+
+1.insert	2.Reverse List	3.print list	4.print reverse list	0.exit
+0
+exiting..
+======================================================================
+6.Write a  program to accept and sort n elements in ascending order using Selection sort method.
+
+package assignmentdsa;
+
+import java.util.Scanner;
+
+public class SortingCodes {
+	Scanner sc = new Scanner(System.in);
+	int a[], size;
+
+	void input() {
+		System.out.println("enter size of aarray");
+		size = sc.nextInt();
+		a = new int[size];
+
+		for (int i = 0; i < size; i++) {
+			a[i] = sc.nextInt();
+		}
+
+	}
+
+	void SelectionSort() {
+		int i, j, pos, min;
+
+		for (i = 0; i < a.length - 1; i++) {
+			min = a[i];
+			pos = i;
+			for (j = i + 1; j < a.length; j++) {
+				if (a[j] < min) {
+					min = a[j];
+					pos = j;
+				}
+			}
+			a[pos] = a[i];
+			a[i] = min;
+		}
+	}
+
+	void display() {
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i] + " ");
+		}
+	}
+
+	public static void main(String args[]) {
+		SortingCodes obj = new SortingCodes();
+
+		obj.input();
+
+		System.out.println("Before");
+		obj.display();
+
+		obj.SelectionSort();
+
+		System.out.println("\nAfter");
+		obj.display();
+
+	}
+}
+----------------------------------------------------------------------O/P:
+enter size of array
+5
+22 44 32 55 74
+Before
+22 44 32 55 74  
+After
+22 32 44 55 74
+======================================================================
+7. Write a program to accept a string from user and reverse it using Dynamic implementation of Stack
+
+package assignmentdsa;
+
+import java.util.Scanner;
+
+class Node {
+	char data;
+	Node next;
+
+	Node(char data) {
+		this.data = data;
+		next = null;
+	}
+}
+
+public class DynamicStack {
+	Node tos;
+
+	void createStack() {
+		tos = null;
+	}
+
+	void push(char data) {
+		Node n = new Node(data);
+		if (tos == null) {
+			tos = n;
+		} else {
+			n.next = tos;
+			tos = n;
+		}
+	}
+
+	char pop() {
+		if (tos == null) {
+			System.out.println("Stack is Empty:");
+			return '\0';
+		}
+		Node t = tos;
+		tos = tos.next;
+		return t.data;
+	}
+
+	boolean isEmpty() {
+		if (tos == null)
+			return true;
+		else
+			return false;
+	}
+
+	public static void main(String args[]) {
+		DynamicStack obj = new DynamicStack();
+		Scanner sc = new Scanner(System.in);
+		int ch;
+		String rev = "", input = null;
+		obj.createStack();
+		do {
+			System.out.println("\n1. Push\n2. Pop\n3. Print original String\n4. Print Reverse String\n0. Exit:");
+			ch = sc.nextInt();
+			switch (ch) {
+			case 1:
+				System.out.println("Enter Data:");
+				input = sc.next();
+				for (int i = 0; i < input.length(); i++) {
+					char c = input.charAt(i);
+					obj.push(c);
+				}
+				System.out.println(input + " Pushed");
+				break;
+			case 2:
+				while (!obj.isEmpty())
+					rev += obj.pop();
+				break;
+			case 3:
+				System.out.println(input);
+				break;
+			case 4:
+				System.out.println("Reverse Stack: " + rev);
+				break;
+			case 0:
+				System.out.println("Exiting..");
+				break;
+			default:
+				System.out.println("Wrong choice");
+				break;
+			}
+		} while (ch != 0);
+	}
+}
+----------------------------------------------------------------------
+O/P:
+1. Push
+2. Pop
+3. Print original String
+4. Print Reverse String
+0. Exit:
+1
+Enter Data:
+nagesh
+nagesh Pushed
+
+1. Push
+2. Pop
+3. Print original String
+4. Print Reverse String
+0. Exit:
+2
+
+1. Push
+2. Pop
+3. Print original String
+4. Print Reverse String
+0. Exit:
+3
+nagesh
+
+1. Push
+2. Pop
+3. Print original String
+4. Print Reverse String
+0. Exit:
+4
+Reverse Stack: hsegan
+
+1. Push
+2. Pop
+3. Print original String
+4. Print Reverse String
+0. Exit:
+0
+Exiting..
+======================================================================
+8.Write a  program which accept the string and reverse each word of the string using Dynamic implementation of stack.
+   Example: Input - This is an input string
+   Output - sihTsinatupnignirts
+
+package assignmentdsa;
+
+import java.util.Scanner;
+
+public class ReverseWord {
+
+	private char stack[];
+	private int maxSize, tos;
+	private String rev = "";
+
+	public void createstack(int size) {
+		maxSize = size;
+		tos = -1;
+		stack = new char[maxSize];
+	}
+
+	public void push(char c) {
+		tos++;
+		stack[tos] = c;
+	}
+
+	public boolean isFull() {
+		return tos == maxSize - 1;
+	}
+
+	public char pop() {
+		char temp = stack[tos];
+		tos--;
+		return temp;
+	}
+
+	public boolean isEmpty() {
+		return tos == -1;
+	}
+
+	public void reverseString() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter string:");
+		String input = sc.nextLine();
+		createstack(input.length());
+
+		for (int i = 0; i < input.length(); i++) {
+			char c = input.charAt(i);
+			if (c != ' ') {
+				if (!isFull())
+					push(c);
+			} else {
+				while (!isEmpty()) {
+					rev += pop();
+				}
+			}
+		}
+		while (!isEmpty()) {
+			rev += pop();
+		}
+		System.out.println("Reverse string: " + rev);
+	}
+
+	public static void main(String[] args) {
+		ReverseWord obj = new ReverseWord();
+		obj.reverseString();
+	}
+}
+---------------------------------------------------------------------
+O/P:
+Enter string:
+This is an input string
+Reverse string: sihTsinatupnignirts9.Write a  program to sort elements of a singly linked list in ascending order and display the sorted List.
+
+package assignmentdsa;
+
+import java.util.Scanner;
+
+class Node {
+	int data;
+	Node next;
+
+	public Node(int data) {
+		this.data = data;
+		next = null;
+	}
+}
+
+public class SortSinglyLinkedList {
+	Node root;
+
+	void CreateNode() {
+		root = null;
+	}
+
+	void insert(int data) {
+		Node n = new Node(data);
+		if (root == null)
+			root = n;
+		else {
+			Node t = root;
+			while (t.next != null) {
+				t = t.next;
+			}
+			t.next = n;
+		}
+	}
+
+	void print() {
+		if (root == null)
+			System.out.println("Empty obj");
+		else {
+			Node t = root;
+			while (t != null) {
+				System.out.print("|" + t.data + "|->");
+				t = t.next;
+			}
+		}
+	}
+
+	void sortobj() {
+		if (root == null)
+			System.out.println("The obj is empty");
+		else {
+			for (Node i = root; i.next != null; i = i.next) {
+				for (Node j = root; j.next != null; j = j.next) {
+					if (j.data > (j.next).data) {
+						int temp = j.data;
+						j.data = (j.next).data;
+						(j.next).data = temp;
+					}
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		SortSinglyLinkedList obj = new SortSinglyLinkedList();
+		obj.CreateNode();
+		int ch;
+		do {
+			System.out.println("\n1.insert   2.print   3.sort   0.Exit");
+			ch = sc.nextInt();
+			switch (ch) {
+			case 1:
+				System.out.println("Enter the data");
+				obj.insert(sc.nextInt());
+				break;
+			case 2:
+				obj.print();
+				break;
+			case 3:
+				obj.sortobj();
+				break;
+			case 0:
+				System.out.println("Exiting...");
+				break;
+			default:
+				System.out.println("wrong choice");
+				break;
+			}
+		} while (ch != 0);
+	}
+
+}
+----------------------------------------------------------------------
+O/P:
+1.insert   2.print   3.sort   0.Exit
+1 50 1 20 1 40 1 30 1 10
+Enter the data
+
+1.insert   2.print   3.sort   0.Exit
+Enter the data
+
+1.insert   2.print   3.sort   0.Exit
+Enter the data
+
+1.insert   2.print   3.sort   0.Exit
+Enter the data
+
+1.insert   2.print   3.sort   0.Exit
+Enter the data
+
+1.insert   2.print   3.sort   0.Exit
+2
+|50|->|20|->|40|->|30|->|10|->
+1.insert   2.print   3.sort   0.Exit
+3
+
+1.insert   2.print   3.sort   0.Exit
+2
+|10|->|20|->|30|->|40|->|50|->
+1.insert   2.print   3.sort   0.Exit
+======================================================================
+10.Write a  program to accept a string from user and reverse it using Static implementation of Stack
+
+package assignmentdsa;
+
+import java.util.Scanner;
+
+public class ReverseStack {
+	private int MaxSize, tos;
+	private char stack[];
+
+	public void createStack(int size) {
+		MaxSize = size;
+		tos = -1;
+		stack = new char[MaxSize];
+	}
+
+	public void push(char e) {
+		tos++;
+		stack[tos] = e;
+	}
+
+	public boolean isFull() {
+		if (tos == MaxSize - 1)
+			return true;
+		else
+			return false;
+	}
+
+	public char pop() {
+		char temp = stack[tos];
+		tos--;
+		return temp;
+	}
+
+	public boolean isEmpty() {
+		if (tos == -1)
+			return true;
+		else
+			return false;
+	}
+
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		ReverseStack obj = new ReverseStack();
+
+		System.out.println("Enter Word:");
+		String word = sc.next();
+
+		obj.createStack(word.length());
+
+		for (int i = 0; i < word.length(); i++) {
+			char c = word.charAt(i);
+			obj.push(c);
+		}
+
+		String rword = "";
+
+		while (obj.isEmpty() != true) {
+			rword = rword + obj.pop();
+		}
+
+		System.out.println("Reversed Word: " + rword);
+
+	}
+
+}
+----------------------------------------------------------------------
+O/P:
+Enter Word:
+DataStructure
+Reversed Word: erutcurtSataD
+
+======================================================================
+
