@@ -1,0 +1,556 @@
+MET IIT CDAC-ATC Nashik
+Batch PGDAC SEP-2023
+Lab Assignments
+Date : 14-Sep-2023
+Module Name: C++ Programming
+
+
+Topic 
+ if....condition
+
+1. Write a program scan number and print year is leap or not.
+
+#include <iostream>
+using namespace std;
+//using oops cal area of circle.
+class Math
+{
+  private:
+  	float num1,num2,num3;
+  public:
+	  void setData(float n1,float n2)
+	  {
+	   num1=n;
+	   num2=r;
+	  }
+	
+	  void displayStudent()
+	  {
+	    cout<<"\nName:"<<name<<" and RollNo:"<<rollno;
+	  }
+	  
+	  
+	  int main()
+{
+	Math obj;
+	int a,b;
+	
+	return 0;
+}
+--------------------------------------------------------------------------------------------
+O/P : 
+
+Enter year
+2020
+Year is Leap Year
+
+Enter year
+2015
+Year is not Leap Year
+--------------------------------------------------------------------------------------------
+2. Write a program scan number and
+	print number between 1 to 250
+	print number between 251 to 500 
+	print number between 501 to 700
+	otherwise print number not in range 1 to 700
+
+
+# include<iostream>
+using namespace std;
+main()
+{
+	int number;
+	cout<<"Enter Number : ";
+	cin>>number;
+	
+	if(number>=1 && number<250){
+		cout<<"\nNumber is in the range of 1 to 250";
+	}
+	else if(number>=251 && number<500){
+	cout<<"\nNumber is in the range of 251 to 500";
+	}
+	else if(number>=501 && number<700){
+		cout<<"\nNumber is in the range of 501 to 700";
+	}
+	else{
+		cout<<"\nNumber is not in the range of 1 to 700";
+	}
+}
+--------------------------------------------------------------------------------------------
+
+O/P :
+Enter Number : 5
+
+Number is in the range of 1 to 250
+
+Enter Number : 300
+
+Number is in the range of 251 to 500
+
+Enter Number : 600
+
+Number is in the range of 501 to 700
+
+Enter Number : 800
+
+Number is not in the range of 1 to 700
+--------------------------------------------------------------------------------------------
+3. Write a program scan age and print person is
+major, minor or senior citizen.
+
+# include<iostream>
+using namespace std;
+main()
+{
+	int age;
+	cout<<"Enter Age of a Person : ";
+	cin>>age;
+	
+	if(age>=18 && age<=59){
+		cout<<"\nPerson Age is in Major category";
+	}
+	else if(age<18){
+		cout<<"\nPerson Age is in Minor category";
+	}
+	else{
+		cout<<"Person is senior citizen";
+	}
+}
+--------------------------------------------------------------------------------------------
+O/P :
+Enter Age of a Person : 16
+
+Person Age is in Minor category
+
+Enter Age of a Person : 34
+
+Person Age is in Major category
+
+Enter Age of a Person : 71
+Person is senior citizen
+--------------------------------------------------------------------------------------------
+4. Write a program scan 4 numbers and print largest number.
+
+#include<iostream>
+using namespace std;
+main()
+{
+	int a,b,c,d;
+	cout<<"Enter four number :\n";
+	cin>>a>>b>>c>>d;
+	
+	if(a>b && a>c && a>d){
+		cout<<a<<" is largest";
+	}
+	if(b>a && b>c && b>d){
+		cout<<b<<" is largest";
+	}
+	if(c>a &&c>b && c>d){
+		cout<<c<<" is largest";
+	}
+	if(d>a &&d>b && d>c){
+		cout<<d<<" is largest";
+		
+	}	
+	
+	
+}
+--------------------------------------------------------------------------------------------
+O/P :
+Enter four number :
+11
+22
+33
+44
+44 is largest
+--------------------------------------------------------------------------------------------
+
+Switch   condition
+
+5. Write a program scan number between 0 to 10 and print
+if number scan 3 so it will print Three
+
+#include<iostream>
+using namespace std;
+int main() 
+{
+	int choice;
+	
+	cout<<"\n Enter Choice :"<<choice;
+	cin>>choice;
+	
+	switch(choice){
+		case 0:
+			cout<<"\nZERO";
+			break;
+			
+		case 1:
+			cout<<"\nONE";
+			break;
+			
+		case 2:
+			cout<<"\nTWO";
+			break;
+			
+		case 3:
+			cout<<"\nTHREE";
+			break;
+			
+		case 4:
+			cout<<"\nFOUR";
+			break;
+			
+		case 5:
+			cout<<"\nFIVE";
+			break;
+			
+		case 6:
+			cout<<"\nSIX";
+			break;
+			
+		case 7:
+			cout<<"\nSEVEN";
+			break;
+			
+		case 8:
+			cout<<"\nEIGHT";
+			break;
+			
+		case 9:
+			cout<<"\nNINE";
+			break;
+			
+		case 10:
+			cout<<"\nONE";
+			break;
+			
+		
+			
+			default:
+				cout<<"\n--Wrong choice--";
+	}
+		
+	
+}
+--------------------------------------------------------------------------------------------
+O/P :
+ Enter Choice :09
+
+NINE
+--------------------------------------------------------------------------------------------
+6. Write a program scan character and print character is vowel or not.
+
+#include<iostream>
+using namespace std;
+int main() 
+{
+	char character;
+	
+	cout<<"\n Enter Character to check :"<<character;
+	cin>>character;
+	
+	switch(character){
+		case 'a':
+			cout<<"\nVowel";
+			break;
+			
+		case 'e':
+			cout<<"\nVowel";
+			break;
+			
+		case 'i':
+			cout<<"\nVowel";
+			break;
+			
+		case 'o':
+			cout<<"\nTHREE";
+			break;
+			
+		case 'u':
+			cout<<"\nVowel";
+			break;
+			
+			
+		case 'A':
+			cout<<"\nVowel";
+			break;
+			
+		case 'E':
+			cout<<"\nVowel";
+			break;
+			
+		case 'I':
+			cout<<"\nVowel";
+			break;
+			
+		case 'O':
+			cout<<"\nTHREE";
+			break;
+			
+		case 'U':
+			cout<<"\nVowel";
+			break;
+			
+		default:
+			cout<<"\n--Not Vowel--";
+	}
+		
+	
+}
+--------------------------------------------------------------------------------------------
+Loop
+While loop
+
+7.Write a  program to print all alphabets from a to z. – using while loop
+
+# include<iostream>
+using namespace std;
+main(){
+	char ch ='a';
+	
+	while(ch<='z'){
+		cout<<"\t"<<ch;
+		ch++;
+	}
+}
+
+--------------------------------------------------------------------------------------------
+        a       b       c       d       e       f       g       h       i       j       k       l       m       n      z
+--------------------------------------------------------------------------------------------
+8.Write a  program 
+to print all even numbers between 1 to 100. – using while loop.
+
+# include<iostream>
+using namespace std;
+main(){
+	int i=1;
+	
+	while(i<=100){
+		if(i%2==0){
+			cout<<"\t"<<i;
+		}
+		i++;
+	}
+}
+
+--------------------------------------------------------------------------------------------
+        2       4       6       8       10      12      14      16      18      20      22      24      26      28     30       32      34      36      38      40      42      44      46      48      50      52      54      56      58     60       62      64      66      68      70      72      74      76      78      80      82      84      86      88     90       92      94      96      98      100
+--------------------------------------------------------------------------------------------
+9.Write a program to find sum of first and last digit of number.
+
+#include<iostream>
+using namespace std;
+
+int main(){
+ int num,fDigit,lDigit,sum=0;
+ 
+ cout<<"\nEnter Number:";
+ cin>>num;
+ 
+ lDigit=num%10;
+ 
+ fDigit=num;
+
+ while(num>=10){
+ num=num/10;
+}
+fDigit=num;
+sum=lDigit+fDigit;
+
+ cout<<"\nSum of First and last digit of number is :"<<sum;
+ return 0;
+}
+---------------------------------------------------------------------------------------------------
+O/P :
+Enter Number:5264
+
+Sum of First and last digit of number is :9
+---------------------------------------------------------------------------------------------------
+
+10.Write a program o calculate product of digit of number.
+
+#include<iostream>
+using namespace std;
+
+main(){
+ int num,product=1;
+ 
+ cout<<"\nEnter Number:";
+ cin>>num;
+ 
+ while(num!=0){
+ 	
+ product=product*(num%10);
+ num=num/10;
+ 
+}
+ cout<<"\nProduct of number is :"<<product;
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P :
+Enter Number:2295
+
+Product of number is :180
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+For Loop
+
+11. Write a program to find sum of all prime number between 1 to n.
+
+/*
+Write a program which print fibonacci series using for loop.
+
+0 1 1 2 3 5......
+*/
+#include<iostream>
+using namespace std;
+int main()
+{
+	int flag=1,sum=2,n;
+	cout<<"Enter the number";
+	cin>>n;
+	for(int j=3;j<=n;j++){
+		flag=1;
+		for(int i=2;i<j;i++){
+			if(j%i==0){
+				flag=0;
+				break;
+			}
+		}
+		if(flag==1){
+			cout<<j<<"\n";
+			sum=sum+j;
+		}
+	}
+	
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P :
+Enter the number12
+3
+5
+7
+11
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Write a program to print fibonacci series upto n terms.
+
+#include<iostream>
+using namespace std;
+main()
+{
+	int a=0,b=1,n,sum;
+	
+	cout<<"Enter number \n";
+	cin>>n;
+	
+	cout<<a<<"\n"<<b<<endl;
+	
+	for(int i=2;i<=n;i++){
+		sum=a+b;
+		cout<<sum<<" "<<endl;
+		a=b;
+		b=sum;
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P :
+
+Enter number
+6the sum of 
+0
+1
+1
+2
+3
+5
+8
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+13.Write a program to calculate the sum of all odd numbers between 1 to 100.
+
+#include<iostream>
+using namespace std;
+main()
+{
+	int a=0,b=1,n,sum;
+	
+	cout<<"\n Odd number between 1 to 100 : \n";
+	
+	for(int i=1;i<=100;i++){
+		if(i%2!=0){
+			cout<<"\t"<<i;
+		}
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P :
+
+Odd number between 1 to 100 :
+        1       3       5       7       9       11      13      15      17      19      21      23      25      27      29      31      33      35      37      39      41      43      45      47      49      51      53      55      57      59      61      63      65      67      69      71      73      75      77      79      81      83      85      87      89      91      93      95      97      99
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+14. Write a program to calculate the sum of alternative numbers between 200 to 300.
+
+#include<iostream>
+using namespace std;
+main()
+{
+	int i=0;
+	
+	cout<<"\n Alternate numbers between 200 to 300 : \n";
+	
+	for(int i=200;i<=300;i+=2){
+		
+		cout<<"\t"<<i;
+		
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P :
+Alternate numbers between 200 to 300 :
+        200     202     204     206     208     210     212     214     216     218     220     222     224     226     228     230     232     234     236     238     240     242     244     246     248     250     252     254     256     258     260     262     264     266     268     270     272     274     276     278     280     282     284     286     288     290     292     294     296     298     300
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+15. Write a program which print pattern as 
+
+N=5
+
+Aa
+Aa Bb
+Aa Bb Cc
+Aa Bb Cc Dd
+Aa Bb Cc Dd Ee
+
+
+/*
+Write a program which print fibonacci series using for loop.
+
+0 1 1 2 3 5......
+*/
+#include<iostream>
+using namespace std;
+main()
+{
+	int n;
+	cout<<"\nEnter value for n";
+	cin>>n;
+	
+	for(int p=96;p<=(97+n);p++){{
+		for(int r=65,q=97;r<p,q<p;r++,q++){
+			cout<<(char)r<<(char)q<<" ";
+		}
+		cout<<"\n";
+		}
+		
+	}
+	}
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+
+Enter value for n5
+
+
+Aa
+Aa Bb
+Aa Bb Cc
+Aa Bb Cc Dd
+Aa Bb Cc Dd Ee
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------

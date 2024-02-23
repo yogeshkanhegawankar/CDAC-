@@ -1,0 +1,37 @@
+Mailer Wise Revenue: http://ektun.improvearch.com/app/data/mailer_rev/home.php
+Live Revenue: http://ektun.improvearch.com/app/data/statsPortal/live/
+Net Admin:  http://ektun.improvearch.com/app/data/newNetAdmin/small-servers.php
+PMTA Manager: http://monitor.ipm.flarcoframe.com/
+Offer Interface:  http://offers.codemskyapp.com/offersTool/theme/app
+OfferID Creation:   http://emsgd.improvearch.com/app/data/NewMailApp/portal/utility/OfferidCreation/
+New Group Mail:  http://flmapp.curvewarefl.com/app/data/NewMailApp/portal/mailapp/deployment/new-deployment
+Suppretion File: http://flmapp.curvewarefl.com/app/data/suppression_reports/suppression.php
+Stats Portal: http://ektun.improvearch.com/app/data/statsPortal/
+OfferID Click(DataBase): http://ektun.improvearch.com/app/data/sblTool/offer.php
+seed management: http://flmapp.curvewarefl.com/app/data/SeedManagement/stat.php
+SBL/DBL/DNS CHECKING TOOLS: http://bopxs.improvearch.com/app/data/ipdomaintool/
+ROSTER PORTAL: http://stats2.codemskyapp.com/app/data/roster/login
+
+
+
+
+Database
+95.111.245.125
+Username: teamF
+Password: scRRQ6vRPpwfFVs
+
+
+
+PMTA Monitoring Link : http://fnbrs4134.ipm.flarcoframe.com/
+User : indiaf
+Password : 80PX0Mxc3UhI
+
+
+hct_user
+e3pX$Ltqw
+
+
+domain : http://ektun.improvearch.com
+Username: skt_user
+Password: l3ecIN=UrlfraChE4re=Adl9
+
