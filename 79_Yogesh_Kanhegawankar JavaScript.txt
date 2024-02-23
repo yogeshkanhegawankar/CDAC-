@@ -1,0 +1,1025 @@
+﻿<!-- 1) create a custom function having name calculate() and pass 2 parameter (e.g: 10,20 ) within function & do the
+multiplication process.
+show the result in console. (Hint: use pass by value) -->
+
+
+<script>
+    function calculator(a,b){
+     console.log(a*b);
+
+
+    }
+
+
+    calculator(4,20);
+</script>
+o/p:
+80
+========================================================================================
+<!-- 2) how to create an array using ( new Array() functionality ) in javascript?
+please write down sample code with some value in array. -->
+
+
+<script>
+    var arr=new Array();
+
+
+    arr.push(10);
+    arr.push(2);
+    arr.push(0);
+    arr.push(5)
+    console.log(arr);
+    console.log(arr.length);
+   
+</script>
+o/p:
+(4) [10, 2, 0, 5]
+0
+: 
+10
+1
+: 
+2
+2
+: 
+0
+3
+: 
+5
+length
+: 
+4
+========================================================================================
+3) create an object ( custom object ) in javascript with key (name,age,location ) with any value . show the result in console -->
+<script>
+    var object={name:"Yogesh",
+    age:"23",
+    location:"Sambhajinagar"};
+
+
+    console.log(object);
+</script>
+
+o/p:
+{name: 'Yogesh', age: '23', location: 'Sambhajinagar'}
+age
+: 
+"23"
+location
+: 
+"Sambhajinagar"
+name
+: 
+"Yogesh"
+
+========================================================================================
+4) on button click apply background color to body tag -->
+
+<button>click me </button>
+<script>
+ document.querySelector("button").onclick=function(){
+    document.body.style.backgroundColor="red";
+ }
+</script>
+
+========================================================================================
+<!-- 5 on mousemove event get x coordinate & y coordinate , and show the result in paragraph. -->
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+</p>
+
+
+<script>
+    document.querySelector("p").onmousemove=function(){
+        console.log(event.clientX);
+        console.log(event.clienty);
+    }
+</script>
+o/p:
+
+========================================================================================
+<!-- 6) create a textbox, enter dummy content and use onkeyup event to show 2 result:
+a) data in capital case ( in paragraph having id para1)
+b) data in small case ( in paragraph having id para2) -->
+
+<input type="text" value="" >
+<h4> upper case </h4>
+<p id="para1">
+
+</p>
+<h4>lower case</h4>
+<p id="para2">
+   
+</p>
+
+<script>
+    document.querySelector("input").onkeyup=function() {
+
+
+        var data=document.querySelector("input").value;
+        document.getElementById("para1").innerText= data.toUpperCase();
+        document.getElementById("para2").innerText= data.toLowerCase();
+
+
+    }
+</script>
+o/p:
+yogesh
+upper case
+YOGESH
+
+lower case
+yogesh
+========================================================================================
+7) create a paragraph , on mouseover apply background color (grey) & onmouseout apply background color(lightgrey) -->
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita quo ad doloribus, ea at consectetur nostrum. Nihil perferendis exercitationem in
+</p>
+<script>
+    document.querySelector("p").onmouseover=function(){
+        document.body.style.backgroundColor="lightgrey";
+    }
+</script>
+
+========================================================================================
+ 8) generate a function name calculate (Note: here you must have anonymous function instead of regular function).
+print dummy text in console.
+a) call the same function using onblur event ( here use textbox )
+b) call the same function using onfocus event ( here use textbox ) 
+<input type="text">
+<script>
+    var calculate=function(){
+        console.log(" hello world in 20345");
+    }
+
+    document.querySelector("input").onblur=function(){
+       calculate();
+    }
+    document.querySelector("input").onfocus=function(){
+       calculate();
+    }
+   
+</script>
+o/p:
+hello world in 20345
+hello world in 20345
+========================================================================================
+ 9) Create a variable called userName, assign the value "Ajay" to it. and check your answer in console
+<script>
+    var userName = "Yogesh";
+    console.log(userName);
+</script>
+o/p:
+Yogesh
+========================================================================================
+10) Create a variable called x, assign the value 10
+Create a variable called y, assign the value 20
+Create a variable called sum, assign the sum of x&y
+and check your answer in console
+<html>
+    <body>
+        <script>
+            var x=10;
+            var y=20;
+            var sum=x+y;
+            console.log(sum)
+        </script>
+    </body>
+</html>
+o/p:
+30
+======================================================================================================================
+11) Display the sum of 15 + 20, using two variables: x and y
+& show value in alert box
+<html>
+    <body>
+        <script>
+            var x=5;
+            var y=10;
+            var ans=x+y;
+            alert(ans)
+        </script>
+    </body>
+</html>
+O/P:
+15
+======================================================================================================================
+12) get any value from prompt box and show the same value in console using log function
+<html>
+<body>
+    <script>
+        var Input = prompt("Enter a value:");
+        console.log(Input);
+    </script>
+</body>
+</html>
+O/P:
+Enter a value:15
+15
+=========================================================================================================================
+13) Create a variable called answer, assign data1 * data2 to it, and display the result on browser using
+write() function
+here: data1 will have value 100 & data2 will have value 200
+<html>
+    <body>
+        <script>
+            var d1 = 100;
+            var d2 = 200;
+            var answer = d1*d2;
+            document.write(answer);
+        </script>
+    </body>
+</html>
+======================================================================================
+14) create a variable data1 & data2 having value ajay & vijay respectively. add data1 & data2 using math ( + )
+operator & understand the concept of concatenation operator
+<html>
+    <body>
+        <script>
+            var d1 ="Ajay";
+            var d2 = "Vijay";
+            var answer = d1 + d2;
+            document.write(answer);
+        </script>
+    </body>
+</html>
+=================================================================================================
+15) create a variable data1 , store 10.90 in data1. and check the data type of data1 in console
+<html>
+    <body>
+        <script>
+            var d1 =10.90;
+           console.log(typeof(d1));
+        </script>
+    </body>
+</html>
+=================================================================================================
+16) create two variable having values 10 & 20. & show the multiplication value in alert box
+<html>
+    <body>
+        <script>
+            var d1=10;
+            var d2=20;
+            var ans = d1*d2;
+            alert(ans);
+        </script>
+    </body>
+</html>
+================================================================================================
+17) create two variable having values 10 & 20. & show the division answer on browser using write() method
+<html>
+    <body>
+        <script>
+            var d1=10;
+            var d2=20;
+            var ans = d1/d2;
+            document.write(ans);
+        </script>
+    </body>
+</html>
+=================================================================================================
+18) there is a variable data having value as 10 . find the remainder ( hint : use modulus operator)
+<html>
+    <body>
+        <script>
+            var a=10;
+            var rem = a%3;
+            console.log(rem);
+        </script>
+    </body>
+</html>
+================================================================================================
+19) create a function ( name myfunc() ) and call the same function on button click ( hint : within function
+print test data using console)
+
+<html>
+  <body>
+        <button onclick="fun()">click here</button>
+        <script>
+           function fun(){
+               console.log("print test data using console")
+           }
+        </script>
+  </body>
+</html>
+================================================================================================
+20) create a function ( name myfunc() ) and call the same function using keyup event using textbox ( hint :
+within function print test data using console)
+
+<input type="text" onkeyup="myfunc()">
+
+<script>
+    function myfunc() {
+        console.log("function is called")
+    }
+</script>
+o/p:
+function is called
+========================================================================================
+21) create a function ( name myfunc() ) and call the same function using resize event ( hint : within function
+print test data using console) 
+<body onresize="myfunc()">
+</body>
+<script>
+ 
+    function myfunc() {
+      console.log("datat ")
+    }
+
+
+</script>
+
+o/p:
+datat
+========================================================================================
+ 22) create a function ( name myfunc() ) and pass 2 value having number 10 & 20 , do the multiplication & show
+the result in console ( hint: use button & onclick event) -->
+
+<button onclick="myfunc()"> click me to multiply</button>
+<script>
+  function myfunc() {
+    var num1 = 5;
+    var num2 = 40;
+    var result = num1 * num2;
+    console.log(result)
+  }
+</script>
+o/p:
+200
+========================================================================================
+23) create a paragraph with some dummy content , on button click change the paragraph value ( hint : use innerHTML & querySelector() functionality)  -->
+
+<p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam doloremque fugit quidem deserunt delectus harum optio repudiandae dolorum aliquam esse.
+</p>
+<script>
+  document.querySelector("p").onclick=function(){
+
+
+    document.querySelector("p").innerHTML = "gbajhbsjcbjsabjdcxbaj elit. Magnam doloremque fugit quidem deshdkjsbndjkbsjkzbjdcbjdbj";
+ 
+  }
+</script>
+
+========================================================================================
+24) create a paragraph with some dummy content , on button double click change the paragraph background color to grey ( hint : use style & getElementById() functionality)
+<p id="p1">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quibusdam molestias fuga vel minus culpa suscipit tenetur voluptates nesciunt voluptas?
+</p>
+<button ondblclick="f1()"> click</button>
+
+
+<script>
+  function f1(){
+document.getElementById("p1").style.backgroundColor ="grey"
+ }
+</script>
+
+========================================================================================
+25) create a paragraph with some dummy content , on mouse over change the paragraph content ( hint: no hint in this case ) 
+<p>
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non rerum voluptas maxime repellendus delectus ratione earum, fugit numquam. Esse, enim?
+</p>
+<script>
+  document.querySelector("p").onmouseover=function(){
+    document.querySelector("p").innerHTML="hgjvbsdjbvjsdbjkvbsjdbvjksdbkjvfbkujsdbkjvsxdskjcbkjbdsjkcbkszxdbkjfb elit. Non rerum voluptas maxime repellendus delectus ratione earum, fugit numquam. Esse, enim?";
+  }
+  </script>
+
+
+========================================================================================
+26) create a paragraph with some dummy content , on hover apply grey color & on mouse out apply blue color -->
+
+<p onmouseout="f1()">
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non rerum voluptas maxime repellendus delectus ratione earum, fugit numquam. Esse, enim?
+</p>
+
+
+<style>
+
+
+  p:hover{
+    color: grey;
+  }
+
+
+ 
+</style>
+
+
+<script>
+  function f1(){
+    document.querySelector("p").style.color = "blue";
+  }
+</script>
+
+========================================================================================
+27) show 1 to 5 number on browser with break using for loop -->
+<script>
+  for (var i = 1; i <= 5; i++) {
+    if(i>6){
+      break;
+    }
+    console.log(i);
+  }
+</script>
+
+========================================================================================
+ 28) show only even numbers between 1 to 10 using for while loop , show results in console -->
+<script>
+var i=1;
+  while(i<=10){
+    if(i%2==0){
+      console.log(i);
+    }
+    i++;
+  }
+</script>
+
+o/p:
+2
+ 4
+ 6
+ 8
+ 10
+========================================================================================
+29) create a variable data , store any number in data & find out whether the no is even or odd ( hint : use ifelse & mod operator )
+
+<script>
+var i=10;
+if(i%2==0){
+console.log("no is even")
+}
+else{
+  console.log("no is odd");
+}
+</script>
+========================================================================================
+ 30) create a textbox (with id txt) & get any value from text box using button & show result in console ( hint:use onclick event & value property for textbox ) -->
+<input id="txt" type="text">
+<button onclick="f1()">click</button>
+<script>
+  function f1(){
+var s1=document.getElementById("txt").value;
+console.log(s1);
+  }
+</script>
+========================================================================================
+31) generate 2 textbox (having id txt1,txt2 respectively) , get values of both in data1 & data2. now show the sum of values in paragraph having id para ( note : if you recieve data from textbox then please check data type before you do the sum)
+<html>
+<body>
+
+    <label for="t1">Enter value 1:</label>
+    <input type="text" id="t1">
+    <label for="t2">Enter value 2:</label>
+    <input type="text" id="t2">
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <p id="p1"></p>
+    <script>
+        function calculateSum() {
+            var data1 = document.getElementById('txt1').value;
+            var data2 = document.getElementById('txt2').value;
+            var num1 = parseFloat(data1);
+            var num2 = parseFloat(data2);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var sum = num1 + num2;
+
+                document.getElementById('p1').innerHTML = 'Sum: ' + sum;
+            } else {
+                document.getElementById('p1').innerHTML = 'Invalid input. Please enter valid numbers.';
+            }
+        }
+    </script>
+</body>
+</html>
+=================================================================================================
+32) create a textbox (with id txt) & get value from textbox & check whether the entered value is string or number (hint: use isNaN() & if-else). show the result in console
+<html>
+<body>
+    <label for="txt">Enter value:</label>
+    <input type="text" id="txt">
+    <button onclick="func()">Check Type</button>
+
+    <script>
+        function func() {
+            var inputValue = document.querySelector("button").value;
+            if (isNaN(inputValue)) {
+                console.log('Entered value is a string.');
+            } else {
+                console.log('Entered value is a number.');
+            }
+        }
+    </script>
+</body>
+</html>
+================================================================================================
+33) create a textbox (with id txt) & get value from textbox , in case textbox is empty then please show textbox
+border with color red & border width 2px.
+<html>
+<body>
+
+    <label for="txt">Enter value:</label>
+    <input type="text" id="txt">
+    <button onclick="func()">Validate</button>
+
+    <script>
+        function func() {
+            var inputValue = document.getElementById('txt').value;
+
+            if (inputValue.trim() === '') {
+                document.getElementById('txt').style.border = '2px solid red';
+            } else {
+                document.getElementById('txt').style.border = '1px solid #ccc';
+            }
+        }
+    </script>
+
+</body>
+</html>
+==============================================================================================
+34) create a textbox (with id txt) & get value.
+if the value is string then show error in paragraph as only number is required.
+<html>
+<body>
+    <label for="txt">Enter value:</label>
+    <input type="text" id="txt">
+    <button onclick="func()">Check Type</button>
+    <p id="errorPara" style="color: rgb(234, 151, 151);"></p>
+
+    <script>
+        function func() {
+            var inputValue = document.getElementById('txt').value;
+
+            if (isNaN(inputValue) && inputValue !== '') {
+                document.getElementById('errorPara').innerText = 'Error: Only numbers are allowed.';
+            } else {
+                document.getElementById('errorPara').innerText = '';
+            }
+        }
+    </script>
+</body>
+</html>
+
+================================================================================================
+-----------------------------------------------------
+
+35) create a textbox (with id txt). create a paragraph (having id para ). onclick event get value from textbox
+and display it within paragraph ( hint: you may use innerText or innerHTML , get the diff. between
+innerText,innerHTML)
+
+<html>
+<body>
+    <label for="txt">Enter value:</label>
+    <input type="text" id="txt">
+    <button onclick="displayValue()">Display Value</button>
+    <p id="p1">Value using innerText: </p>
+    <p id="p2">Value using innerHTML: </p>
+    <script>
+        function displayValue() {
+            var inputValue = document.getElementById('txt').value;
+            document.getElementById('p1').innerText = 'Value using innerText: ' + inputValue;
+            document.getElementById('p2').innerHTML = 'Value using innerHTML: ' + inputValue;
+        }
+    </script>
+</body>
+</html>
+================================================================================================
+36) create a textbox (with id txt). create a paragraph (having id para ).onclick event get only number from
+textbox & display square of the no which you have entered ( hint: use Math library )
+
+<html>
+<body>
+    <label for="txt">Enter a number:</label>
+    <input type="text" id="txt" />
+    <button onclick="fun()">Calculate Square</button>
+    <p id="para"></p>
+    <script>
+        function fun() {
+            var inputValue = document.getElementById('txt').value;
+            var number = parseFloat(inputValue);
+            if (!isNaN(number)) {
+                var square = Math.pow(number, 2);
+
+                document.getElementById('para').innerText = 'Square of ' + number + ' is: ' + square;
+            } else {
+                document.getElementById('para').innerText = 'Please enter a valid number.';
+            }
+        }
+    </script>
+</body>
+</html>
+================================================================================================
+37) create an array having any three number. show array structure within console. print individual values also.
+<html>
+<body>
+    <script>
+        var numbers = [5, 10, 25];
+        for (var i = 0; i < numbers.length; i++) {
+            console.log('Value at index ' + i + ': ' + numbers[i]);
+        }
+    </script>
+</body>
+</html>
+================================================================================================
+38) create an array having any three number. extract each values using for loop
+
+<script>
+var numbers = [12,34,5];
+for (var i = 0; i < numbers.length; i++) {
+    console.log('Value at index ' + i + ': ' + numbers[i]);
+}
+
+</script>
+================================================================================
+39) create an array having any three number. extract each values using while loop
+<script>
+var numbers = [23,45,67];
+var i = 0;
+while (i < numbers.length) {
+    console.log('Value at index ' + i + ': ' + numbers[i]);
+    i++;
+}
+</script>
+==================================================================================
+40) create an array having any three number. extract each values using for in loop ( show both index & value in console )
+<script>
+var numbers = [12, 22, 32];
+for (var index in numbers) {
+    var value = numbers[index];
+    console.log('Index: ' + index + ', Value: ' + value);
+}
+</script>
+
+
+
+
+ 40) create an array having any three number. extract each values using for in loop ( show both index & value in console ) -->
+<script>
+  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  for (var i = 0; i < arr.length; i++) {
+    console.log("index"+i," values "+arr[i]);
+  }
+</script>
+========================================================================================
+ 41) create an array having any three number. use any loop and show the sum of all value in console -->
+<script>
+  var arr = [10, 20, 30];
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  console.log(sum);
+</script>
+
+========================================================================================
+ 42) generate a series from 1 to 10 & show square of odd number , cube of even no ( hint: use any loop & modulus opearator ) -->
+<script>
+  var i, j, k;
+  for (i = 1; i <= 10; i++) {
+   
+    if(i%2==0){
+     console.log( Math.pow(i,2))
+    }
+    else{
+     console.log(Math.pow(i,3))
+    }
+   
+  }
+</script>
+========================================================================================
+43) create an array with any three value . on button click add value 10 within an array (i.e at the end ) -->
+<button onclick="add()"> click me to add</button>
+<script>
+  var arr = [1,9,10];
+  function add() {
+    arr.push(50);
+  }
+
+
+  console.log(arr);
+</script>
+========================================================================================44) create an array with any three value . on button click add value 20 within an array (i.e at start position) -->
+<button onclick="add()"> click me to add</button>
+<script>
+  var arr = [1,9,10];
+  function add() {
+    arr.unshift(40);
+  }
+
+
+  console.log(arr);
+</script>
+========================================================================================
+45) create an array with any five value . on button click remove last value -->
+<button onclick="add()"> click me to add</button>
+<script>
+  var arr = [1,9,10,20,50];
+  function add() {
+    arr.pop();
+  }
+
+
+  console.log(arr);
+</script>
+========================================================================================
+ 46) create an array with any five value . on button click remove first value -->
+<button onclick="add()"> click me to add</button>
+<script>
+  var arr = [1,9,10,20,50];
+  function add() {
+    arr.shift();
+  }
+
+
+  console.log(arr);
+</script>
+
+
+========================================================================================
+<!-- 47) create an array with five value (i.e 10,20,30,40,50) . now search value 10 & 100 from the given array &  print its position.
+-------------------------------------------------------- -->
+<script>
+  arr=[10,20,30,40,50];
+  for(var i=0;i<arr.length;i++){
+    if(arr[i]==10){
+      console.log("position of 10 ="+i);
+    }
+    else if(arr[i]==100){
+      console.log("position of 100="+i);
+    }
+  }
+</script>
+========================================================================================
+48) create a text box , get value from the same. do the validation for mobile number & show result in paragraph( below textbox) -->
+<input type="text">
+<button onclick="f1()">click me validation</button>
+<p id="x1"></p>
+<script>
+   function f1(){
+    var mobile=document.querySelector("input").value;
+    var regexpression=/^([6-9][0-9]{9})$/;
+
+
+    var result = regexpression.test(mobile);
+
+
+    if(result==true){
+        document.querySelector("p").innerHTML="valid";
+    }
+    else{
+        document.querySelector("p").innerHTML="invalid";
+    }
+   }
+</script>
+========================================================================================
+49) create a text box , get value from the same. do the validation for emailid & show result in paragraph (below textbox) -->
+<input type="text">
+<button onclick="f1()">click me validation</button>
+<p id="x1"></p>
+<script>
+   function f1(){
+    var email=document.querySelector("input").value;
+    var regexpression=/^([a-zA-z0-9]([a-za-z0-9\.]+)?[a-zA-z0-9])@([a-zA-z0-9-]([a-zA-Z0-9\-]+)?[a-zA-Z0-9])\.([a-zA-Z]{2,})(\.[a-zA-Z]{2,})?$/;
+
+
+    var result = regexpression.test(email);
+
+
+    if(result==true)
+    {
+        document.querySelector("p").innerHTML="valid";
+    }
+    else{
+        document.querySelector("p").innerHTML="invalid";
+    }
+   }
+</script>
+
+
+==========================================================================================================================
+
+50) create a text box , get value from the same. do the validation for name & show result in paragraph ( below textbox) -->
+<input type="text">
+<button onclick="f1()">click me validation</button>
+<p id="x1"></p>
+<script>
+   function f1(){
+    var name=document.querySelector("input").value;
+    var regexpression=/^[a-zA-z]([a-zA-z ]+)?[a-zA-z]$/;
+
+
+    var result=regexpression.test(name);
+
+
+    if(result==true)
+    {
+        document.querySelector("p").innerHTML="valid";
+    }
+    else{
+        document.querySelector("p").innerHTML="invalid";
+    }
+   }
+</script>
+========================================================================================
+<!-- 51) generate an array with value [10,20,30,40,50,60,70] and do the sum using reduce() function of javascript -->
+
+
+<script>
+  var arr = [10,20,30,40,50,60,70];
+ 
+console.log(arr.reduce(function(a,b)
+{return a+b;}
+));
+</script>
+
+
+
+
+========================================================================================
+<!-- 52) generate an array with value [1,2,3,4] and show the result as new array=> [1,4,9,16] using for in loop ,
+forEach loop and map() function -->
+<script>
+  var arr = [1,2,3,4];
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    newArr.push(arr[i] ** 2);
+  }
+  console.log(newArr);
+
+
+  for(i in arr){
+    newArr.push(arr[i] ** 2);
+  }
+ console.log(newArr);
+
+
+const newArr1 = arr.map(myFunction)
+
+
+function myFunction(num) {
+  return num **2;
+}
+console.log(newArr1);
+
+
+
+
+</script>
+========================================================================================
+ 53) generate an array with value [1,4,6,8,12,11,13] and show the resuke as new array=> [1,11,14] using filter()
+function of javascript -->
+
+<script>
+  var arr = [1, 4, 6, 8, 12, 11, 13,14];
+  var newArr = arr.filter(function (item) {
+    return item==1 ||item==11 ||item==14;
+  });
+  console.log(newArr);
+</script>
+
+
+========================================================================================
+
+
+<!-- 54) generate an example to show the difference between parseInt() & Number() function (Hint: take any value as
+an input) -->
+
+
+<script>
+var x="10";
+console.log("Using ParseInt()",typeof parseInt(x));
+
+
+var y="20";
+
+
+console.log("Using Number()",typeof Number(y));
+
+
+
+
+</script>
+
+
+========================================================================================
+<!-- 55) create a custom function having name calculate() and pass 2 parameter (e.g: 10,20 ) within function & do
+the multiplication process.
+show the result in console. (Hint: use pass by value) -->
+<script>
+  function calculate(a, b) {
+    return a * b;
+  }
+  console.log(calculate(10, 20));
+</script>
+
+
+========================================================================================
+<!-- 56) how to create an array using ( new Array() functionality ) in javascript?
+please write down sample code with some value in array. -->
+<script>
+  var a=new Array();
+  a.push(10);
+  a.push(20);
+  a.push(30);
+  a.push(40);
+
+
+  console.log(a);
+
+
+</script>
+========================================================================================
+<!-- 57) create an object ( custom object ) in javascript with key (name,age,location ) with any value . show the
+result in console -->
+
+
+<script>
+
+
+  var obj = {
+    name: "rahil",
+    age: 30,
+    location: "pakistan"
+  };
+  console.log(obj);
+
+
+</script>
+========================================================================================
+<!-- 58) on button click apply background color to body tag -->
+
+
+<button onclick="f1()">click me </button>
+<script>
+  function f1() {
+    document.body.style.backgroundColor = "red";
+  }
+</script>
+========================================================================================
+59) on mousemove event get x coordinate & y coordinate , and show the result in paragraph.
+
+
+<p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam.
+</p>
+
+
+
+
+<script>
+  document.querySelector("p").onmousemove=function(){
+      console.log(event.clientX);
+      console.log(event.clientY);
+  }
+</script>
+
+========================================================================================
+ 61) create a paragraph , on mouseover apply background color (grey) & onmouseout apply background color(lightgrey) -->
+
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita quo ad doloribus, ea at consectetur nostrum. Nihil perferendis exercitationem in
+</p>
+
+<script>
+    document.querySelector("p").onmouseover=function(){
+        document.body.style.backgroundColor="lightgrey";
+    }
+</script>
+
+========================================================================================
+ 62) generate a function name calculate (Note: here you must have anonymous function instead of regular function).
+print dummy text in console.
+a) call the same function using onblur event ( here use textbox )
+b) call the same function using onfocus event ( here use textbox ) -->
+
+<input type="text">
+
+<script>
+    var calculate=function(){
+        console.log(" hello world in 20345");
+    }
+
+    document.querySelector("input").onblur=function(){
+       calculate();
+    }
+    document.querySelector("input").onfocus=function(){
+       calculate();
+    }
+   
+</script>
+
+
+========================================================================================
+63) create a textbox ( id ="txt" ) , get value from the textbox & check whether the value is string or number
+( hint: use isNaN() function ) -->
+<input type="text" id="txt">
+<script>
+  var txt = document.getElementById("txt").value;
+
+
+  if(isNaN(txt)) {
+  console.log("string")
+  }
+  else {
+    console.log("number")
+  }
+ 
+</script>

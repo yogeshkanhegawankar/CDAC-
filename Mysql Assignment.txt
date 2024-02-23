@@ -1,0 +1,249 @@
+MET IIT CDAC-ATC Nashik
+Batch PGDAC SEP-2023
+Lab Assignments
+Date : 30-Sep-2023
+Module Name: Database Technology
+
+
+Ecommerce database
+
+1. create the customer table  with the given structure 
+custid int PRIMARY KEY
+email_address varchar(75) 
+first_name varchar(50)
+last_name varchar(50)
+address1 varchar(50)
+address2 varchar(50)
+customer_zip varchar(10)
+area_code char(3)
+telephone_number char(7)
+
+insert 3 records 
+
+-->
+create table customer(
+custid int PRIMARY KEY,
+email_address varchar(75),
+first_name varchar(50),
+last_name varchar(50),
+address1 varchar(50),
+address2 varchar(50),
+customer_zip varchar(10),
+area_code char(3),
+telephone_number char(7)
+);
+Query OK, 0 rows affected (2.37 sec)
+---------------
+insert into customer values
+    -> (1,'abc@gmail.com',
+    -> 'yogesh',
+    -> 'kanhegawankar',
+    -> 'at anjani khurd',
+    -> 'tq lonar dist buldana',
+    -> '443301','111',
+    -> '7260204');
+Query OK, 1 row affected (0.68 sec)
+
+insert into customer values
+    -> (2,'abc@gmail.com',
+    -> 'aniket',
+    -> 'kulkarni',
+    -> 'at Shivaji nagar',
+    -> 'amr=aravati',
+    -> '442501','222',
+    -> '7462563');
+Query OK, 1 row affected (0.09 sec)
+insert into customer values
+(3,'ketan@gmail.com',
+'ketan',
+'Janjal',
+'at tv center',
+'sambhajinagar',
+'425451','333',
+'6633254');
+-->
+	select * from customer;
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+| custid | email_address    | first_name | last_name     | address1         | address2              | customer_zip | area_code | telephone_number |
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+|      1 | abc@gmail.com    | yogesh     | kanhegawankar | at anjani khurd  | tq lonar dist buldana | 443301       | 111       | 7260204          |
+|      2 | aniket@gmail.com | aniket     | kulkarni      | at Shivaji nagar | amr=aravati           | 442501       | 222       | 7462563          |
+|      3 | ketan@gmail.com  | ketan      | Janjal        | at tv center     | sambhajinagar         | 425451       | 333       | 6633254          |
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+3 rows in set (0.00 sec)
+-------------------------------------------------------------------------------------------------------------------------------------------
+2. create the cardinfo table  with the given structure 
+
+card_id int PRIMARY KEY
+ccnum varchar(16)
+ccexp date
+name_on_card varchar(100)
+email_address varchar(75)
+
+insert 3 records 
+--->
+create table card_info(
+card_id int PRIMARY KEY,
+ccnum varchar(16),
+ccexp date,
+name_on_card varchar(100),
+email_address varchar(75)
+);
+
+
+insert into card_info values(2001,'111','2036-02-22','yogesh','yogesh@yahoo.com');
+insert into card_info values(2002,'222','2038-08-22','mahesh','mahesh@hotmail.com');
+insert into card_info values(2003,'333','2034-04-25','sangam','angam@hotmail.com');
+
+insert into customer values
+    -> (2001,
+    -> '111',
+    -> '2036/02/22',
+    -> 'yogesh',
+    -> 'yogesh@yahoo.com'
+    -> );
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into card_info values(2001,'111','2036-02-22','yogesh','yogesh@yahoo.com');
+Query OK, 1 row affected (0.52 sec)
+
+mysql> insert into card_info values(2002,'222','2038-08-22','mahesh','mahesh@hotmail.com');
+Query OK, 1 row affected (0.15 sec)
+
+select *from card_info;
++---------+-------+------------+--------------+--------------------+
+| card_id | ccnum | ccexp      | name_on_card | email_address      |
++---------+-------+------------+--------------+--------------------+
+|    2001 | 111   | 2036-02-22 | yogesh       | yogesh@yahoo.com   |
+|    2002 | 222   | 2038-08-22 | mahesh       | mahesh@hotmail.com |
+|    2003 | 333   | 2034-04-25 | sangam       | angam@hotmail.com  |
++---------+-------+------------+--------------+--------------------+	
+
+
+3. create the cardtype table  with the given structure 
+card_id int  PRIMARY KEY
+card_type varchar(20)
+
+insert 3 records 
+--->
+create table cardtype(
+card_id int primary key,
+card_type varchar(20)
+);
+
+Query OK, 0 rows affected (0.35 sec)
+insert into cardtype values(25633,'debit');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into cardtype values(365248,'credit');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into cardtype values(451523,'debit');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from cardtype;
++---------+-----------+
+| card_id | card_type |
++---------+-----------+
+|   25633 | debit     |
+|  365248 | credit    |
+|  451523 | debit     |
++---------+-----------+
+3 rows in set (0.03 sec)
+
+4.create the locale table  with the given structure 
+
+zip varchar(10) PRIMARY KEY
+city varchar(50)
+state char(2)
+
+insert 3 records 
+--->
+create table locale(
+city varchar(50),state char(2));
+
+
+insert into locale values('Sambhajinagar','MH');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into locale values('Nashik','MH');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into locale values('Mumbai','MH');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from locale;
++---------------+-------+
+| city          | state |
++---------------+-------+
+| Sambhajinagar | MH    |
+| Nashik        | MH    |
+| Mumbai        | MH    |
++---------------+-------+
+3 rows in set (0.00 sec)
+
+5. see the structure of the table created.
+
+----------------------------------------
+1. in a customer  table , update one of the record of your choice and change the address1 as boston 
+--->
+update customer
+    -> set address1='boston'
+    -> where first_name='yogesh';
+
+select * from customer;
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+| custid | email_address    | first_name | last_name     | address1         | address2              | customer_zip | area_code | telephone_number |
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+|      1 | abc@gmail.com    | yogesh     | kanhegawankar | boston           | tq lonar dist buldana | 443301       | 111       | 7260204          |
+|      2 | aniket@gmail.com | aniket     | kulkarni      | at Shivaji nagar | amr=aravati           | 442501       | 222       | 7462563          |
+|      3 | ketan@gmail.com  | ketan      | Janjal        | at tv center     | sambhajinagar         | 425451       | 333       | 6633254          |
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+3 rows in set (0.00 sec)
+
+2. in a customer  table , update one of the record of your choice and change the customer_zip as 100 300
+--->
+update customer
+set customer_zip='100 300'
+where address2='sambhajinagar';
+ 
+select *from customer;
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+| custid | email_address    | first_name | last_name     | address1         | address2              | customer_zip | area_code | telephone_number |
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+|      1 | abc@gmail.com    | yogesh     | kanhegawankar | boston           | tq lonar dist buldana | 443301       | 111       | 7260204          |
+|      2 | aniket@gmail.com | aniket     | kulkarni      | at Shivaji nagar | amr=aravati           | 442501       | 222       | 7462563          |
+|      3 | ketan@gmail.com  | ketan      | Janjal        | at tv center     | sambhajinagar         | 100 300      | 333       | 6633254          |
++--------+------------------+------------+---------------+------------------+-----------------------+--------------+-----------+------------------+
+3 rows in set (0.00 sec)
+
+3. delete the first record, give the proper condition in cardinfo 
+--->
+ delete from card_info where card_id=2001;
+Query OK, 1 row affected (0.12 sec)
+
+ select * from card_info;
++---------+-------+------------+--------------+--------------------+
+| card_id | ccnum | ccexp      | name_on_card | email_address      |
++---------+-------+------------+--------------+--------------------+
+|    2002 | 222   | 2038-08-22 | mahesh       | mahesh@hotmail.com |
+|    2003 | 333   | 2034-04-25 | sangam       | angam@hotmail.com  |
++---------+-------+------------+--------------+--------------------+
+2 rows in set (0.00 sec)
+
+4. truncate the table cardinfo 
+--->
+truncate card_info;
+
+5. see the structure of cardinfo
+--->select * from card_info;
+Empty set (0.00 sec) 
+
+6. drop the table cardtype .
+---> drop table cardtype;
+Query OK, 0 rows affected (0.51 sec)
+
+ select * from cardtype;
+ERROR 1146 (42S02): Table 'yogesh.cardtype' doesn't exist
+-------------------------------
+Note
+Submit your assignments before 4-Oct-2023

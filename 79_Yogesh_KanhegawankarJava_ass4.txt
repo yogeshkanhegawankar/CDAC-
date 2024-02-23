@@ -1,0 +1,938 @@
+MET IIT CDAC-ATC Nashik
+Batch PGDAC SEP-2023
+Java Lab Assignments
+Date : 28-Oct-2023
+Module Name: OOP's With Java
+
+Due Date 06-Nov-2023
+
+
+Name: Yogesh Kanhegawankar
+RollNo.: 79
+
+1.  Write a Java program that creates two threads to find and print even and odd numbers   from 1 to 20.
+-->
+	package Assignment4;
+class ThreadTest implements Runnable
+{
+	public void run()
+	{
+		for(int i=1;i<=20;i++)
+		{
+			if(i%2==1)
+			{
+				System.out.println(i);
+				}
+		}
+	}
+}
+class ThreadTest1 implements Runnable
+{
+	public void run()
+	{
+		for(int i=0;i<=20;i++)
+		{
+			if(i%2==0)
+			{
+				System.out.println(i);
+			}
+		}
+	}
+}
+public class ThreadDemo{
+
+	public static void main(String[] args) {
+		Thread th1=new Thread(new ThreadTest());
+		th1.start();
+		System.out.println("Odd Nos");
+
+		Thread th2=new Thread(new ThreadTest1());
+		th2.start();
+		System.out.println("-------------------------------");
+		System.out.println("Even Nos");
+
+	}
+
+}
+
+
+O/P:
+
+Odd Nos
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+-------------------------------
+Even Nos
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+===================================================================================================================================================================
+
+2. Write a Java program that sorts an array of integers using multiple threads.
+	package assignment4;
+
+class SortArray extends Thread {
+	int arr[] = { 15, 25, 35, 19, 96};
+
+	public synchronized void arraySort() {
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = (i + 1); j < arr.length; j++) {
+				if (arr[i] > arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+
+	public void run() {
+		arraySort();
+	}
+}
+
+public class ThreadingAssignment2 {
+
+	public static void main(String[] args) {
+		SortArray th1 = new SortArray();
+		SortArray th2 = new SortArray();
+
+		th1.start();
+		th2.start();
+
+	}
+
+}
+O/P:  
+15, 19, 25, 35, 96
+===================================================================================================================================================================
+3. Write a Java program that creates a bank account with concurrent deposits and withdrawals using threads.
+-->
+	package Assignment4;
+class Bank
+{
+	private double balance;
+
+	public Bank(double balance) {
+		super();
+		this.balance = balance;
+	}
+	public synchronized void deposite(double amount)
+	{
+		balance+=amount;
+		System.out.println("deposited "+amount);
+	}
+	public synchronized void withdraw(double amount)
+	{
+		if(balance>=amount)
+		{	
+			balance-=amount;
+			System.out.println("withdrawn "+amount);
+		}
+		else
+		{
+			System.out.println("insufficient balance");
+		}
+		
+	}
+	public double getBalance() {
+		return balance;
+	}
+}
+public class BankAccount {
+
+	public static void main(String[] args) {
+		Bank bank=new Bank(2000);
+		Thread deposit=new Thread(()->{
+				bank.deposite(400);
+			
+		});
+		Thread withdraw=new Thread(()->{
+			
+				bank.withdraw(200);
+			
+		});
+		deposit.start();
+		withdraw.start();
+		try
+		{
+			deposit.join();
+			withdraw.join();
+		}
+		catch(InterruptedException e)
+		{
+			
+		}
+		System.out.println("final balance is : "+bank.getBalance());
+	}
+
+}
+
+
+output:
+
+deposited 2000.0
+withdrawn 200.0
+final balance is : 2200.0
+
+===================================================================================================================================================================
+4. Write a ‘java’ program to copy only non-numeric data from one file to another file
+-->
+	package Assignment4;
+	import java.io.BufferedReader;
+	import java.io.FileReader;
+	import java.io.FileWriter;
+	import java.io.IOException;
+
+	public class NonNumeric {
+	    public static void main(String[] args) {
+	        String File1 = "C:\\Users\\HP\\OneDrive\\Desktop\\test.txt"; 
+	        String File2 = "C:\\Users\\HP\\OneDrive\\Desktop\\test1.txt"; 
+
+	        try {
+	            BufferedReader reader = new BufferedReader(new FileReader(File1));
+	            FileWriter writer = new FileWriter(File2);
+	            String line;
+
+	            while ((line = reader.readLine()) != null) {
+	                String nonNumeric = removeNumericData(line);
+	                writer.write(nonNumeric);
+	                writer.write("\n"); 
+	            }
+
+	            reader.close();
+	            writer.close();
+	            System.out.println("Non-numeric data copied successfully to " + File2);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    private static String removeNumericData(String input) {
+	        return input.replaceAll("[0-9]", "");
+	    }
+	}
+
+
+
+output:
+Non-numeric data copied successfully to C:\Users\HP\OneDrive\Desktop\test1.txt
+
+===================================================================================================================================================================
+
+5.Write a java program to accept a number from user, 
+	if it zero then throw user defined Exception “Number Is Zero”, 
+	otherwise calculate the sum of first and last digit of that number. (Use static 	keyword).
+-->
+	package Assignment4;
+import java.util.Scanner;
+
+import java.util.Scanner;
+class NumberIsZeroException extends Exception {
+ public NumberIsZeroException() {
+     super("Number Is Zero");
+ }
+}
+
+public class NumberExp {
+ public static int calculateSum(int number) {
+     int lastDigit = number % 10;
+     int firstDigit = 0;
+
+     while (number != 0) {
+         firstDigit = number % 10;
+         number /= 10;
+     }
+
+     return firstDigit + lastDigit;
+ }
+
+ public static void main(String[] args) {
+     Scanner scanner = new Scanner(System.in);
+
+     try {
+         System.out.print("Enter a number: ");
+         int number = scanner.nextInt();
+
+         if (number == 0) {
+             throw new NumberIsZeroException();
+         }
+
+         int sum = calculateSum(number);
+         System.out.println("Sum of the first and last digit: " + sum);
+//     } catch (NumberIsZeroException e) {
+//         System.out.println("Exception: " + e.getMessage());
+     } catch (Exception e) {
+         System.out.println("An error occurred: " + e.getMessage());
+     } finally {
+         scanner.close();
+     }
+ }
+}
+
+
+
+output:
+Enter a number: 36
+Sum of the first and last digit: 9
+
+===================================================================================================================================================================
+6.Write a java program to validate PAN number and Mobile Number. If it is invalid then 	throw user defined Exception “Invalid Data”, otherwise display it.
+-->
+	package Assignment4;
+import java.util.Scanner;
+
+class InvalidDataException extends Exception {
+    public InvalidDataException() {
+        super("Invalid Data");
+    }
+}
+
+public class CheckInfo {
+    public static boolean validatePAN(String pan) {
+        if (pan.matches("[A-Z]{5}[0-9]{4}[A-Z]{1}")) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean validateMobileNumber(String mobileNumber) {
+        if (mobileNumber.matches("{10}")) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter a PAN number: ");
+            String pan = scanner.nextLine();
+
+            System.out.print("Enter a mobile number: ");
+            String mobileNumber = scanner.nextLine();
+
+            if (validatePAN(pan) || validateMobileNumber(mobileNumber)) {
+                throw new InvalidDataException();
+            }
+
+            System.out.println("PAN number: " + pan);
+            System.out.println("Mobile number: " + mobileNumber);
+        } catch (InvalidDataException e) {
+            System.out.println("Exception: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+}
+
+
+
+
+
+output:
+Enter a PAN number: ECLP87145Y
+Enter a mobile number: 9576596345
+PAN number: ECLP87145Y
+Mobile number: 9576596345
+===================================================================================================================================================================
+7.Create a package PGDAC with two classes as 
+	class Student (Rno, SName, Per) with a method disp() to display details of N 		Students and class 
+	Teacher (TID, TName, Subject) with a method disp() to display the details of 		teacher who is teaching Java subject. 
+	(Make use of finalize() method and array of Object)
+
+
+
+===================================================================================================================================================================
+8. Create a package named Series having three different classes to print series: 
+            i. Fibonacci series 
+            ii. Cube of numbers 
+            iii. Square of numbers 
+Write a java program to generate ‘n’ terms of the above series
+
+
+
+===================================================================================================================================================================
+9.Write a java program to accept a number from user, 
+	If it is greater than 1000 then throw user defined exception “Number is out of 		Range” 
+	otherwise display the factors of that number. (Use static keyword).
+
+
+
+===================================================================================================================================================================
+10. Write a java program to count the number of integers from a given list.
+	 (Use Command line arguments).
+
+
+
+===================================================================================================================================================================
+11.Create abstract class shape. Derive three classes sphere. Cone and cylinder from it. 	Calculate Area and volume of all ( use method overriding)
+-->
+	package Assignment4;
+
+abstract class Shape {
+    
+    public abstract double calculateArea();
+
+    public abstract double calculateVolume();
+}
+
+class Sphere extends Shape {
+    private double radius;
+    private double pi=3.14;
+    public Sphere(double radius) {
+        this.radius = radius;
+    }
+
+    
+    public double calculateArea() {
+        return 4 * pi * radius * radius;
+    }
+
+    
+    public double calculateVolume() {
+        return (4.0 / 3.0) * pi * radius * radius * radius;
+    }
+}
+
+class Cone extends Shape {
+    private double radius;
+    private double height;
+    private double pi=3.14;
+    public Cone(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    public double calculateArea() {
+        double slantHeight = Math.sqrt(radius * radius + height * height);
+        return pi * radius * (radius + slantHeight);
+    }
+
+    public double calculateVolume() {
+        return (1.0 / 3.0) *pi * radius * radius * height;
+    }
+}
+
+class Cylinder extends Shape {
+    private double radius;
+    private double height;
+    private double pi=3.14;
+    public Cylinder(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    
+    public double calculateArea() {
+        return 2 *pi * radius * (radius + height);
+    }
+
+    public double calculateVolume() {
+        return pi * radius * radius * height;
+    }
+}
+
+public class Override {
+    public static void main(String[] args) {
+        Sphere sphere = new Sphere(3.0);
+        Cone cone = new Cone(4.0, 5.0);
+        Cylinder cylinder = new Cylinder(2.0, 6.0);
+
+        System.out.println("Sphere - Area: " + sphere.calculateArea() + ", Volume: " + sphere.calculateVolume());
+        System.out.println("Cone - Area: " + cone.calculateArea() + ", Volume: " + cone.calculateVolume());
+        System.out.println("Cylinder - Area: " + cylinder.calculateArea() + ", Volume: " + cylinder.calculateVolume());
+    }
+}
+
+
+output:
+Sphere - Area: 113.03999999999999, Volume: 113.03999999999998
+Cone - Area: 130.66324042215658, Volume: 83.73333333333333
+Cylinder - Area: 100.48, Volume: 75.36
+
+===================================================================================================================================================================
+
+12. Define a class saving account (acno, name, balance) .
+	Define appropriate and operation withdraw(), deposit(), and viewbalance(). 
+	The minimum balance must be 500. 
+	Create an object and perform operation. 
+	Raise user defined “InsufficientFundException” when balance is not sufficient 	for withdraw operation.
+-->
+	package Assignment4;
+class InsufficientFundException extends Exception {
+    public InsufficientFundException(String message) {
+        super(message);
+    }
+}
+
+class SavingAccount {
+    private int acno;
+    private String name;
+    private double balance;
+
+    public SavingAccount(int acno, String name, double balance) {
+        this.acno = acno;
+        this.name = name;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    public void withdraw(double amount) throws InsufficientFundException {
+        if (amount > 0) {
+            if (balance - amount >= 500) {
+                balance -= amount;
+                System.out.println("Withdrawn:" + amount);
+            } else {
+                throw new InsufficientFundException("Insufficient balance for withdrawal.");
+            }
+        } else {
+            System.out.println("Invalid withdrawal amount.");
+        }
+    }
+
+    public void viewBalance() {
+        System.out.println("Account Number: " + acno);
+        System.out.println("Account Holder Name: " + name);
+        System.out.println("Account Balance: " + balance);
+    }
+}
+
+public class Account {
+    public static void main(String[] args) {
+        SavingAccount account = new SavingAccount(6001, "Yogesh", 50000.0);
+
+        account.viewBalance();
+        System.out.println("----------------------------------------");
+
+        try {
+            account.withdraw(700.0);
+            System.out.println("----------------------------------------");
+            account.viewBalance();
+        } catch (InsufficientFundException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        System.out.println("----------------------------------------");
+        account.deposit(200.0);
+        System.out.println("----------------------------------------");
+        account.viewBalance();
+
+        try {
+            account.withdraw(800.0);
+            System.out.println("----------------------------------------");
+            account.viewBalance();
+        } catch (InsufficientFundException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+
+output:
+Account Number: 6001 
+Account Holder Name: Yogesh
+Account Balance: 50000.0
+----------------------------------------
+Withdrawn:700.0
+----------------------------------------
+Account Number: 6001
+Account Holder Name: Yogesh
+Account Balance: 43000.0
+----------------------------------------
+Deposited: 200.0
+----------------------------------------
+Account Number: 6001
+Account Holder Name: Yogesh
+Account Balance: 43200.0
+Withdrawn:800.0
+----------------------------------------
+Account Number: 6001
+Account Holder Name: Yogesh
+Account Balance: 42400.0
+
+
+
+===================================================================================================================================================================
+13.Define an abstract class “staff” with members name and address. 
+	Define two subclasses off this class- ‘Full Timestaff’ (department, salary) 
+	and part time staff (number_of_hours_, rate_per_hour). 
+	define appropriate constructors.create ‘n’ object which could be of either 	FullTimeStaff or ParttimeStaff class by asking the users choice. 
+	Display details of all “FulTimeStaff” objects and all “PartTimeStaff” objects.
+
+
+14. Create an interface "CreditCardInterface" with methods: 	viewcreditamount(),PayCard(). 
+	Create a class “silverCardCustomer”(name, cardnumber)(16 digit), 
+	creditamount-initialized to 0, credit limit set to 50,000) which implement 	above interface. 
+	Inherit class GoldCardCustomer from SilverCardCustomer having same method but 	creditLimit of 1,00,000. Create an object of each class and perform operations. 	Display appropriate message for success or failure of transaction.
+	( use method overriding) a.useCard() method increase the credit amount by a 	specific amount upto creditLimit. b.payCredit() reduces the credit Amount by a 	specific amount. c. increaseLimit() increase the credit limit for 	GoldCardCustomer (only 3 times, not mor than 5000 rupees each time.)
+-->
+	package Assignment4;
+interface CreditCardInterface {
+    void viewCreditAmount();
+    void payCard(double amount);
+}
+
+class SilverCardCustomer implements CreditCardInterface 
+{
+    private String name;
+    private long cardNumber;
+    private double creditAmount;
+    protected double creditLimit;
+
+    public SilverCardCustomer(String name, long cardNumber)
+    {
+        this.name = name;
+        this.cardNumber = cardNumber;
+        this.creditAmount = 0;
+        this.creditLimit = 50000;
+    }
+
+    public void viewCreditAmount() 
+    {
+        System.out.println("Silver Card Customer: " + name);
+        System.out.println("Credit Amount: " + creditAmount);
+    }
+
+    public void payCard(double amount) 
+    {
+        if (amount > 0)
+        {
+            creditAmount -= amount;
+            System.out.println("Paid: " + amount);
+        } else 
+        {
+            System.out.println("Invalid payment amount.");
+        }
+    }
+
+    public void useCard(double amount)
+    {
+        if (amount > 0 && (creditAmount + amount) <= creditLimit) 
+        {
+            creditAmount += amount;
+            System.out.println("Used: " + amount);
+        } else {
+            System.out.println("Transaction failed. Exceeded credit limit.");
+        }
+    }
+}
+
+class GoldCardCustomer extends SilverCardCustomer 
+{
+    private int creditLimitIncreaseCount;
+
+    public GoldCardCustomer(String name, long cardNumber) 
+    {
+        super(name, cardNumber);
+        creditLimit = 100000;
+        creditLimitIncreaseCount = 0;
+    }
+
+    public void viewCreditAmount() 
+    {
+        super.viewCreditAmount();
+        System.out.println("Gold Card Customer Credit Limit: " + creditLimit);
+    }
+
+    public void increaseLimit(double amount) 
+    {
+        if (creditLimitIncreaseCount < 3 && amount <= 5000) 
+        {
+            creditLimit += amount;
+            creditLimitIncreaseCount++;
+            System.out.println("Credit limit increased by: " + amount);
+        } else {
+            System.out.println("Cannot increase credit limit further.");
+        }
+    }
+}
+
+public class Cards {
+    public static void main(String[] args) {
+        SilverCardCustomer silverCustomer = new SilverCardCustomer("Khushi Yewale", 1234567890123456L);
+        GoldCardCustomer goldCustomer = new GoldCardCustomer("Yogesh Kanhegawankar", 9876543210987654L);
+
+        silverCustomer.viewCreditAmount();
+        silverCustomer.useCard(10000);
+        silverCustomer.payCard(5000);
+        silverCustomer.viewCreditAmount();
+        
+        System.out.println("=============================================================");
+        
+        goldCustomer.viewCreditAmount();
+        goldCustomer.increaseLimit(3000);
+        goldCustomer.useCard(20000);
+        goldCustomer.payCard(10000);
+        goldCustomer.viewCreditAmount();
+    }
+}
+
+
+output:
+Silver Card Customer: Yogesh Kanhegawankar
+Credit Amount: 0.0
+Used: 10000.0
+Paid: 5000.0
+Silver Card Customer: Yogesh Kanhegawankar
+Credit Amount: 5000.0
+=============================================================
+Silver Card Customer: Yogesh Kanhegawankar
+Credit Amount: 0.0
+Gold Card Customer Credit Limit: 100000.0
+Credit limit increased by: 3000.0
+Used: 20000.0
+Paid: 10000.0
+Silver Card Customer: Yogesh Kanhegawankar
+Credit Amount: 10000.0
+Gold Card Customer Credit Limit: 103000.0
+
+15.Define a thread called “PrintTextThread” for printing text on command prompt for ‘n’ number of times. Create 3 threads and run them. Pass the text ‘n’ parameters to the thread constructor.
+Example:
+a.    First thread prints “I am in PGDAC” 10 times.
+b.     Second thread prints “I am in PGDBDA” 20 times 
+T     Third thread prints “I am in PreCate” 30 times 
+-->
+	
+package Assignment4;
+
+class PrintTextThread extends Thread {
+    private String text;
+    private int times;
+
+    public PrintTextThread(String text, int times) {
+        this.text = text;
+        this.times = times;
+    }
+
+    public void run() {
+        for (int i = 0; i < times; i++) {
+            System.out.println(text);
+        }
+    }
+}
+
+public class ThreadTest {
+    public static void main(String[] args) {
+        PrintTextThread thread1 = new PrintTextThread("I am in PGDAC", 10);
+        PrintTextThread thread2 = new PrintTextThread("I am in PGDBDA", 20);
+        PrintTextThread thread3 = new PrintTextThread("I am in PreCat", 30);
+
+        thread1.start();
+        System.out.println("___________________________________________________________");
+        thread2.start();
+        System.out.println("___________________________________________________________");
+        thread3.start();
+        System.out.println("___________________________________________________________");
+    }
+}
+
+
+output:
+___________________________________________________________
+I am in PGDAC
+I am in PGDAC
+I am in PGDAC
+I am in PGDAC
+I am in PGDAC
+I am in PGDAC
+I am in PGDAC
+I am in PGDAC
+I am in PGDAC
+I am in PGDAC
+___________________________________________________________
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+I am in PGDBDA
+___________________________________________________________
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+I am in PreCat
+
+16.Write a program to traverse (or iterate) ArrayList?
+-->
+
+	package Assignment4;
+
+import java.util.ArrayList;
+
+public class ArrayListTrav {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<>();
+
+        names.add("Yogesh");
+        names.add("Mangesh");
+        names.add("Vishal");
+        names.add("Manish");
+
+        System.out.println("ArrayList");
+        for (int i = 0; i < names.size(); i++) {
+            String name = names.get(i);
+            System.out.println(name);
+        }
+    }
+}
+
+
+output:
+ArrayList:
+Yogesh
+Mangesh
+Vishal
+Manish
+
+===================================================================================================================================================================
+17.Write a program to convert Array to List?
+-->
+	package Assignment4;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ArrConversion {
+    public static void main(String[] args) {
+        String[] array = { "Khushi", "Rashi", "Kashi", "Vashi" };
+
+        List<String> list = Arrays.asList(array);
+
+        System.out.println("List converted from array:");
+        for (String element : list) {
+            System.out.println(element);
+        }
+    }
+}
+
+
+output:
+List converted from array:
+Yogesh
+Mangesh
+Vishal
+Manish
+
+
+===================================================================================================================================================================
+18.Write a program to get size of HashMap? 
+-->
+	package Assignment4;
+import java.util.HashMap;
+
+public class HashMapSize {
+    public static void main(String[] args) {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Yogesh", 22);
+        hashMap.put("Mangesh", 21);
+        hashMap.put("Vishal", 20);
+        
+        int size = hashMap.size();
+
+        System.out.println("Size of the HashMap is  " + size);
+    }
+}
+
+output:
+Size of the HashMap is  3
+===================================================================================================================================================================
+19.Write a program to add element at particular index of ArrayList?
+-->
+
+	package Assignment4;
+
+import java.util.ArrayList;
+
+public class AddElement{
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add("Santoor");
+        list.add("Dettol");
+        list.add("Dove");
+
+        System.out.println(list);
+
+        list.add(1, "Sugar");
+
+        System.out.println("ArrayList after adding: " + list);
+    }
+}
+
+
+output:
+[Santoor, Dettol, Dove]
+ArrayList after adding: [Santoor, ,Sugar, Dettol, Dove]
+===================================================================================================================================================================
+20.Write a Java program to print a sequence of numbers upto N using 3 threads. 
+
+
+===================================================================================================================================================================

@@ -1,0 +1,503 @@
+Java
+--to check
+javac
+
+--to check the vesion of java
+java -version
+
+--to check version of compiler
+javac -version
+18.0.2.1-------------> jdk version
+
+jdk java development kit
+
+java is based on write once and run anywhere (any os)
+javac compiler is used 
+
+C:\Program Files\Java\jdk
+C:\Program Files\Java\jdk-18.0.2.1\bin\javac
+
+
+--what is java?
+it is programming lang to create platform independent application
+
+developed by : James Gosling
+released by Sun Microsystems
+presently owned by Oracle Corp.
+===========================
+
+Java Features
+
+1. Java is 100% Object oriented
+
+2. Java byte code is platform neutral* ( not the JVM)
+
+--to complie 
+javac file1.java  ------------> file1.class (byte code )
+					  ------------------------------
+						JVM will convert into execute format
+
+--to execute 
+java file1
+
+file1.class   --> gives the same o/p will be generated in any os (mac / windows/ unix)
+
+
+JVM (java virtual machine)
+    is platform dependent
+   JVM is diffferent for differernt OS
+   JVM has byte code verifier 
+
+JVM for windows is diffferent than JVM macos and JVM unix OS
+JVM  for windows 
+JVM for unix
+JVM for macOS
+
+3. Java is simple
+	- legacy code
+	- no pointers
+	- no need of h/w knowledge
+	- no need of memory management
+		allocation,deallocation,reallocation
+
+4. Java is compiled and interpreted
+
+5. Robust
+	something which is strong / tuff
+	c , c++ do not have well structured try catch. 
+	ability to run in runtime errors
+		- "exception" handling is strong, for every exception in java 
+there is a separate class , structured exception handling
+	automatic garbage collection, no pointer concept
+
+6. Dynamic
+	A "super class reference" can point to any of its child class object
+
+7. Networked
+
+	socket programming, API is available , peer to peer n/w
+	transfer the data from one machine to other m/c, ie sending a 
+message from 	1 m/c to another on a n/w in the form of byte using
+ TCP/IP 
+
+	machine1				machine2
+	msg1------------------------>
+
+8. secure 
+  if you change the byte code , JVM will not accept the file. there is byte code verifier present in JVM. Virus is not affected in Java. Security packages are there in java .
+
+9 Distributed
+ 	there are some added feature of Java RMI (Remote method invocation) with which a method display(), method in 1 m/c can be invoke from 2nd m/c. for distributed  should be n/w oriented. API is available, java RMI package available for service, client server application
+
+	machine1			machine2
+	display()  ------------->
+       accept()   --------------->
+
+
+			server   display(), accept()
+			 |
+		-----------------------------
+		|				|
+		client1			client2
+
+10 Multithreaded
+	1 process for multiple threads. JVM manages the threads.
+
+11 Architecture neutral 
+	CPU architecture is same for all the m/c
+      int 4 bytes : 64bit, 32 bit 
+      double 8 bytes : 64bit, 32 bit 
+
+==================================
+CUI  : character user interface
+GUI : graphical  user interface
+
+==================================
+versions:
+java 1.02		: 250 classes
+java 1.1		: 500 classes : better GUI
+java 2	(1.2-1.4)	: 2300 classes : powerful : Comes in three
+flavors: 
+Standard Edition (J2SE)    : core java
+Enterprise Edition (J2EE)  : adv java
+		jdbc  : java database connectivity
+		servlet  
+		jsp  : java server pages
+Micro Edition (J2ME)
+, and
+java 5 (1.5)		: 3500 classes  : More power,(known as"Tiger"')
+java 6 (1.6)		 		  : (known as"Mustang"')
+java 7 (1.7)		 		  : (known as"Dolphin"')
+java 8 (1.8)		 		  : (known as"Spider"') : Lambda expression
+java SE 9 (1.9)		 		  :
+java SE 10 (1.10)				  : on March, 20, 2018
+java SE 11 (1.11)				  : on sep 25 2018			
+java 12						  : mar 19 2019
+java 13						   : sep 10 2019
+java 18  
+
+-----------------------------------
+ System.out.println("Hello world !!!");
+   |            |       |
+class      2    3
+
+System : class name
+out  : object of PrintStream
+println : method 
+
+in  : object of InputStream
+
+====================
+main() method
+   it is entry point of the program 
+   the program execution starts with the main method
+   JVM search for the main method, everthing present in the main method will be execution from top to bottom
+   if you have an java application, there should be one class which has the main method
+
+--assignment  Myclass2.java
+display your name , address, college name , company name
+
+the class having the main method should be the name of the file
+===
+   public static void main(String args[]){
+
+public  : accessible everywhere 
+static  : no need to create an object to access the method
+void  : no return value
+main  :method :  entry point 
+String args[]) : command line argument can be given
+  args : name of the array 
+
+======================
+ command line argument 
+Arguments.java
+
+javac file1.java
+java file1 10 20 44 66 77
+		|	|  |   |    |
+	       0      1  2 3   4
+System.out.println(args[0]) ;           10
+System.out.println(args.length);
+
+
+--provide 2 numbers to  at runtime and display the total
+java file1 10 20 
+
+"10"		10
+"20"		20
+======================================
+(Integer.parseInt(args[0])
+     |
+ Wrapper class
+
+parseInt() method
+
+--eg
+System.out.println("total is " +(Double.parseDouble(args[0]) + Double.parseDouble(args[1]))) ;  
+
+
+--other Wrapper classes 
+Double.parseDouble()
+Float.parseFloat()
+Boolean.parseBoolean()
+..
+..
+
+==================
+create a folder
+D:\JavaProject
+
+eclipse -- workspace
+select "D:\JavaProject"
+
+file --new --javaproject --- JavaProject1
+create modele --do not create
+open perspective : no
+
+======create a package
+frt src--new -- package:    module1
+
+--shortcut
+ctrl + space --sys -->  System.out.println();
+sys + ctrl + space --> System.out.println();
+F11		--> To run 
+
+
+
+==to run the file
+1 F11		--> To run 
+2 run on the top
+3 rt --run as--java appl
+4 rt file --run as--java appl
+
+--to change the perspective
+windows --perspective--open perspective-- java
+
+===============
+  System.out.print("Priti dalvi");
+  System.out.println("Priti dalvi");
+
+====
+  System.out.print("Priti dalvi\n\n");
+	  System.out.print("Priti dalvi\n");
+	  System.out.print("\nPriti dalvi\n");  
+	
+================
+   public static void main(String args[]){
+
+--1 remove static 
+compile : success
+runtime:  error
+
+
+--2 void changed to int
+compile : success
+runtime:  error
+
+-3  args changed to a
+compile : success
+runtime:  success
+
+-4 String[] args-- changed ot int[] args
+compile : success
+runtime:  error
+
+--5  String[] args---> changed to String args[]
+compile :  success
+runtime:   success
+
+--6 remove public
+compile : success
+runtime:  error
+
+===================================
+					data types
+					  |
+		---------------------------------------------------------------
+		   |										 |
+		premitive								reference
+		 |										|
+-----------------------------------							String
+|                                     |								Array
+numeric              non numeric							Class
+|					 |							Enumeration
+byte				    char							Collection
+short			 boolean								--Stack
+int													--Queue
+long													--Vector
+float													--List
+double
+
+Myclass2
+create a file to store name , college name , score, address, 
+
+
+====================
+Type	Size	Description
+byte	1 byte	Stores whole numbers from 	-128 to 127
+short	2 bytes	Stores whole numbers from 	-32,768 to 32,767
+int	4 bytes	Stores whole numbers from 	-2,147,483,648 to 2,147,483,647
+long	8 bytes	Stores whole numbers from 	-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+float	4 bytes	Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
+double	8 bytes	Stores fractional numbers. Sufficient for storing 15 decimal digits
+boolean	1 bit	Stores true or false values
+char	2 bytes	Stores a single character/letter or ASCII values
+
+===================
+Class
+   it is blueprint / template / structure
+   is a collection member variables (mv) and member functions(mf)
+   is a collection of objects
+
+object
+  it is an instance of the class
+
+					Car
+					| mv / state/ attribute / instance variable
+				 	|     modelno, price, color 
+					| mf / behaviour / methods
+					|  start() stop() , changeGear()
+         -------------------------------------------------------------------------------
+      |					|				|					|
+i10				  i20				 BMW				HondaCity
+modelno=1		modelno=2		modelno=3			modelno=4
+price=800000		price=1000000     price=4000000			price=2100000
+color=blue		color=white		color=black			color=grey
+start() stop() , changeGear()  |		start() stop() , chageGear()	   |
+				start() stop() , changeGear()				start() stop() , 															changeGear()
+
+--note
+when we use the "new" keyword the heap memory will be used
+and the object is created
+
+--to create an obj
+--1
+Car i10=new Car();    --> heap memory
+---------  ---------------
+  stack     heap
+
+--2
+Car i10;			--> stack memory  --> instance
+i10=new Car();      --> heap memory  --> obj
+
+
+Car i20=new Car();
+Car BMW=new Car();
+Car hondaCity=new Car();
+
+=====================
+Student
+	//mv
+	rollno
+	name 
+	address
+	score
+	pan 
+	adhar
+	mobile
+	
+	//mf
+	markAttendance()
+	attendClasss()
+	checkResult()
+	writeExams()
+	writeNote()
+	payFees()
+	..
+	..	
+
+
+Bank 
+	nameOfBank
+	add
+	number
+
+
+Emp
+	//mv
+	empNo
+	name
+	address
+	mobile
+	salary
+	desg
+    //mf
+       calExperience()
+       markAttendance()
+       calAnnualSalary()
+       checkLeavesBalance()
+	checkSal()
+	applyLeave()
+	applyLoan()
+
+   
+Airport
+        //mv
+	name
+	address
+	numberOfFlights
+	numberOfShops
+	numberOfFoodcounter
+	numberOfGates
+	numberOfStaff
+	numberOfPilots
+       //mf
+	checkFlightsSchedule()
+	checkCustomerDetails()
+	checkWeights()
+	checkTags()
+	checkTickets()
+	
+
+Keyboard
+	
+
+--
+Emp
+	empNo
+	name
+	salary
+	desg
+
+    //mf
+	accept()
+	display()
+	checkSal()
+	applyLeave()
+	applyLoan()
+	
+//create 2 objects and call the methods
+======================
+
+--naming convensions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

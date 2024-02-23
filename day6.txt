@@ -1,0 +1,481 @@
+--subquery
+>all
+>any
+<all
+<any
+exists
+
+--exists
+  it will check the existance of the record
+
+emp : 10 20 30
+dept: 10, 20, 30, 40
+
+--display all the details of department table where the emp are working in it
+q1(q2)
+q1: dept
+q2 : emp
+select * from dept d
+where exists (
+select * from emp e where d.deptno=e.deptno);
+
+d: alias
+e: alias 
+
+--display all the details of department table where the emp are not working in it
+select * from dept d
+where not exists (
+select * from emp e where d.deptno=e.deptno);
+
+====================
+--co related subquery
+ co related subquery, is performed on the one table 
+ there has to 2 columns which are related then only co related subquery can be performed
+ it takes more time to execute co related subquery
+ co related subquery, can not be performed on all tables
+ there will 2 replicas created for the same table
+
+empno and mgr cols are related 
+
+
+
+--eg display the name of employee who are senior to his manager
+select a.ename from emp a
+where a.hiredate < (select b.hiredate from emp b
+where a.mgr=b.empno);
+
+--eg display the name of employee who are junior to his manager
+select a.ename from emp a
+where a.hiredate > (select b.hiredate from emp b
+where a.mgr=b.empno);
+
+--eg display the name of employee whoes salary is lesses than his manager
+
+select a.ename from emp a
+where a.sal < (select b.sal from emp b
+where a.mgr=b.empno);
+
+====================================
+--joins
+  
+--what are joins 
+  joining the 2 or more tables
+
+--why joins
+  to retrieve the data from 2 or more tables
+
+--types of joins
+1. inner join / natural join / equi join 
+2. outer join 
+  left outer join 
+  right outer join 
+  full outer join 
+3. cross join / cartesian join 
+4. self join 
+5. non equi join 
+
+e        e       d		d
+ename 	sal 	dname 		loc
+smith    800	accounting	new york
+..
+..
+
+
+--cross join / cartesian join 
+  the mapping is performed 
+  every record from the first table will be mapped to all the records from the second table 
+  eg : real life eg
+
+  rows: *
+  cols : +
+
+t1
+c1	c2
+10	x
+20	y
+
+
+t2
+c3	c4	c5
+1	a	12
+2	b	34
+3	c	56
+
+cols: 2+3 =5
+rows : 2 * 3 = 6
+c1	c2	c3	c4	c5
+10	x	1	a	12
+10	x	2	b	34
+10	x	3	c	56
+20	y	1	a	12
+20	y	2	b	34
+20	y	3	c	56
+
+--eg
+emp : c 8   rows: 14
+dept : c 3  rows: 4
+rows :14 * 4= 56   cols : 8+ 3= 11
+
+select * from emp
+cross join 
+dept;
+
+--eg
+        e       e     d        d
+select ename , empno, dname , loc, e.deptno from emp e
+cross join 
+dept d
+where sal > 1000 and job in ('manager' , 'analyst', 'clerk')
+
+================================================
+--inner join / natural join / equi join 
+common records will be displyed
+   emp : 10, 20, 30
+   dept : 10, 20, 30, 40
+
+select ename, sal, dname, loc, d.deptno
+from emp e, dept d
+where e.deptno=d.deptno;
+
+select ename, sal, dname, loc, d.deptno
+from emp e, dept d
+where e.deptno=d.deptno and sal between 1000 and 2000 ;
+
+eg 
+===================================
+----outer join 
+Q. which join we can expect the null values?
+ans : outer join 
+
+  left outer join 
+     will display the common records and the uncommon records from the left table 
+
+   emp : 10, 20, 30
+   dept : 10, 20, 30, 40
+   common : 10, 20, 30
+--eg  15 rec
+select ename , sal , dname , loc, d.deptno
+from dept d 
+ left outer join 
+emp e
+on (e.deptno=d.deptno);
+
+
+--eg  14
+select ename , sal , dname , loc, d.deptno
+from dept d 
+ right outer join 
+emp e
+on (e.deptno=d.deptno);
+
+-- full outer join 
+will display the common records  and uncommon records from both the table
+
+--does not work
+select ename , sal , dname , loc, d.deptno
+from dept d 
+ full outer join 
+emp e
+on (e.deptno=d.deptno);
+================================
+--self join 
+   joining the table with itself
+   there will be 2 copies created for the same table
+   there should be 2 cols which are related then only the self join can be perfomed
+  self join can not be performed on all the tables, 
+  it takes time to perform self join
+
+--eg display the name of the emp and his manager name 
+select a.ename , b.ename as mgr_name
+from emp a, emp b 
+where a.mgr=b.empno
+
+ename 	mgr_name
+smith   ford
+allen 	blake
+..
+..
+
+--eg display your name , sal, comm and manger's name , sal, comm 
+select a.ename , a.sal, b.ename as mgr_name , b.sal as mgr_sal
+from emp a, emp b 
+where a.mgr=b.empno
+
+==diff in self join and co related subquery
+in self join we can access all the columns from emp a and emp  b alias, 
+in  co related subquery we can access all the columns only from only emp a , and not from emp b
+
+
+--display the name of the emp, who are senior to their manager
+--err
+select a.ename , b.ename from emp a
+where a.hiredate < (select b.hiredate from emp b
+where a.mgr=b.empno);
+
+=============================
+--non equi join
+  we use any operators like < > >= <= != for the condition
+
+--display the pair of the employees doing the same job , but from different departments
+
+select a.ename , a.job, a.deptno,  b.ename , b.job, b.deptno
+from emp a, emp b
+where a.job=b.job and a.deptno != b.deptno
+order by a.ename;
+
+SMITH  | CLERK   20  james  clerk  30
+SMITH  | CLERK   20  MILLER | CLERK  10
+
+======================================
+--eg 
+active_emp 	--table
+retired_emp	--table
+
+
+active_emp    common    	retired_emp    
+ 120		30		  50
+
+1. display the details of emp whoes fnf process is not completed   : inner join 
+2. annual fun : call all emp :  full outer join 
+3.  display the details of emp whoes fnf process is not completed   and who are working for the company :
+ left outer join 
+4.  display the details of emp whoes fnf process is not completed   and who are retired : right outer join 
+
+---
+eg : unpaid_credit_card_holder
+    paid_credit_card_holder
+    common : emi converted to 
+
+----------
+===================
+--index 
+  sorting the records
+
+create index ename_id1 on emp(ename);
+
+--1
+emp table  : 14 rec
+smith
+allen
+ward
+jones
+..
+
+
+--2
+ename_id1.idx   --14rec
+adams  ................
+allen  ...........
+blake  ...........
+..
+..
+select * from emp where ename ='allen';
+
+table scan : will search record from the table
+index scan : will search record from the index file 
+===========
+------------------
+
+--ranking fuctions
+1 row_number()
+2 rank()
+3 dense_rank()
+
+--to clear the screen
+cl scr
+
+--1
+--eg display the ename and the rank on the sal col
+select ename ,sal, row_number() over(order by sal desc) rank
+from emp;
+   the number will continuous , even if the sal is same
+
+--2
+select ename ,sal, rank() over(order by sal desc) rank
+from emp;
+  will skip the rank if the sal is repeated
+
+--3
+select ename ,sal, dense_rank() over(order by sal desc) rank
+from emp;
+  will not skip the rank if the sal is repeated
+
+============
+DCL : grant , revoke
+grant : to give privilege
+revoke : to take back the privilge
+
+--to see the user name 
+show user;
+sys
+
+hr 			priti		user
+emp------------------>			table
+
+connect sys as sysdba
+pass : password
+
+
+--to create a user
+create user priti
+identified by priti
+account unlock;
+
+grant resource, connect to priti;
+
+connect hr
+pass : hr
+
+grant all on emp to priti;
+
+connect priti
+pass : priti
+
+select * from hr.emp;
+
+===============
+synonym
+   short name for the table / view
+
+create synonym e for emp;
+select * from e;
+
+--to drop
+drop synonym e;
+
+==========
+SQL 	: structured query lang
+
+PLSQL
+  procedural lang structured query lang
+
+features of PL/SQL
+1 declare variables
+2 create loops : while, simple , repeat until
+3 we can create sub programs :
+	1 stored procedure
+	2 functions
+	3 triggers
+4 we can use if conditions
+5 we can increase the performance of the query, reduces the n/w traffic
+6 exception handling (error handling) can be performed
+7 cursor can be created
+
+============
+
+--block
+    collection of dql and dml statements
+
+begin
+   insert...
+   update..
+   insert ...
+   delete
+   select
+   select
+   update
+ .7000
+ ..
+end;
+
+1 request will be generated-------
+
+
+@  : local variable
+@@ : globle variable
+
+--creating variables
+set @name='vedika';
+select @name;
+
+--mysql
+--create 3 variable , name , college , score 
+set @name='vedika';
+set @college='SIES';
+set @score=88;
+select @name;
+select @college;
+select @score;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

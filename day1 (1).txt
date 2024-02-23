@@ -1,0 +1,276 @@
+--day1
+-advance java 
+1 JDBC (java database connectivity)
+2 Servlet
+3 JSP (java server pages)
+
+---
+JDBC (java database connectivity)  --> java
+ODBC (open database connectivity) --> .net
+--
+Driver
+  allows to connect the java application with the database
+  using the drivers we can connect to any database 
+ for every database we have a different driver
+ 
+--what is Driver ?
+ it is a s/w allows the connectivity
+ using driver we can perform CRUD operations
+
+C  create
+R  retrieve (select)
+U  update
+D  delete 
+
+--types of drivers
+1 type1
+2 type2
+3 type3
+4 type4 --> fastest and used presently
+==========
+front end
+  accept the data 
+  eg : create a gmail account, post the image , admission form to fill 11th, 
+	admission form to engineer , fill the passport details 
+
+			 jdbc
+ gmail account ----------> database 
+fname , pass, 
+lname
+
+back end
+database : table 
+where the data is stored 
+======
+DriverManager class
+ allow to connect to the database
+
+
+--steps to connect
+1 Establish a connection
+2 create a Statement object
+3 create a ResultSet object
+4 Process the ResultSet
+5 close the connection
+
+=============
+--folder D:\JavaProject1
+package : jdbc
+
+---mysql
+show databases
+
+--to open database
+use lnt
+
+--to see all tables 
+show tables;
+
+drop table emp;
+
+create table emp(
+empno int,
+ename varchar(20),
+sal numeric(10,2));
+
+insert into emp values(1, 'pushpak', 40000);
+insert into emp values(2, 'priti', 45000);
+insert into emp values(3, 'om', 47000);
+insert into emp values(4, 'sahil', 48000);
+insert into emp values(5, 'bhatu', 49000);
+select * from emp;
+
+--download the driver
+google :download mysql driver for jdbc
+
+mysql-connector-java-8.0.25.jar
+
+--to add the driver in project
+rt project-- build path --conf build  path-- lib-- class path -- add external jar
+select the driver frim mysql
+
+or
+rt project--properties--- lib-- class path -- add external jar
+
+
+--to see the name of the driver
+google : driver name for mysql jdbc
+
+o/p:
+com.mysql.jdbc.Driver
+
+--note
+Class.forName("com.mysql.cj.jdbc.Driver");
+                         --------------------------------
+			  name of the driver
+
+forName()   is a method of a class Class in java 
+	it is used to load the driver in the memory
+
+--DriverManager.getConnection()
+   getConnection() IS A method of DirverManager class, returns the Connection object
+
+google : url for mysql jdbc
+o/p
+jdbc:mysql://localhost:3306/lnt , "root", "password"
+--------------   ------------ ------ ---    ------  ----------------
+     1     		   2         3        4
+
+1   	: type of the driver
+2 : localhost 	 : name of the server 
+3 : 3306   : port number
+4  lnt : name of the database 
+5 root : username 
+6 password : password
+
+if we use forName() , we need to raise an exception "ClassNotFoundException"
+
+public static void main(String[] args) throws Exception{
+		try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		//             ---------------------> name of the driver
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/lnt" ,"root","password");
+			System.out.println("Connection is successful");
+		}
+		catch( ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+	}
+	}
+}
+
+
+rs
+------+---------+----------+
+| empno | ename   | sal      |
++-------+---------+----------+
+--> |     1 | pushpak | 40000.00 |
+    2 | priti   | 45000.00 |
+|     3 | om      | 47000.00 |
+|     4 | sahil   | 48000.00 |
+|     5 | bhatu   | 49000.00 |
++-------+
+
+ResultSet rs=stmt.executeQuery("select * from emp");
+	     
+ResultSet rs=stmt.executeQuery("select * from emp where sal> 1000");
+	     
+
+--methods of  statement obj
+1. executeQuery()	--> select
+		
+2. executeUpdate()   ---> insert, update, delete , create
+  eg stmt.executeUpdate("create table emp (empno int, ename varchar(20), sal int");
+
+======
+--
+GetDept  --class
+
+dept
+deptno	dname   	loc
+10		acct		mum
+20		fin		pune
+30		admin	nashik
+40		operation	bang
+
+--retrieve the 
+insert 3 records
+
+================
+--methods of ResultSet obj
+1 rs.getInt()
+2 rs.getString()
+3 rs.getDouble()
+4 rs.getFloat()
+5 rs.getShort()
+6 rs.getByte()
+7 rs.getLong()
+8 rs.getDate()
+..
+
+--method of PreparedStatement(to accept the i/p from user)
+1 ps.setInt()
+2 ps.setString()
+3 ps.setdouble()
+4 ps.setFloat()
+5 ps.setBoolean()
+6 ps.setShort()
+7 ps.setLong()
+8 ps.setDate()
+..
+..
+
+
+
+
+
+DriverManager  class		: used to establish a connection
+
+Connection interface  :  establish a connection
+Statement interface  :  to create a statement obj
+ResultSet interface   : used to store the rows of the table 
+Callable  interface  :  to used execute the procedures in mysql
+PreparedStatement interface :  used for accept the vaules from the user at runtime 
+		?, ? ,? ---> called as placeholder 
+======================================
+DMLOperations  class 
+1 insert 
+2 update 
+3 delete
+=============
+PreparedStatementDemo
+
+===========
+layers
+1 entity
+	account --pojo-- const def, para const, getter setter, tostring
+        
+2 operations
+	AccountOperation : depositeAmt, withdrawAmt, transferAmount
+	
+3 userinterface
+	TestAccount--main()
+
+4 validation
+	AccountValidation--checkName(), checkAll()
+
+5 dao		
+	AccountDao
+
+===============
+--to import a project in the existing workspace
+file--import---general--existing project into workspace
+
+====
+java --------------> mysql
+				account
+
+create table account(
+accNo int,
+accHolderName varchar(20),
+accBal numeric(10,2));
+
+insert into account values(1, 'yatin', 20000);
+insert into account values(2, 'tia', 30000);
+insert into account values(3, 'ria', 40000);
+insert into account values(4, 'ram', 50000);
+insert into account values(5, 'pooja', 60000);
+
+select * from account;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

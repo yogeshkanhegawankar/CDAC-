@@ -1,0 +1,170 @@
+Spring
+	A framework used to handle various aspects of the application.
+
+	Spring provides support for:
+		1. Enterprise services
+		2. Data Access
+		3. MVC
+		4. REST
+
+Spring follows Component Driven Architecture.
+
+What is Component?
+	A component is a reusable piece of code.
+
+	E.g.
+	public class Employee {
+		//Some Code	
+	}
+
+	Employee emp = new Employee();
+	Employee emp2 = new Employee();
+
+	In the above fragment, component Employee is used twice.
+
+	public class HelloWorldServlet extends HttpServlet {
+		//doGet() or doPost() 
+
+	}
+
+	Component is of 2 types:
+		Unmanaged
+		Managed
+
+	When a component is instantiated explicitly using 'new' operator, it is 
+	called as an Unmanaged Component.
+	E.g. In the above fragment, 'Employee' is an Unmanaged Component.
+
+	When a component gets instantiated implicitly, it is called as Managed
+	Component.
+	E.g. In the above fragment, 'HelloWorldServlet' is a Managed Component.
+
+	It means, typically, in Java SE, components are unmanaged whereas
+	in Java EE, components are managed.
+
+	Generally, in Java SE, components are POJO but unmanaged and
+	in Java EE, components are Not POJO but managed.
+
+	POJO -> Plain Old Java Object
+			A component which is independent.
+
+Beans registered in configuration unit may have dependencies. When they are
+requested through Spring Framework, Spring has to inject values into those
+dependent properties.
+
+There are 2 ways to implement this:
+	1. Using Setter Methods
+	2. Using Parameterized Constructors
+
+	Using Setter Methods:
+	In this case, Spring injects values into the properties of the bean by calling
+	setter methods. Therefore this is known as Setter Injection.
+
+	Using Parameterized Constructors:
+	In this case, Spring injects values into the properties of the bean by calling
+	parameterized constructor. Therefore, this is known as Constructor Injection.
+
+	Ordering in Construction Injection:
+	In Constructor Injection, by default, the ordering takes place in following
+	manner:
+		Top to Bottom in XML ===>  Left to Right in Java
+	
+	In order to change this default setting, 'index' attribute has to be used.
+
+Dependency Injection:
+	One bean may have dependency on another bean or several beans.
+	When client requests for the bean which has dependencies, Spring has
+	to resolve those dependencies and inject them. This is called as 
+	Dependency Injection.
+
+	Dependency Injection (DI) is also known as Inversion of Control (IOC).
+	
+Spring's Configuration Unit:
+	In order to get the objects managed through Spring Framework, it is necessary to 
+	register them as BEANS in the Spring's Configuration Unit.
+	
+	There are 2 ways to provide this configuration unit:
+		1. Using XML
+		2. Using Annotations
+	
+	Although XML is an option available for a longer period, now-a-days, annotations are
+	preferred.
+	
+	They allow to configure the applications rapidly.
+	
+	Annotation Based Configuration has 2 variants:
+		1. Java Based Configuration
+		2. Pure Annotation Based Configuration
+		
+	Java Based Configuration:
+		In this, the configuration unit is defined using a Java Class.
+		Once the class is defined, it is to be declared as Spring's Configuration Unit.
+		This is done using '@Configuration' annotation. It is to be applied at the class level.
+		
+		Declaring Beans:
+			Once a configuration specific class is created, it can be used to register beans.
+			This is done by defining a method which returns an object of a class of which the
+			bean is to be registered.
+			E.g.
+				In order to register a bean of type 'HelloService', there has to be a method
+				defined which returns an object of class: HelloService
+				
+			Once a method is defined, it must be declared as a Bean Registration method to 
+			Spring.
+			This is done using '@Bean' annotation. It is to be applied at the method level.
+			
+			Once the bean is registered using @Bean, by default, it gets registered with an
+			ID which is the name of the method on which that annotation is applied.
+			
+			Loading the Beans:
+				Once the beans have been registered using '@Configuration' and '@Bean' 
+				annotations, they can be obtained using 'AnnotationConfigApplicationContext'.
+				
+				The configuration specific class (@Configuration annotated class) needs to be 
+				linked with AnnotationConfigApplicationContext.
+				
+				This is done using 'register()' method.
+				Once the registration is done by calling 'register()' method, changes are applied
+				only when the context is refreshed. This is done using 'refresh()' method.
+				
+			
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

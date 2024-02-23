@@ -1,0 +1,445 @@
+
+Name: Yogesh Kanhegawankar
+RollNo: 79
+Assignment2:
+
+1. using the scanner class accept two numbers from the user and display the total.
+-->
+package Assignment2;
+import java.util.Scanner;
+public class ScantwoNum {
+
+	public static void main(String[] args) {
+		int num1,num2;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter two numbers");
+		num1=sc.nextInt();
+		num2=sc.nextInt();
+		System.out.println("Total is:"+(num1+num2));
+
+	}
+}
+
+O/P :
+Enter two numbers
+5
+12
+Total is:17
+==================================================================================================================================================================
+
+2.accept 5 integer from the user using an array,display the total,the
+discount given is 10% on the total,calculate the final total and 
+display total bill.
+-->
+
+package Assignment2;
+import java.util.Scanner;
+public class ScantwoNum {
+
+	public static void main(String[] args) {
+		double arr[]=new double[5];
+		double iniTotal=0;
+		double finTotal;
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Array numbers");
+		for( int i=0;i<5;i++) {
+			arr[i]=sc.nextInt();
+			
+		}
+		System.out.println("The array numbers are");
+		for( int i=0;i<5;i++) {
+			System.out.println(arr[i]);
+			iniTotal=iniTotal+arr[i];
+		}
+
+		System.out.println("Before Discount Total is:"+iniTotal);
+		
+		finTotal=iniTotal*0.10;
+		System.out.println("After 10% DISCOUNT final Total is:"+finTotal);
+	}
+}
+
+
+O/P:
+
+Enter Array numbers
+11
+12
+13
+14
+15
+The array numbers are
+11.0
+12.0
+13.0
+14.0
+15.0
+Before Discount Total is:65.0
+After 10% DISCOUNT final Total is:6.5
+
+=================================================================================================================================================================
+3 create a class Numbers with 3 private variables,  numOne,  numTwo, result. 
+create a function accpetNumbers() to accept 2 numbers from the user. calculateTotal() method will calculate the total in result variable. displayTotal()
+method will display the result. 
+call these functions inside main method of the class  NumbersTest
+-->
+package assignment2;
+import java.util.Scanner;
+public class Numbers {
+	
+	private int numOne;
+	private int numTwo;
+	private int result;
+	Scanner sc =new Scanner(System.in);
+	
+	public void accepetNumbers(){
+		System.out.println("Enter first numbers :");
+		numOne=sc.nextInt();
+		System.out.println("Enter first numbers :");
+		numTwo	=sc.nextInt();
+	}
+	
+	public int calculateTotal(){
+		result=numOne+numTwo;
+		return result;
+	}
+	
+	public void displayTotal(){
+		System.out.println("Total is:"+result);
+	}
+}
+
+public class NumberTest {
+	public static void main(String a[]) {
+		Numbers number =new Numbers();
+		number.accepetNumbers();
+		number.calculateTotal();
+		number.displayTotal();
+	}
+}
+
+
+O/P:
+Enter first numbers :
+11
+Enter first numbers :
+11
+Total is:22
+==================================================================================================================================================================
+4. write a program to display your name , address, mobile number directly
+-->
+package assignment2;
+import java.util.Scanner;
+class GiveInfo{
+	private String name;
+	private String address;
+	private long MoNumber;
+	
+	public void accept() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Name");
+		name=sc.nextLine();
+		System.out.println("Enter Address");
+		address=sc.next();
+		System.out.println("Enter Mobile Number");
+		MoNumber=sc.nextLong();
+	}
+	
+	public void display() {
+		System.out.println("Name:"+name);
+		System.out.println("Address:"+address);
+		System.out.println("Name:"+MoNumber);
+	}
+}
+public class YourInfo {
+
+	public static void main(String[] args) {
+		System.out.println("Please Give Details:");
+		GiveInfo info=new GiveInfo();
+		info.accept();
+		System.out.println("The Details are:");
+		info.display();
+	}
+
+}
+
+
+O/P:
+Please Give Details:
+Enter Name
+Yogesh Kanhegawankar
+Enter Address
+SambhajiNagar(Aurangabad)
+Enter Mobile Number
+9604510485
+The Details are:
+Name:Yogesh Kanhegawankar
+Address:SambhajiNagar(Aurangabad)
+Name:9604510485
+==================================================================================================================================================================
+5. create a class called "Circle" with member variables:  radius, result 
+   member function : accept(), calculateArea(), displayArea()
+   accept the radius from the user and calculateArea will calculate area , displayArea will display the area.
+-->
+package assignment2;
+import java.util.Scanner;
+public class Circle {
+	private double radius;
+	private double result;
+	static final double  PI=3.14;
+	Scanner sc = new Scanner(System.in);
+	
+	public void accept() {
+		System.out.println("Enter Radius:");
+		radius=sc.nextDouble();
+	}
+	
+	public double calculateArea() {
+		result=PI* radius*radius;
+		return result;
+	}
+	
+	public void displayArea(){
+		System.out.println("Area of Circle is:"+result);
+	}
+}
+
+
+
+package assignment2;
+
+class TestCircle1{
+	public static void main(String args[]){
+	{
+		Circle circle=new Circle();
+		circle.accept();
+		circle.calculateArea();
+		circle.displayArea();
+	}
+}
+}
+
+O/P:
+Enter Radius:
+4
+Area of Circle is:50.24
+===================================================================================================================================================================
+6. accept the number from the user, using the switch case do the following
+if the choice is 1	: display  it is holiday
+if 2-6	: display it is a working day
+if 7 : display it is a funday
+-->
+package assignment2;
+import java.util.Scanner;
+public class SwitchCaseDay {
+
+	public static void main(String[] args) {
+		int choice;
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter choice:");
+		choice=sc.nextInt();
+		
+		switch(choice) {
+		case 1:
+			System.out.println("it is holiday");
+			break;
+			
+		case 2:
+			System.out.println(" it is a working day");
+			break;
+			
+		case 3:
+			System.out.println(" it is a working day");
+			break;
+			
+		case 4:
+			System.out.println(" it is a working day");
+			break;
+			
+		case 5:
+			System.out.println(" it is a working day");
+			break;
+			
+		case 6:
+			System.out.println(" it is a working day");
+			break;
+		case 7:
+			System.out.println(" it is a fun day");
+			break;
+		
+		default:
+			System.out.println("Please enter choice between 1 to 7");
+	}
+
+}
+}
+
+
+O/P :
+
+Enter choice:
+7
+ it is a fun day
+===================================================================================================================================================================
+7. accept a number from the user and display the factorial of a number
+-->
+package assignment2;
+
+import java.util.Scanner;
+
+public class Factorial {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int num,fact=1,i;
+		
+		System.out.println("Enter number:");
+		num=sc.nextInt();
+		
+		for(i=1;i<=num;i++) {
+			fact=fact*i;
+		}
+		
+		System.out.println("Factorial of "+fact);
+	}
+
+}
+
+O/P:
+Enter number:
+5
+Factorial of 120
+==================================================================================================================================================================
+8. accept a number and display the power 
+  eg if number accepted is 24 then display the result as 2 raise to 4
+  24%10=4
+  24/10=2
+ -->
+package assignment2;
+
+import java.util.Scanner;
+
+public class PowerOfNum {
+
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		int num;
+		System.out.println("Enter number:");
+		num=sc.nextInt();
+		int power=1,base,exponent;
+		exponent=num%10;
+		base=num/10;
+		
+		for(int i=1;i<=exponent;i++) {
+			power=power*base;
+		}
+		System.out.println("Power of "+num+" is "+power);
+	}
+	
+	}
+
+
+
+O/P:
+PowerOfNum.java
+==================================================================================================================================================================
+9. using a while loop
+accept 2 numbers from the user and display the even numbers between the two inputs.
+-->
+package Assignment2;
+
+import java.util.Scanner;
+
+public class EvenBetween2 {
+	public static void main(String a[]) {
+		int num1,num2;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter two numbers");
+		num1=sc.nextInt();
+		num2=sc.nextInt();
+		
+		while(num1<=num2) {
+			if(num1%2==0) {
+				System.out.println(num1);
+			}
+			num1++;
+		}
+		
+	}
+}
+
+Enter two numbers
+10
+30
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+==================================================================================================================================================================
+10. create the following structure using for loop
+
+*
+**
+***
+****
+*****
+-->
+package Assignment2;
+
+public class Pattern1 {
+
+	public static void main(String[] args) {
+		int row=5;
+		for(int i=1;i<row;i++)
+		{
+			for (int j=1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+O/P:
+
+*
+**
+***
+****
+
+==
+11.accept 7 integer array 
+and reverse the order and display
+-->public class ReverseArray{
+
+	public static void main(String [] args) {
+		int arr[]=new int [] {1,2,3,4,5,6,7};
+		System.out.println("Original Array:");
+		
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		System.out.println("Array in reverse order:");
+		for(int i=arr.length-1;i>=0;i--) {
+			System.out.print(arr[i]+" ");
+
+	}
+}
+}
+-----------------------------------------------------------
+O/P:
+Original Array:
+1 2 3 4 5 6 7
+Array in reverse order:
+7 6 5 4 3 2 1
+

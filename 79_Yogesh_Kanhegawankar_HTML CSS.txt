@@ -1,0 +1,2182 @@
+MET IIT CDAC-ATC Nashik
+Batch PGDAC SEP-2023
+Lab Assignments
+Date : 22-Nov-2023
+Module Name: Web Technology
+
+Due Date 26-Nov-2023
+
+HTML - CSS  - JavaScript
+---------------------------
+1) create a para , apply border solid , change the dimension to 100X100
+--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    p{
+        border:1px solid red;
+        width: 100px;
+        height:100px;
+    }
+    
+</style>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut reprehenderit architecto quasi, veritatis cumque explicabo inventore, dicta rerum earum ea id aperiam quas, nulla nisi ullam quaerat cum eaque tenetur et corrupti dolor temporibus. Labore placeat ut veritatis ea quasi eos fugiat error, rerum cumque, doloribus nam illum expedita veniam repellendus qui dicta. Quam fugiat dolores labore explicabo possimus, aliquam ratione minus quas quae harum fuga molestias eaque, dolorem nostrum! Odio eveniet odit facilis quod ex voluptates quibusdam officiis dignissimos ratione ab nihil soluta ipsam omnis mollitia, natus, exercitationem quasi architecto culpa sapiente eum, quis voluptatum temporibus vero reprehenderit? Quae!
+    </p>
+</body>
+</html>
+
+===================================================================================================================
+2) create a para , apply border dashed , on mouse over show background color: grey
+--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border:dashed;
+        }
+
+        p:hover{
+            background-color: grey;;
+        }
+    </style>
+
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quaerat quidem quibusdam quasi, quod, quibusdam quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat qu
+    </p>
+</body>
+</html>
+===================================================================================================================
+3) create a para & bold tag , apply background color to both .
+( note down the diff. between para & bold . which one block element  & inline element?? )
+--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p{
+        background-color: green;
+    }
+
+    b{
+        background-color: rgb(79, 128, 0);
+    }
+</style>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quaerat quidem quibusdam quasi, quod, quibusdam quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat quaerat qu
+    </p>
+    <b>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quasi doloribus, atque assumenda tenetur nam perspiciatis earum culpa! Id doloremque iure necessitatibus consequuntur a, laboriosam totam itaque ducimus ipsa iste quibusdam? Omnis, accusamus mollitia aperiam obcaecati maxime itaque sunt non velit, iure, quos architecto quae incidunt cumque ratione est? Labore!
+    </b>
+</body>
+</html>
+Diff. between para and bold element.
+p(para) tag is block element because itr takes full width.
+b(bold) tag is inline element because it takes only sufficient required  width.
+
+4) create a h1 tag apply font size 40px , with background any color & change its font to arial
+--->
+<html>
+
+<body>
+    <h1>hello everyone</h1>
+</body>
+
+</html>
+<style>
+    h1 {
+        font-size: 40px;
+        background-color: blue;
+        color: white;
+        font-family: arial;
+    }
+</style>
+
+===================================================================================================================
+5) create underline tag and remove its underline using css property
+--->
+<html>
+
+<body>
+    <u>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quisquam maxime aut adipisci?</u>
+</body>
+
+</html>
+<style>
+    u {
+        text-decoration-line: none;
+    }
+</style>
+
+===================================================================================================================
+6) create a para with dummy text & align its content with 4 diff. values 
+(left,center,justify,right : see the result one by one on browser)
+--->
+<html>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nihil aperiam, soluta labore explicabo enim quia
+        consequuntur est magnam alias. Perspiciatis odit quibusdam laborum necessitatibus neque sed architecto itaque
+        veritatis.</p>
+</body>
+
+</html>
+<style>
+    p {
+        text-align: left;
+        text-align-last: center;
+        text-align-last: justify;
+        text-align-last: right;
+    }
+</style>
+
+===================================================================================================================
+7) create a para with dummy text & apply indent property with 100px value & see the result on browser
+--->
+<html>
+
+<body>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat architecto veritatis deserunt fugit, blanditiis
+        quam repudiandae quibusdam, quia eaque nobis magni voluptatibus recusandae laboriosam excepturi! Inventore
+        nostrum dolores praesentium accusantium!</p>
+</body>
+
+</html>
+<style>
+    p {
+        text-indent: 100px;
+    }
+</style>
+
+===================================================================================================================
+8) create a para with dummy text & apply decoration property with ( underline,overline,line-through & none) . see the result 
+--->
+<html>
+
+<body>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim necessitatibus aliquam voluptates! Enim autem
+        nobis beatae tenetur voluptate dolores non dolor animi, amet nesciunt cum, atque aperiam culpa deleniti ab.</p>
+</body>
+
+</html>
+
+<style>
+    p {
+        text-decoration: underline;
+        text-decoration: overline;
+        text-decoration: line-through;
+        text-decoration: none;
+    }
+</style>
+
+===================================================================================================================
+9) create an anchor tag , change its color to red & remove its underline.
+apply title tag , href with google page link
+--->
+<html>
+
+<body>
+    <a href="https://www.google.com" style="color: red; text-decoration: none;">Press me</a>
+    <title>search</title>
+</body>
+
+</html>
+
+===================================================================================================================
+10) show any image on browser with dimension 200X200 . apply border radius with 10px. on mouse over show image in circle format (i.e 50% border radius)
+--->
+<html>
+
+<body>
+    <img src="https://e0.pxfuel.com/wallpapers/793/711/desktop-wallpaper-johnny-sins-doctor-teacher-plumber-deliveryman-preacher-johnny-bhaiya-dentist-yoga-businessman-everything-astronaut-firefighter-cop-army-culprit-johnny-sins.jpg"
+        alt="xyz">
+
+</body>
+
+</html>
+<style>
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    img:hover {
+        background-color: grey;
+        border-radius: 50%;
+    }
+</style>
+
+===================================================================================================================
+11) create a para with dummy text , apply line-height double , word space with 20px & letter space with 5px.
+--->
+<html>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt libero porro sunt accusantium voluptatum esse
+        animi, molestiae quod necessitatibus cumque provident vitae inventore quibusdam beatae consectetur, maxime
+        numquam! Voluptatibus, ex.</p>
+</body>
+
+</html>
+
+<style>
+    p {
+        line-height: 2em;
+        word-spacing: 20px;
+        letter-spacing: 5px;
+    }
+</style>
+
+===================================================================================================================
+12) create a para with dummy text , use google font and apply any google font on para as per your choice
+--->
+<html>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis culpa temporibus amet nobis, maxime dolorum,
+        autem perspiciatis laboriosam, odio eaque repudiandae alias saepe ipsa expedita fuga nam repellat obcaecati
+        quam.</p>
+</body>
+
+</html>
+
+<style>
+    p {
+        font-family: 'Times New Roman', Times, serif;
+    }
+</style>
+
+===================================================================================================================
+13) create a para & div  with dummy text, identify the diff. between para & div ( & when to use para ,div ? ) , with justification.
+--->
+<html>
+
+<body>
+    <!-- <p> tag represents a paragraph of text, that's it. It's a block element and not an inline element. -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.</p>
+    <!-- div tag is used as a container of other elements -->
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.</div>
+</body>
+
+</html>
+
+===================================================================================================================
+14) show city name data in unordered format
+--->
+<html>
+
+<body>
+    <ul>
+        <li>Mumbai</li>
+        <li>Bangalore</li>
+        <li>solapur</li>
+    </ul>
+</body>
+
+</html>
+-----------------------------------------------------------------------------------------------
+15) show city name data in order format
+
+<html>
+
+<body>
+    <ol>
+        <li>Mumbai</li>
+        <li>Bangalore</li>
+        <li>solapur</li>
+    </ol>
+</body>
+
+</html>
+
+===================================================================================================================
+15) show city name data in order format
+--->
+
+
+===================================================================================================================
+16) create a menu (horizontal menu) with the help of (ul li or ol li ).
+use float or display property
+--->
+<html>
+
+<body>
+    <ul>
+        <li>Mumbai</li>
+        <li>Bangalore</li>
+        <li>solapur</li>
+    </ul>
+</body>
+
+</html>
+<style>
+    li {
+        display: inline;
+        padding: 10px;
+    }
+</style>
+
+===================================================================================================================
+17) create a para with dummy content . apply background color  
+(
+	RGB format , with some value
+	hexadecimal format (6 digit) , with some value
+	hexadecimal format (3 digit) , with some value
+) 
+--->
+<html>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+</body>
+
+</html>
+<style>
+    p {
+        background-color: rgb(105, 50, 50);
+        background-color: #ffa500;
+        background-color: #f00;
+    }
+</style>
+
+
+===================================================================================================================
+18) create a para with dummy content . apply background color with ( rgba() concept . what is the use of [a] in rgba. )
+--->
+<html>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+</body>
+
+</html>
+<style>
+    p {
+        background-color: rgba(105, 50, 50, 0.5);
+        /* (RGBA->Red-Green-Blue-Alpha)
+      The RGB color model is extended in this specification to include “alpha” to allow specification of the opacity of a color. */
+    }
+</style>
+
+===================================================================================================================
+19) create a div ( 100X100 dimension ). shift the div 300px from left side , 200px from top.
+--->
+<html>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>
+</body>
+
+</html>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 300px;
+        top: 200px;
+    }
+</style>
+
+===================================================================================================================
+20) create a div ( 1200X600 dimension ). align the same div in center of the page .( after zoom in , zoom out div must get aligned in center area) 
+--->
+<html>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>
+</body>
+
+</html>
+
+<style>
+    div {
+        border: solid;
+        width: 1200px;
+        height: 600px;
+        text-align: center;
+    }
+</style> 
+
+===================================================================================================================
+21) create a div ( 100X100 dimension ). apply background color grey using inline css only.
+--->
+<html>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>
+</body>
+
+</html>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+    }
+</style>
+
+===================================================================================================================
+22) create a div ( 100X100 dimension ). apply background color grey using inline css. override inline css background color with the help internal css ( hint: use !important keyword)
+--->
+<html>
+
+<body>
+    <div style="background-color: aqua;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>
+</body>
+
+</html>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: yellow !important;
+    }
+</style>
+
+===================================================================================================================
+23) apply color red to first letter of the given string in h1 tag
+[
+	input : hello world
+]
+--->
+<html>
+
+<body>
+    <h1 style="color: red;">Hello world</h1>
+</body>
+
+</html>
+<style>
+    h1::first-letter {
+        color: rgb(255, 255, 0);
+    }
+</style>
+
+===================================================================================================================
+24) apply background color grey to first line of the given string in p tag
+--->
+<html>
+
+<body>
+    <p style="background-color: grey;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, vel incidunt modi
+        molestiae fugit veniam minima! Odit, suscipit animi eaque doloribus, accusamus quod voluptatum, accusantium
+        delectus nisi sed totam architecto.agdwabda awdnawdja akwdnadnawdas lawdla alwdlamwd awdjad aiwdiaw awdaidw
+        aiwdoand lmbmb dlmbod</p>
+</body>
+
+</html>
+
+<style>
+    p::first-line {
+        background-color: rgb(255, 255, 0);
+    }
+</style>
+
+===================================================================================================================
+25) generate ul li tag with city name & apply background color grey to first & last li 
+[note: use filter in css ]
+--->
+<html>
+
+<body>
+    <ul>
+        <li>Mumbai</li>
+        <li>Bangalore</li>
+        <li>solapur</li>
+    </ul>
+</body>
+
+</html>
+
+<style>
+    ul li:first-child {
+        background-color: rgb(255, 255, 0);
+    }
+
+    ul li:last-child {
+        background-color: rgb(21, 0, 255);
+    }
+</style>
+
+===================================================================================================================
+26) create 3 div with dummy content . apply different background color to individual div with the help of class attribute
+--->
+<html>
+
+<body>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatum repellat quia debitis accusamus
+        corporis totam nesciunt doloremque assumenda officia mollitia, ea laudantium eaque tenetur rerum quam possimus
+        libero facilis!</div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, totam! Vitae, illum aliquid fugiat non autem
+        provident recusandae molestiae ut quam esse eius nihil et illo tenetur magnam saepe explicabo!
+    </div>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod architecto harum placeat blanditiis consectetur,
+        qui doloremque quam eligendi nihil, voluptates illum rem eveniet nam necessitatibus possimus laudantium hic
+        soluta repudiandae.</div>
+</body>
+
+</html>
+
+<style>
+    div:nth-child(1) {
+        background-color: rgb(255, 0, 0);
+    }
+
+    div:nth-child(2) {
+        background-color: rgb(0, 255, 0);
+    }
+
+    div:nth-child(3) {
+        background-color: rgb(0, 0, 255);
+    }
+</style>
+
+===================================================================================================================
+27) create 3 div with dummy content . apply different font size to individual div with the help of id attribute
+--->
+<html>
+
+<body>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore reprehenderit qui, explicabo nesciunt eveniet
+        repudiandae iusto sequi doloremque modi at expedita vero deleniti unde provident suscipit voluptate natus itaque
+        dolor!</div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, dignissimos numquam laborum accusamus quia
+        molestiae dolorem sit, minus harum voluptatem itaque omnis porro rem nobis amet assumenda ullam debitis quis.
+    </div>
+    <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos optio eaque quas laudantium id. Dolore impedit
+        perspiciatis blanditiis laudantium numquam qui commodi quia dolorem asperiores, atque odit aliquam molestiae
+        nostrum.
+    </div>
+</body>
+
+</html>
+
+<style>
+    div:nth-child(1) {
+        font-size: 20px;
+    }
+
+    div:nth-child(2) {
+        font-size: 30px;
+    }
+
+    div:nth-child(3) {
+        font-size: 40px;
+    }
+</style>
+
+===================================================================================================================
+28) create an example to show the advantage of class over id
+--->
+<html>
+
+<body>
+    <div>
+        <p class="x1 x2 x3">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat fugiat corporis officia ex
+            assumenda facere
+            maiores suscipit cupiditate impedit nobis, enim similique, sapiente molestiae odio eligendi necessitatibus
+            harum
+            at soluta?
+        </p>
+        <p id="y1 y2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis saepe quod facere sunt
+            delectus
+            neque hic sit ad ipsum dolor. Nam tenetur ratione, sapiente eveniet minus dignissimos eos. Corrupti,
+            aperiam.
+        </p>
+    </div>
+
+</body>
+
+</html>
+<!-- A Class name can be used by multiple HTML elements, while an ID name must only be used by one HTML element within the page.A Class name can be used by multiple HTML elements, while an ID name must only be used by one HTML element within the page. -->
+<style>
+    .x1 {
+        background-color: aqua;
+    }
+
+    .x2 {
+        border: solid;
+    }
+
+    .x3 {
+        font-size: large;
+    }
+
+    #y1 {
+        background-color: red;
+    }
+
+    #y2 {
+        border: solid;
+    }
+</style>
+
+
+===================================================================================================================
+29) create a para with dummy content , apply border color,style & width to bottom section of para. ( use individual property for color,style & width)
+--->
+<html>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto eveniet harum commodi temporibus autem nostrum
+        ab magnam quas laboriosam distinctio, ex dolores maiores veniam quia debitis aspernatur eaque nihil
+        necessitatibus.</p>
+</body>
+
+</html>
+
+<style>
+    p {
+        border-color: rgb(255, 0, 0);
+    }
+
+    p {
+        border-style: solid;
+    }
+
+    p {
+        border-width: 5px;
+    }
+</style>
+
+===================================================================================================================
+30)  How to defines the border radius property to bottom-left corner of para.please write down the code in css
+--->
+
+<html>
+
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid officiis quaerat eveniet. Voluptatum, facere
+        distinctio cupiditate animi odio velit error at rem debitis nulla fugit ea sed architecto magni illum.</p>
+</body>
+
+</html>
+<style>
+    p {
+        border: solid;
+        border-bottom-left-radius: 50px;
+        padding-left: 10px;
+    }
+</style>
+
+===================================================================================================================
+31) generate a para ( dimension 100X100 ) with content . shift content of the paragraph from left & top ( use padding property )
+--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, facere.</p>
+</body>
+
+</html>
+<style>
+    p {
+        width: 100px;
+        height: 100px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+</style>
+
+===================================================================================================================
+32) generate a para ( dimension 100X100 ). apply 4 diff. border style, 4 diff. border color & 4 diff. border width
+--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+</body>
+
+</html>
+
+<style>
+    p {
+        border-style: dashed;
+        width: 100px;
+        height: 100px;
+        border-color: brown;
+        border-width: 5px;
+
+    }
+
+    p {
+        border-style: dotted;
+        width: 100px;
+        height: 100px;
+        border-color: blue;
+        border-width: 5px;
+    }
+
+    p {
+        border-style: double;
+        width: 100px;
+        height: 100px;
+        border-color: yellow;
+        border-width: 5px;
+
+    }
+
+    p {
+        border-style: ridge;
+        width: 100px;
+        height: 100px;
+        border-color: red;
+        border-width: 5px;
+    }
+</style>	
+
+===================================================================================================================
+33) How to set the color:blue of the left border ( for paragraph )
+--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, nesciunt!</p>
+</body>
+
+</html>
+<style>
+    p {
+        border: solid;
+        border-left-color: yellow;
+    }
+</style>
+
+
+===================================================================================================================
+34) How to set the style:dashed of the left border ( for paragraph )
+--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quo?</p>
+</body>
+
+</html>
+<style>
+    p {
+        border: solid;
+        border-left: dashed;
+    }
+</style>
+
+===================================================================================================================
+35) How to set the width:medium of the left border ( for paragraph )
+--->
+<html>
+
+<body>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.
+    </p>
+</body>
+
+</html>
+
+<style>
+    p {
+        border: solid;
+        border-left-width: medium;
+    }
+</style>
+===================================================================================================================
+36) create a para with dummy content , set text with lowercase , uppercase & capitalize format ( see the result on browser one by one )
+--->
+<html>
+
+<body>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.
+    </p>
+</body>
+
+</html>
+
+<style>
+    p {
+        text-transform: lowercase;
+        text-transform: uppercase;
+        text-transform: capitalize;
+    }
+</style>
+
+===================================================================================================================
+37) create a para with dummy content , hown to set different font weight for the paragraphs? ( use online help for font weight values )
+--->
+<html>
+
+<body>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.
+    </p>
+</body>
+
+</html>
+
+<style>
+    p {
+        font-weight: bold;
+        font-weight: bolder;
+        font-weight: 900;
+    }
+</style>
+
+===================================================================================================================
+38) create a para with dummy content , apply font size in em (i.e 2em , 1.5em ,... ). note down the relation between em and px
+--->
+<html>
+
+<body>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.
+    </p>
+</body>
+
+</html>
+
+<style>
+    p {
+        font-size: 2em;
+        font-size: 1.5em;
+        font-size: 1em;
+        font-size: 0.5em;
+    }
+</style>
+
+===================================================================================================================
+39) create a para with dummy content . set the padding of a paragraph element from all side with value 20px.
+--->
+
+<html>
+
+<body>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.
+    </p>
+</body>
+
+</html>
+
+<style>
+    p {
+        padding: 20px;
+    }
+</style>
+===================================================================================================================
+40) create a para with dummy content .set the padding of a paragraph element from top & bottom only with value 20px
+--->
+<html>
+
+<body>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.
+    </p>
+</body>
+
+</html>
+
+<style>
+    p {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+</style>
+
+===================================================================================================================
+41) create a para with dummy content .set the padding of a paragraph element from right & left only with value 20px
+--->
+
+
+===================================================================================================================
+41) create a para with dummy content .set the padding of a paragraph element having top 20px , right-left 40px , bottom 40px
+--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            padding-left:20px ;
+            padding-right: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur, delectus. Tenetur rem laborum officiis reiciendis? Eius maxime velit eveniet fugit, vel pariatur odit voluptates quo aliquam officia facere debitis aliquid!
+    </p>
+</body>
+</html>
+
+===================================================================================================================
+42) create a para with dummy content .set the padding of a paragraph element having top 20px , right 40px , bottom 60px , left 10px
+--->
+<!-- 41) create a para with dummy content .set the padding of a paragraph element having top 20px , right-left 40px , bottom 40px -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        p{
+            padding-left:40px ;
+            padding-right: 40px;
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, et! Eaque amet alias voluptatem nostrum cum similique. Ipsa commodi maiores sed rerum fuga sunt placeat at, praesentium distinctio accusantium unde voluptatum error, iure nostrum amet optio accusamus minus pariatur? Excepturi mollitia, ratione sit nam dolorem enim modi, quis vel officiis atque dicta provident! Debitis veniam quis nemo placeat ipsa totam excepturi iste explicabo odit? Fugiat ea quas natus voluptatum accusantium distinctio animi vero ex, quia, cupiditate debitis inventore accusamus voluptatem reprehenderit fugit quod doloribus, eius ab. Delectus aut odio est nesciunt unde, accusantium pariatur aspernatur ab perferendis ea cum obcaecati!</p>
+</body>
+</html>
+
+===================================================================================================================
+43)  How to specify the space between words in paragraph element? use para with dummy content.
+--->
+<!-- 42) create a para with dummy content .set the padding of a paragraph element having top 20px , right 40px , bottom 60px , left 10px
+ -->
+<!-- 41) create a para with dummy content .set the padding of a paragraph element having top 20px , right-left 40px , bottom 40px -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        p{
+            padding-left:40px ;
+            padding-right: 40px;
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, et! Eaque amet alias voluptatem nostrum cum similique. Ipsa commodi maiores sed rerum fuga sunt placeat at, praesentium distinctio accusantium unde voluptatum error, iure nostrum amet optio accusamus minus pariatur? Excepturi mollitia, ratione sit nam dolorem enim modi, quis vel officiis atque dicta provident! Debitis veniam quis nemo placeat ipsa totam excepturi iste explicabo odit? Fugiat ea quas natus voluptatum accusantium distinctio animi vero ex, quia, cupiditate debitis inventore accusamus voluptatem reprehenderit fugit quod doloribus, eius ab. Delectus aut odio est nesciunt unde, accusantium pariatur aspernatur ab perferendis ea cum obcaecati!</p>
+</body>
+</html>
+
+===================================================================================================================
+43)  How to specify the space between letter in paragraph element? use para with dummy content.
+--->
+<!-- 42) create a para with dummy content .set the padding of a paragraph element having top 20px , right 40px , bottom 60px , left 10px
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        p{
+            padding-top: 20px;
+            padding-bottom: 60px;
+            padding-right:40px;
+            padding-left: 10px;
+        }
+    </style>
+ </head>
+ <body>
+    <p></p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis error unde laboriosam aut ut assumenda natus adipisci incidunt laudantium eum in minima, possimus vel quis illum est accusamus totam! Sunt, recusandae accusamus ea animi amet illo aperiam, hic nihil, officia maiores quis? Ea et aliquam a, beatae vero dolor quasi numquam soluta maxime veritatis laudantium facilis atque nisi qui enim, illum sunt totam eum laboriosam culpa molestiae pariatur aliquid tempore. Labore illum corrupti, commodi doloribus quidem quos est voluptates nesciunt consequuntur iure asperiores praesentium nihil molestiae neque, natus minima, totam sint facere necessitatibus? Ullam quos id quae, illum facere reiciendis!
+</p>
+ 
+ </body>
+ </html>
+
+===================================================================================================================
+44)  How to specify the space between lines in paragraph element? use para with dummy content.
+--->
+<!-- 44)  How to specify the space between words in paragraph element? use para with dummy content. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+           word-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis delectus et eos, magnam iste reiciendis similique est nobis laboriosam aspernatur. Voluptas, aut accusantium nisi, dolorum dignissimos veritatis ad expedita, corrupti voluptatum facilis hic quasi? Illo pariatur fugit fugiat quas eaque laudantium adipisci magni recusandae facere quae, eligendi reiciendis eos tempora! Veniam sint nulla reprehenderit ratione cum, laboriosam explicabo nesciunt obcaecati magni ipsum, sapiente voluptas maxime laborum odio distinctio? Soluta molestiae aspernatur, eos nulla nobis quasi voluptatum aliquam, quibusdam ipsa nemo vitae mollitia? Illo placeat itaque, neque cupiditate praesentium repellendus voluptatum suscipit porro qui asperiores id, temporibus iste numquam, ullam a!</p>
+</body>
+</html>
+
+===================================================================================================================
+45) How to set the maximum width of a paragraph element?
+--->
+<!-- 45)  How to specify the space between letter in paragraph element? use para with dummy content. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur quasi minus, aliquam cupiditate similique voluptatem doloremque dignissimos assumenda. Accusantium doloribus eligendi a soluta voluptatibus obcaecati vero numquam saepe totam? Perspiciatis iste, corporis, commodi dolore enim alias est unde, laborum atque laudantium sapiente quia nostrum. Eligendi earum atque minima, amet sunt error ad eius quidem animi odio quo fugit sequi itaque perferendis sint tenetur nulla? Itaque minima similique, sunt impedit dolore quam quidem? Eum est at doloremque repellendus reiciendis et culpa tempore quisquam ullam perspiciatis, nihil sunt tenetur nisi odit! Et deleniti provident esse facere molestiae unde dicta mollitia at earum.</p>
+</body>
+</html>
+
+===================================================================================================================
+46) How to set the minimum width of a paragraph element?
+--->
+<!-- 
+    46)  How to specify the space between lines in paragraph element? use para with dummy content.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et adipisci id ipsam ducimus, saepe commodi. Voluptatem illum quaerat deserunt facere commodi quam eum voluptatum praesentium magni itaque iure fugit ea dolore, id ad quibusdam officiis suscipit sit, impedit minima nam soluta beatae laboriosam. Animi cumque adipisci maxime tempore dicta? Officia tempora quaerat, eum libero excepturi praesentium cupiditate modi veniam minima amet voluptatum dicta id inventore reiciendis totam rerum. Labore voluptates cum quaerat quisquam nesciunt accusamus! Iure laboriosam corporis possimus architecto porro officia eum sit ullam natus id sequi autem itaque commodi ex unde cum, ipsam dignissimos consequuntur quisquam mollitia ab!
+    </p>
+</body>
+</html>
+===================================================================================================================
+47) write down a code to show the diff. between height , min-height & max-height . use 3 diff. div with border or background color
+--->
+<!-- How to set the maximum width of a paragraph element? -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  p {
+        border: 1px solid;
+        max-width: 50%;
+    }
+</style>
+
+<body>
+
+    
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, harum sit? Laboriosam, culpa doloremque
+            autem architecto hic exercitationem eligendi sit non eos! Quis facilis quo ad inventore excepturi voluptate!
+            Eligendi hic, sequi corporis commodi fugit cumque, ab labore iusto praesentium dolor ullam non animi,
+            ratione voluptate eos officia. Placeat quae doloribus consequatur architecto ipsum doloremque ea. Vero
+            suscipit, maxime eum nisi distinctio cupiditate! Porro eligendi deserunt rem ab, expedita voluptatem facilis
+            reprehenderit voluptates ducimus neque natus provident accusantium pariatur exercitationem libero eum quis
+            sapiente nisi minus deleniti praesentium magnam. In aperiam voluptatem inventore saepe repellendus est ab
+            eaque aliquam dicta?
+        </p>
+
+</body>
+
+</html>
+
+===================================================================================================================
+48) generate ul li with city name. & set the different type list style.
+--->
+<!-- How to set the minimum width of a paragraph element? -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     p {
+        border: 1px solid;
+        min-width: 150px;
+    }
+</style>
+
+<body>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, harum sit? Laboriosam, culpa doloremque
+            autem architecto hic exercitationem eligendi sit non eos! Quis facilis quo ad inventore excepturi voluptate!
+            Eligendi hic, sequi corporis commodi fugit cumque, ab labore iusto praesentium dolor ullam non animi,
+            ratione voluptate eos officia. Placeat quae doloribus consequatur architecto ipsum doloremque ea. Vero
+            suscipit, maxime eum nisi distinctio cupiditate! Porro eligendi deserunt rem ab, expedita voluptatem facilis
+            reprehenderit voluptates ducimus neque natus provident accusantium pariatur exercitationem libero eum quis
+            sapiente nisi minus deleniti praesentium magnam. In aperiam voluptatem inventore saepe repellendus est ab
+            eaque aliquam dicta?
+        </p>
+   
+
+</body>
+
+</html>
+
+===================================================================================================================
+49) creat a para with dummy content , How to set a paragraph to a small-caps font?
+--->
+<!-- write down a code to show the diff. between height , min-height & max-height . use 3 diff. div with border or background color -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+
+<style>
+    .one{
+        border: 1px solid red;
+        height: 50px;
+    }
+
+    .two{
+        border: 1px solid rgb(25, 0, 255);
+        min-height: 25px;
+    }
+
+    .three{
+        border: 1px solid rgb(13, 255, 0);
+        max-height: 100px;
+    }
+</style>
+
+<body>
+    <div class="one">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo atque aspernatur quam explicabo totam at non eaque culpa nobis eum neque vel necessitatibus doloribus voluptatum pariatur fugit, delectus illo iste velit sit repellendus modi! Corporis, animi! Deleniti accusantium harum incidunt vero voluptas magni voluptatibus veniam minima, nihil quasi, doloremque totam maxime pariatur. Sed voluptatum repellat officia laborum dolores. Exercitationem eos tempore, magnam repellat quia harum animi. Quae distinctio incidunt vero, placeat expedita vel recusandae libero voluptatum illo. Adipisci sapiente deserunt omnis porro aliquam quia cum nesciunt? Eos quo neque delectus aspernatur, quaerat voluptatem placeat mollitia? Alias cum non nesciunt aliquam!
+    </div>
+    <hr>
+    <br>
+    <div class="two">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi dicta, ea consequuntur rerum iure hic? Dolorem autem beatae deserunt minima aut labore dignissimos facere deleniti suscipit quaerat, mollitia accusamus quidem culpa quis. Laudantium asperiores consequuntur corrupti minus quia accusantium adipisci obcaecati. Repellendus maiores sapiente, nam delectus, necessitatibus repudiandae cumque velit mollitia odit a sequi beatae harum quos rerum repellat! Libero ea at facere soluta, vitae est, possimus harum asperiores culpa necessitatibus repellat nihil eum minus maxime consectetur laborum natus expedita porro voluptas laudantium doloremque? Tempora quisquam eos nulla! Quisquam provident quibusdam quas nobis beatae voluptatibus, veniam dignissimos quae obcaecati iusto!
+    </div>
+    <hr>
+    <br>
+    <div class="three">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores sequi consequatur explicabo animi nisi adipisci quidem laborum numquam esse. Quidem doloribus est obcaecati consequuntur voluptatem iure asperiores doloremque repudiandae sint saepe non, natus odio itaque ipsum aliquid sapiente, numquam nemo culpa alias impedit. Aliquam iste eum alias! Vero libero doloremque rem doloribus nulla obcaecati numquam beatae earum inventore animi sunt, quisquam non in velit saepe dolorum iste? Expedita corrupti cum ab nesciunt ipsa explicabo laboriosam eveniet non illo, recusandae adipisci natus distinctio accusamus quia labore, et quas excepturi? Atque odio aut expedita dignissimos quis, labore aliquam voluptates dicta at est!
+    </div>
+</body>
+</html>
+
+===================================================================================================================
+50) create a div with dummy content , How to specify all the border properties in one declaration? (i.e. short hand property )
+--->
+<!-- generate ul li with city name. & set the different type list style. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    ul.a{
+        list-style-type: circle;
+    }
+
+    ul.b{
+        list-style-type: square;
+    }
+
+    ul.c {
+        list-style: armenian;
+    }
+
+    ul.d{
+        list-style-type: symbols($);
+    }
+</style>
+<body>
+    <h4>circle</h4>
+    <ul class="a">
+        <li>Mumbai</li>
+        <li>Nagpur</li>
+        <li>SambhajiNagar</li>
+        <li>Jalgaon</li>
+    </ul>
+<br>
+
+    <h4>square</h4>
+    <ul class="b">
+        <li>Mumbai</li>
+        <li>Nagpur</li>
+        <li>SambhajiNagar</li>
+        <li>Jalgaon</li>
+    </ul>
+<br>
+    <h4>armenian</h4>
+    <ul class="c">
+        <li>Mumbai</li>
+        <li>Nagpur</li>
+        <li>SambhajiNagar</li>
+        <li>Jalgaon</li>
+    </ul>
+<br>
+<h4>symbols</h4>
+    <ul class="d">
+        <li>Mumbai</li>
+        <li>Nagpur</li>
+        <li>SambhajiNagar</li>
+        <li>Jalgaon</li>
+    </ul>
+</body>
+</html>
+
+===================================================================================================================
+
+51) create a div with dummy content , having width : 1000px , align the same div in center of the screen (hint: use margin)
+--->
+<!-- creat a para with dummy content , How to set a paragraph to a small-caps font? -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    p{
+        font-variant:small-caps;
+    }
+</style>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis possimus, corrupti fuga cupiditate nam recusandae tempore? Incidunt officiis veniam dolores, aliquam beatae quo nesciunt obcaecati, molestias hic, ex dicta rem error eaque cum ut expedita repellendus necessitatibus optio. Repudiandae placeat atque vero facilis quasi nihil voluptate nobis, suscipit error repellendus quibusdam odit mollitia unde rerum, tempora fugiat corporis eveniet soluta? Quasi quia ad magni placeat mollitia voluptate modi perspiciatis totam? Nam ab doloribus vitae molestiae sapiente illum ut iure nesciunt fugiat veritatis aut error qui, officiis esse magni rem eos tempore! Doloribus laboriosam deserunt quibusdam! Ullam incidunt explicabo eligendi tempore!
+    </p>
+</body>
+</html>
+
+===================================================================================================================
+52) create a div (having width:100px , height:100px ). apply padding from all side with 40px value. (use individual property for padding or shorthand property)
+--->
+<!-- create a div with dummy content , How to specify all the border properties in one declaration? (i.e. short hand property ) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border:5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex dolorem, aspernatur quos vitae neque possimus nam. Dolore fugit ea, debitis deserunt id, dicta vitae illum, corrupti consectetur necessitatibus earum nihil provident facilis! Nemo aliquam sed nisi iure earum dolor dolore illum repudiandae ex ducimus quibusdam reprehenderit, aliquid labore optio, pariatur voluptatem dolorem recusandae qui itaque fugit illo. Quos at error voluptates provident odio. Ipsa facere animi quam fugit iste doloribus sed ut illum, accusamus quae cumque est aspernatur quos ab porro provident laborum magnam mollitia. Excepturi aliquam non consequuntur autem natus. Id temporibus expedita quod dolore exercitationem accusantium possimus culpa.
+    </div>
+</body>
+</html>
+
+===================================================================================================================
+53) create a div (having width:100px , height:100px ). on mouse over scale it using transform property (hint: use scale() , scaleX() , scaleY() )
+--->
+<!-- create a div with dummy content , having width : 1000px , align the same div in center of the screen (hint: use margin) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width : 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt voluptate ducimus quaerat, facere, voluptatem ullam mollitia placeat possimus accusantium laudantium ipsum labore provident minima blanditiis modi quas, sed reprehenderit corrupti nesciunt accusamus libero harum praesentium laborum. Labore, harum omnis, enim rem voluptates quibusdam aliquam earum fugit excepturi illo id praesentium! Distinctio corrupti maxime quibusdam autem, quam necessitatibus blanditiis nesciunt, libero exercitationem quae a pariatur dolorum inventore ratione perferendis veniam ipsam recusandae non soluta eveniet dolores accusamus natus unde magnam? Eius assumenda perspiciatis eos, harum sapiente, ipsum nihil labore ducimus hic officia animi ratione praesentium, error quaerat quo atque ea laborum.
+    </div>
+</body>
+</html>
+
+===================================================================================================================
+54) Print some preformatted text of your choosing. (hint: use the <pre> tag)
+--->
+<!-- create a div (having width:100px , height:100px ). apply padding from all side with 40px value. (use individual property for padding or shorthand property) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        
+        width: 100px;
+        height: 100px;
+        padding: 40px;
+        border: 5px solid;
+
+    }
+</style>
+<body>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id iure reprehenderit optio pariatur illum natus nobis labore, doloribus inventore qui omnis fuga et quae, quas deleniti nesciunt laborum voluptate eum, saepe sequi ea? Officia voluptatum reprehenderit rem possimus, tempora illum ea expedita est quos ducimus. Ex voluptate eius id magnam! Esse, illum sit assumenda explicabo distinctio nam? Magni magnam rerum nostrum eligendi ex ullam minima doloremque, pariatur autem quibusdam recusandae dicta suscipit necessitatibus unde aliquid modi assumenda reprehenderit nisi, dolores quidem laboriosam alias! Minima architecto quidem enim perspiciatis, placeat sequi! Esse sunt doloribus in cum, exercitationem eum atque asperiores delectus.
+    </div>
+</body>
+</html>
+
+===================================================================================================================
+55) Create some links to various search engines (google, yahoo, altavista, lycos, etc)
+--->
+<!--  create a div (having width:100px , height:100px ). on mouse over scale it using transform property (hint: use scale() , scaleX() , scaleY() ) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+
+        }
+
+        div {
+            width: 80px;
+            height: 80px;
+            background-color: skyblue;
+        }
+
+        .scaled1:hover{
+            transform: scaleX(0.6);
+            background-color: pink;
+        }
+
+        .scaled2:hover{
+            transform: scaleY(0.6);
+            background-color: red;
+        }
+
+        .scaled3:hover{
+            transform: scaleY(0.6);
+            background-color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+   
+    <div class="scaled1">Scaledx</div>
+    <br>
+
+    <div class="scaled2">Scaledy</div>
+    <br>
+
+    <div class="scaled3">Scaledz</div><br>
+    <br>
+   
+</body>
+
+</html>
+
+===================================================================================================================
+56) Create links to five different pages on five different websites that should all open in a new window
+--->
+<!-- Print some preformatted text of your choosing. (hint: use the <pre> tag) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem autem harum deserunt iste eos iusto nemo recusandae nisi illum quo a ad similique delectus eum, aspernatur tempore reprehenderit libero quas ducimus! Est </p>
+    <br>
+    
+    <pre>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem autem harum deserunt iste eos iusto nemo recusandae nisi illum quo a ad similique delectus eum, aspernatur tempore reprehenderit libero quas ducimus! Est 
+    </pre>
+</body>
+</html>
+
+===================================================================================================================
+57) Display an image that has a border of size 2, a width of 200, and a height of 200. 
+--->
+<!-- Create some links to various search engines (google, yahoo, altavista, lycos, etc) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.google.com/">Google</a><br>
+    <a href="https://in.search.yahoo.com/?fr2=inr">Yahoo</a><br>
+    <a href="https://search.yahoo.com/?fr=altavista">Altavista</a><br>
+    <a href="https://www.lycos.com/">Lycos</a>
+</body>
+</html>
+
+===================================================================================================================
+58) Display an image that when clicked will link to google.com (should be opened in a new window).
+--->
+<!-- Create links to five different pages on five different websites that should all open in a new window -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.amazon.com/" target="_blank">Amazon</a><br>
+    <a href="https://www.google.com/" target="_blank">Google</a><br>
+    <a href="https://in.search.yahoo.com/?fr2=inr" target="_blank">Yahoo</a><br>
+    <a href="https://search.yahoo.com/?fr=altavista" target="_blank">Altavista</a><br>
+    <a href="https://www.lycos.com/" target="_blank">Lycos</a><br>
+</body>
+</html>
+
+===================================================================================================================
+
+59) create a div tag with dummy content & displays text in italic format.
+--->
+<!-- Display an image that has a border of size 2, a width of 200, and a height of 200. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            border:2px;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/banner.png" alt="">
+</body>
+</html>
+
+===================================================================================================================
+60) how to indent first line of paragraph having dummy content?
+--->
+<!-- Display an image that when clicked will link to google.com (should be opened in a new window).
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            border:2px;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.google.com/">
+        <img src="./images/banner.png" alt="">
+    </a>
+</body>
+</html>
+
+===================================================================================================================
+61) how to indent all lines of paragraph having dummy content? (hint: read blockquote)
+--->
+<!-- create a div tag with dummy content & displays text in italic format.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <i><div>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente ea quas nemo quam deserunt voluptatem laboriosam, vero eligendi mollitia odit dicta dignissimos obcaecati, blanditiis sunt. Harum quam itaque quisquam non ipsam repudiandae accusantium. Quisquam blanditiis consectetur, exercitationem voluptate a dolorum vel voluptatibus quaerat! Eaque veritatis facere ut ducimus sed tenetur perferendis accusamus minima, nobis odio omnis dolor harum optio magni reprehenderit corrupti aperiam, delectus, fugit accusantium debitis repellendus aliquid eligendi sint. Iure modi, autem a, blanditiis perspiciatis repellendus dicta, in incidunt quos pariatur iste iusto tempore illum quae corporis neque maiores est. Praesentium corporis accusamus laborum aperiam quas optio perferendis.
+    </div></i>
+</body>
+</html>
+
+===================================================================================================================
+62) why  class is required in css ? how to define class in css. show example with advantage of class.
+   a)can we have class name multiple time in a page?
+   b)can we have multiple class in single tag?
+
+if a) & b) is true then please prove it using proper example.
+--->
+<!-- create a div tag with dummy content & displays text in italic format.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <i><div>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente ea quas nemo quam deserunt voluptatem laboriosam, vero eligendi mollitia odit dicta dignissimos obcaecati, blanditiis sunt. Harum quam itaque quisquam non ipsam repudiandae accusantium. Quisquam blanditiis consectetur, exercitationem voluptate a dolorum vel voluptatibus quaerat! Eaque veritatis facere ut ducimus sed tenetur perferendis accusamus minima, nobis odio omnis dolor harum optio magni reprehenderit corrupti aperiam, delectus, fugit accusantium debitis repellendus aliquid eligendi sint. Iure modi, autem a, blanditiis perspiciatis repellendus dicta, in incidunt quos pariatur iste iusto tempore illum quae corporis neque maiores est. Praesentium corporis accusamus laborum aperiam quas optio perferendis.
+    </div></i>
+</body>
+</html>
+
+===================================================================================================================
+63) why  id is required in css ? how to define id in css. show example with advantage of id.
+   a)can we have id name multiple time in a page?
+   b)can we have multiple id in single tag?
+
+if a) & b) is true then please prove it using proper example.
+--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <bloqquote>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem corrupti quibusdam voluptate quas, dolore id culpa fuga quo, veritatis assumenda ab quasi amet aliquam? Maiores nulla corrupti perferendis beatae mollitia sint suscipit? Omnis corrupti nam porro a? Impedit, praesentium? Ex corrupti nobis fugit praesentium omnis ipsa, suscipit tenetur voluptatem, quos accusantium, ducimus accusamus facere quisquam cupiditate sit mollitia! Corporis quidem quam quasi cupiditate illo assumenda, temporibus omnis qui quibusdam amet, consequuntur distinctio libero, voluptates hic laudantium corrupti a autem officia obcaecati incidunt consectetur? Eveniet error reiciendis quae quam aliquid autem unde optio dicta, aspernatur incidunt. Necessitatibus dolorum enim eveniet tenetur?
+    </p>
+</bloqquote>
+</body>
+</html>
+
+===================================================================================================================
+64) create an example for border style property with different values (like: solid, dashed , inset , outset etc...)
+
+--->
+<!-- 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .border {
+            border: 1px solid;
+        }
+
+        .margin {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container border margin">
+        why class is required in css ? how to define class in css. show example with advantage of class.
+        Solution: You should use a class if you need to use the same selector more than once within a page or a site.
+        We can efine a class with the help of class keyword.
+        Ex: class = "container".
+        <br>
+        Advantage of class:
+        You can use the same Class on multiple elements.
+        Class naming is case sensitive.
+        Classes use a “.” in front of the name in the CSS as seen in the illustration below.
+        Each Class can have an unl
+        imited amount of Styles applied to it.
+        You can use multiple classes on the same element.
+        In the below example we use thre classes and apply three diffferent properties.
+    </div>
+
+    <h6 class="border">One class can use for different Element</h6>
+    <h6>
+        can we have class name multiple time in a page?
+        The class attribute assigns a class name to the element, and that name can be used on many elements within the page.
+    </h6>
+
+    <b class="border margin ">can we have multiple class in single tag? </b><br>
+    <p>Yes we use multiple classes in single tag.</p>
+</body>
+
+</html>
+===================================================================================================================
+65) create an example for border width property with different values (like: thin, medium, etc... and also with px value)
+--->
+<!-- why  id is required in css ? how to define id in css. show example with advantage of id.
+   
+   b)can we have multiple id in single tag? -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #x1 {
+            font-size: 18px;
+        }
+
+        #x2 {
+            font-size: 20px;
+        }
+        #x3{
+            border: 2px solid red;
+        }
+        #x4{
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h6 id="x1">why id is required in css ? how to define id in css.</h6>
+    <p>Solution: A CSS ID selector uses the ID attribute of an HTML element to select one unique element on a page.</p>
+    <h6 id="x2">can we have id name multiple time in a page?</h6>
+    <p>No, id is unique It exists only once in a page.</p>
+    <p id="x3" id="x4">we can use diffferent id for different element</p>
+    <h4>can we have multiple id in single tag?</h4>
+    <p>no</p>
+</body>
+
+</html>
+
+===================================================================================================================
+66) create an example for border color property with different values (like: blue color i.e predfiend , hexa decimal value , rgb color value )
+--->
+<!-- create an example for border style property with different values (like: solid, dashed , inset , outset etc... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .solid{
+            border-style: solid;
+        }
+        .dahed{
+            border-style: dashed;
+        }
+        .inset{
+            border-style: inset;
+        }
+
+        .outset{
+            border-style: outset;
+        }
+    </style>
+</head>
+<body>
+    <div class="solid">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores expedita fugiat, aperiam inventore corrupti alias perspiciatis mollitia a laboriosam exercitationem eaque vel iure fugit doloremque! Nulla mollitia deserunt dolore dolorum maiores commodi doloremque? Commodi quae, nisi aperiam magni possimus, ullam eligendi impedit voluptatum placeat molestiae ad atque ducimus explicabo alias ea! Omnis labore, a corporis distinctio dolor rem iusto fugit voluptates ipsum, tempore ratione in nulla ullam non dolore dignissimos sint dolores ea quae aperiam magni quam perspiciatis eveniet. Dolor ea ipsum voluptas dolorum reprehenderit corporis eaque commodi aspernatur autem! Perspiciatis, corporis soluta distinctio officia explicabo laborum non voluptatem consectetur.lorem100
+    </div><br>
+
+    <div class="dashed">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minus quidem modi exercitationem mollitia repellat corporis. Harum tenetur dolor esse dolorem, mollitia amet totam, voluptatem reprehenderit ipsam delectus cum? Animi, autem tempora. Consequatur facilis eaque laborum sequi veniam itaque tempore cupiditate esse nobis hic. Et consequatur nesciunt, alias est tenetur eos vero illo dignissimos laboriosam nemo, omnis aut, eius non maiores distinctio dolores! Veniam enim soluta nam porro doloremque pariatur ad, ducimus sequi harum asperiores ab nemo qui velit voluptatibus quam. Mollitia, sequi. Consectetur qui quibusdam vel sed ducimus facilis corporis nulla iusto, impedit, voluptatum, ea quos harum suscipit. Nostrum!
+    </div><br>
+
+    <div class="inset">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure nam tempore eum est fugiat hic id aut! Magnam accusamus dolores, at vitae dicta maiores sint, laborum quos placeat consequatur neque. Ad voluptatibus repellat laudantium, a quaerat commodi dolor ab, fuga aperiam cupiditate harum atque officia dolorum? Amet deleniti assumenda maxime accusamus dicta vero minus, recusandae, ipsum nisi omnis perferendis tempora fugiat reprehenderit architecto quo nemo, inventore quae illo! In quod labore fuga aperiam obcaecati, earum explicabo quasi! Sit amet fugiat voluptatem neque, sed molestias ullam itaque, autem enim eos ratione ipsum soluta voluptatibus incidunt ut eligendi optio libero dolorum quae.
+    </div><br>
+    <div class="outset">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odio ducimus est voluptatum, laboriosam laudantium eum error, cumque natus ad necessitatibus itaque vero, tempora voluptas porro accusantium? Magni dignissimos neque sed veniam nam quam et magnam cum omnis. A cupiditate ex eligendi sint veniam sequi quaerat dolorum? Vitae, animi quas voluptates veniam inventore velit magnam, quaerat iste ut expedita nemo voluptatem et vel provident eligendi reprehenderit ea voluptatibus voluptate dolor. Iure, itaque. Neque quibusdam totam deleniti, laborum pariatur harum dolorum quaerat eveniet. Nulla, harum exercitationem quaerat nostrum eos excepturi optio quas molestiae doloremque, magni inventore delectus laboriosam? Officiis, iusto explicabo?1
+    </div>
+
+</body>
+</html>
+===================================================================================================================
+67) create an example for border radius property with different values
+--->
+<!-- create an example for border width property with different values (like: thin, medium, etc... and also with px value) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .thin{
+            border: solid 1px;
+            border-width: thin;
+        }
+        .medium{
+            border: solid 1px;
+            border-width: medium; 
+        }
+
+        .withpixel{
+            border: solid 1px;
+            border-width: 5px thick;
+        }
+    </style>
+</head>
+<body>
+    <p class="thin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quam, itaque nihil non magni officiis illo porro explicabo quos dolores obcaecati harum! Suscipit, dignissimos atque eligendi accusamus maxime id nisi.</p>
+    <p class="medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et odio ab esse perspiciatis praesentium laboriosam! Repudiandae ipsa repellendus, velit sint, maiores optio neque dolore, quaerat mollitia nobis nisi voluptas aperiam!</p>
+    <p class="withpixel">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, veritatis fugiat? Facilis quibusdam ipsam magni facere eaque, corporis, aliquid cumque aliquam non laboriosam molestias vero explicabo expedita consequuntur fugiat ad.</p>
+</body>
+</html>
+
+===================================================================================================================
+68) generate a table with tr and td, show 3 X 3 column ,row table with dummy content
+--->
+<html>
+
+<body>
+    <table>
+        <tr>
+            <td>11</td>
+            <td>22</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>111</td>
+            <td>222</td>
+            <td>333</td>
+        </tr>
+        <tr>
+            <td>1111</td>
+            <td>2222</td>
+            <td>3333</td>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+===================================================================================================================
+69) generate a table with tr and td, show 3 X 3 column ,row table with dummy content. apply width 300px , use border collapse property in css
+--->
+<html>
+
+<head>
+
+<body>
+    <table>
+        <tr>
+            <td>11</td>
+            <td>22</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>111</td>
+            <td>222</td>
+            <td>333</td>
+        </tr>
+        <tr>
+            <td>1111</td>
+            <td>2222</td>
+            <td>3333</td>
+        </tr>
+    </table>
+</body>
+
+
+</html>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 300px;
+    }
+</style>
+
+
+===================================================================================================================
+70) what is cellspacing in table? please write down sample code for the same
+--->
+<html>
+
+<body>
+    <table cellspacing="15">
+        <caption>Author Details</caption>
+
+        <tr>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>BRANCH</th>
+        </tr>
+        <tr>
+            <td>BITTU</td>
+            <td>22</td>
+            <td>CSE</td>
+        </tr>
+        <tr>
+            <td>RAM</td>
+            <td>21</td>
+            <td>ECE</td>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+===================================================================================================================
+71) what is cellpadding in table? please write down sample code for the same
+--->
+<html>
+<!-- This property specifies the space between the border of a table cell and its contents -->
+<body>
+    <table cellpadding="15">
+        <caption>Author Details</caption>
+
+        <tr>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>BRANCH</th>
+        </tr>
+        <tr>
+            <td>BITTU</td>
+            <td>22</td>
+            <td>CSE</td>
+        </tr>
+        <tr>
+            <td>RAM</td>
+            <td>21</td>
+            <td>ECE</td>
+        </tr>
+    </table>
+</body>
+
+===================================================================================================================
+72) show an example for vertical alignment in table with sample code
+--->
+<html>
+
+<body>
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>BRANCH</th>
+        </tr>
+        <tr>
+            <td>BITTU</td>
+            <td>22</td>
+            <td>CSE</td>
+        </tr>
+        <tr>
+            <td>RAM</td>
+            <td>21</td>
+            <td>ECE</td>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid;
+    }
+
+    td {
+        height: 50px;
+        vertical-align: bottom;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+</style>
+
+===================================================================================================================
+73) what is the use of iframe? please create a sample code for iframe tag
+--->
+<!-- iframe is a HTML element that loads another HTML page within the document. -->
+
+<html>
+
+<body>
+    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allowfullscreen></iframe>
+</body>
+
+</html>
+-----------------------------------------------------------------------------------------------
+74) create a sample code for video tag with controls
+
+<html>
+
+<body>
+    <video width="320" height="240" controls>
+        <source src="movie.mp4" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+    </video>
+</body>
+
+</html>
+
+===================================================================================================================
+74) create a sample code for video tag with controls
+--->
+<html>
+
+<body>
+    <audio controls>
+        <source src="horse.ogg" type="audio/ogg">
+        <source src="horse.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>
+-----------------------------------------------------------------------------------------------
+76) create a para with dummy content , highlight or apply background color on  some words using span tag  
+
+<html>
+
+<body>
+    <p>Whats up Yogesh
+        <span style="color:red;font-weight:bolder">
+            I m fine.
+        </span> what about you?
+        <span style="background-color: lightgreen;">
+            its okay-okay
+        </span>.
+    </p>
+</body>
+
+</html>
+
+===================================================================================================================
+75) create a sample code for audio tag with controls
+--->
+
+
+===================================================================================================================
+76) create a para with dummy content , highlight or apply background color on  some words using span tag  
+--->
+
+
+===================================================================================================================
+76) create a para with dummy content , highlight or apply background color on  some words using mark tag  
+--->
+
+
+===================================================================================================================
+77) create a para with dummy content & hide this para using display & visibility property ( note down the diff between none & hidden value)
+--->
+<html>
+<!-- display:none turns off the layout of the elements, so they are not rendered. 
+visibility:hidden hides the elements without changing their layouts. -->
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, fuga.</p>
+</body>
+
+</html>
+<style>
+    p {
+        display: none;
+    }
+
+    p:hidden {
+        display: none;
+    }
+
+    p:visible {
+        display: block;
+    }
+</style>
+
+===================================================================================================================
+78) create a para (100X100 dimension ) on hover rotate it with 100deg , -50deg 
+--->
+<html>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+    </p>
+</body>
+
+</html>
+
+<style>
+    p{
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+
+    }
+    p:hover{
+        transform: rotate(100deg);
+    }
+    p:hover{
+        transform: rotate(-50deg);
+    }
+</style>
+
+===================================================================================================================
+79) create a para (100X100 dimension ) on hover shift it with translate,translateX,translateY property 
+--->
+<html>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+</body>
+
+</html>
+
+<style>
+    p {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+    }
+
+    p:hover {
+        transform: translate(100px, 100px);
+    }
+
+    p:hover {
+        transform: translateX(100px);
+    }
+
+    p:hover {
+        transform: translateY(100px);
+    }
+</style>
+
+===================================================================================================================
+80) create a para (100X100 dimension ) on hover move it with skew,skewX,skewY property  
+--->
+<html>
+    <body>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+    </body>
+</html>
+<style>
+    p{
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+    }
+    p:hover{
+        transform: skew(100deg);
+    }
+    p:hover{
+        transform: skewX(100deg);
+    }
+    p:hover{
+        transform: skewY(100deg);
+    }
+</style>
+
+===================================================================================================================<!-- 41) create a para with dummy content .set 
+

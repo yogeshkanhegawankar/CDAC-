@@ -1,0 +1,84 @@
+Generics
+allows to write single sort method to sort the elements in Integer array, Float array, double array, Character array, String array
+provides the compile time safety
+allows to find the error at compile time
+has a type parameter
+avoid rewriting of the program, if the data type of the parameter is changed
+we can pass the value at runtime
+
+==eg same charger we use to charge the mobile and the power bank
+1 bluetooth speaker : used to connect to mobile , TV, laptop
+1 car : used for travelling , trasport of luggage ...
+..
+..
+
+--eg public <E> void printArray( E[] array1 )
+                    |                                |
+		  return			parameter 
+		  type			given
+
+
+
+--function overloadding
+add(int a, int b){..}   //2
+add(int a, int b, int c) {..}   //3
+add(int a, int b, int c, int d){..}  //4
+add(double  a, double b){..}  //
+add(double a, double b, double c){..}
+..
+..
+
+sort(int a, int b){..}   //2
+sort(int a, int b, int c) {..}   //3
+sort(int a, int b, int c, int d){..}  //4
+sort(double  a, double b){..}  //
+sort(double a, double b, double c){..}
+
+Generics			---> add()  1 method
+Generics			---> sort()  1 method
+
+
+--eg
+1. sort the arr with diff type of the parameter
+2. reverse the arr with diff type of the parameter
+3. print  the arr with diff type of the parameter  --> done
+4. sum of the arr with diff type of the parameter
+
+================
+Compositon
+  it is a strong form of aggregation
+  "is a part of " / "consist of " relationship is present
+   can not exist without the containing class
+   highly dependent  on each other
+   we can not have the parent class , without the child class 
+
+eg : fan --motor
+car -- engine
+cell--remote
+key--lock
+heart--body
+cpu -- pc
+ library -- books
+
+=====
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

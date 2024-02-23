@@ -1,0 +1,2875 @@
+
+Name: Yogesh Kanhegawankar
+Roll_No: 79
+
+MET IIT CDAC-ATC Nashik
+Batch PGDAC SEP-2023
+Java Lab Assignments
+Date : 20-Oct-2023
+Module Name: OOP's With Java
+
+Name: Yogesh Kanhegawankar
+Roll_No: 79
+
+
+Due Date 26-Oct-2023
+
+Java Program
+
+1.Write a  program to create a class Worker with data members as Worker_Name,
+No_of_Hours_worked, Pay_Rate. 
+Write necessary member functions to calculate and
+display the salary of worker. (Use default value for Pay_Rate)
+-->
+
+package assignment3;
+
+public class Worker {
+	private String workerName;
+	private int noOfHoursWorked;
+	private double payRate;
+	
+	public Worker(String workerName, int noOfHoursWorked) {
+		super();
+		this.workerName = workerName;
+		this.noOfHoursWorked = noOfHoursWorked;
+		this.payRate=0.0;
+	}
+
+	public Worker(String workerName, int noOfHoursWorked, double payRate) {
+		super();
+		this.workerName = workerName;
+		this.noOfHoursWorked = noOfHoursWorked;
+		this.payRate = payRate;
+	}
+	
+	public double calculateSalary() {
+		return noOfHoursWorked*payRate;
+	}
+	
+	public void display() {
+		System.out.println("Worker Name:"+workerName);
+		System.out.println("No of Hours Worked:"+noOfHoursWorked);
+		System.out.println("Pay Rate:"+payRate);
+		System.out.println("Salary is:"+calculateSalary());
+	}
+	
+	public static void main(String a[] ){
+		System.out.println("when pay rate is default value :");
+		Worker worker1= new Worker("Mangesh", 600);
+		worker1.display();
+		Worker worker2= new Worker("Rajesh", 600);
+		worker2.display();
+		System.out.println();
+		
+		System.out.println("when pay rate has value :");
+		Worker worker3= new Worker("Mamgesh", 8, 75);
+		worker3.display();
+		Worker worker4= new Worker("Ganesh", 8, 50);
+		worker4.display();
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+
+when pay rate is default value :
+Worker Name:Mangesh
+No of Hours Worked:600
+Pay Rate:0.0
+Salary is:0.0
+Worker Name:Rajesh
+No of Hours Worked:600
+Pay Rate:0.0
+Salary is:0.0
+
+when pay rate has value :
+Worker Name:Mamgesh
+No of Hours Worked:8
+Pay Rate:75.0
+Salary is:600.0
+Worker Name:Ganesh
+No of Hours Worked:8
+Pay Rate:50.0
+Salary is:400.0
+===================================================================================================================================================================
+2.Create class Person which contains data member as Passport_Id, Person_name,
+Nationality, Gender, Date_of_Birth, Date_of_Issue, Date_of_expiry .
+Write a  program to perform following member functions:
+i. Enter details of all persons
+ii. Display passport details of one person
+iii. Display passport details of all persons
+(Use Function overloading and Array of object).
+-->
+
+package assignment3;
+
+import java.util.Scanner;
+
+public class Person {
+	private String passportId;
+	private String personName;
+	private String nationality;
+	private String gender;
+	private String dateofBirth;
+	private String dateofIssue;
+	private String dateofExpiray;
+
+	public Person(String passportId, String personName, String nationality, String gender, String dateofBirth,
+			String dateofIssue, String dateofExpiray) {
+		super();
+		this.passportId = passportId;
+		this.personName = personName;
+		this.nationality = nationality;
+		this.gender = gender;
+		this.dateofBirth = dateofBirth;
+		this.dateofIssue = dateofIssue;
+		this.dateofExpiray = dateofExpiray;
+	}
+
+	public void displayPassportDetails1() {
+		System.out.println("Passport ID: " + passportId);
+		System.out.println("Person Name: " + personName);
+		System.out.println("Nationality: " + nationality);
+		System.out.println("Gender: " + gender);
+		System.out.println("Date of Birth: " + dateofBirth);
+		System.out.println("Date of Issue: " + dateofIssue);
+		System.out.println("Date of Expiry: " + dateofExpiray);
+	}
+
+	// display details of all persons
+	public static void displayPassportDetails1(Person[] persons) {
+		System.out.println("Passport Details of all persons:");
+		for (int i = 0; i < persons.length; i++) {
+			persons[i].displayPassportDetails1();
+		}
+	}
+
+	public static void displayPassportDetails1(Person[] persons, int index) {
+		System.out.println("Passport Details of One persons:");
+		if (index >= 0 && index < persons.length) {
+			System.out.println("Passport Details of persons " + (index + 1) + ":");
+			persons[index].displayPassportDetails1();
+		} else {
+			System.out.println("Invalid Index");
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the number array size: ");
+		int num = sc.nextInt();
+		Person[] persons = new Person[num];
+
+		for (int i = 0; i < num; i++) {
+			System.out.println("Enter details for Person " + (i + 1));
+			System.out.println("Passport ID: ");
+			String passportId = sc.next();
+			System.out.println("Person Name: ");
+			String personName = sc.next();
+			System.out.println("Nationality: ");
+			String nationality = sc.next();
+			System.out.println("Gender: ");
+			String gender = sc.next();
+			System.out.println("Date of Birth: ");
+			String dob = sc.next();
+			System.out.println("Date of Issue: ");
+			String doi = sc.next();
+			System.out.println("Date of Expiry: ");
+			String doe = sc.next();
+
+			persons[i] = new Person(passportId, personName, nationality, gender, dob, doi, doe);
+		}
+
+		Person.displayPassportDetails1(persons);
+		System.out.println("=========================================");
+		String choice;
+		do {
+			System.out.println("Enter 0: to display details of 1\nEnter 1: to display details of 2: ");
+			int index = sc.nextInt();
+			switch(index) {
+			case 0:
+				Person.displayPassportDetails1(persons, index);
+				break;
+			case 1:
+				Person.displayPassportDetails1(persons, index);
+				break;
+			default:
+				System.out.println("please enter valid index..");
+			}
+			System.out.println("do you want to continue: if yes please enter (y/Y): ");
+			choice=sc.next();
+		}
+		while(choice.equals("y") || choice.equals("Y"));
+		
+		
+
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+enter the number array size: 
+2
+Enter details for Person 1
+Passport ID: 
+445
+Person Name: 
+KAR
+Nationality: 
+IND
+Gender: 
+M
+Date of Birth: 
+7458834
+Date of Issue: 
+945783845
+Date of Expiry: 
+8457384
+Enter details for Person 2
+Passport ID: 
+763
+Person Name: 
+YOG
+Nationality: 
+IND
+Gender: 
+M
+Date of Birth: 
+759294
+Date of Issue: 
+94759239
+Date of Expiry: 
+45782934
+Passport Details of all persons:
+Passport ID: 445
+Person Name: KAR
+Nationality: IND
+Gender: M
+Date of Birth: 7458834
+Date of Issue: 945783845
+Date of Expiry: 8457384
+Passport ID: 763
+Person Name: YOG
+Nationality: IND
+Gender: M
+Date of Birth: 759294
+Date of Issue: 94759239
+Date of Expiry: 45782934
+=========================================
+Enter 0: to display details of 1
+Enter 1: to display details of 2: 
+1
+Passport Details of One persons:
+Passport Details of persons 2:
+Passport ID: 763
+Person Name: YOG
+Nationality: IND
+Gender: M
+Date of Birth: 759294
+Date of Issue: 94759239
+Date of Expiry: 45782934
+do you want to continue: if yes please enter (y/Y): 
+Y
+Enter 0: to display details of 1
+Enter 1: to display details of 2: 
+0
+Passport Details of One persons:
+Passport Details of persons 1:
+Passport ID: 445
+Person Name: KAR
+Nationality: IND
+Gender: M
+Date of Birth: 7458834
+Date of Issue: 945783845
+Date of Expiry: 8457384
+do you want to continue: if yes please enter (y/Y): 
+N
+==================================================================================================================================================================
+
+3.Write a  program to create a class Date which contains three data members as dd,
+mm, yyyy. Create and initialize the object by using parameterized constructor and display
+date in dd-mon-yyyy format. (Input: 19-12-2014 Output: 19-Dec-2014) Perform
+validation for month.
+-->
+
+package assignment3;
+
+import java.util.Scanner;
+
+public class Date {
+    private int dd;
+    private int mm;
+    private int yyyy;
+
+    public Date(int dd, int mm, int yyyy) {
+        this.dd = dd;
+        this.mm = mm;
+        this.yyyy = yyyy;
+    }
+
+    public boolean isValidDate() {
+        return mm >= 1 && mm <= 12;
+    }
+
+    private void displayDate() {
+        if (isValidDate()) {
+            String monthAbbreviation = convertNumToMonth(mm);
+            System.out.printf("%02d-%s-%04d%n", dd, monthAbbreviation, yyyy);
+        } else {
+            System.out.println("Invalid date. Please enter a valid month (1-12).");
+        }
+    }
+
+    private String convertNumToMonth(int mm) {
+        switch (mm) {
+            case 1:
+                return "Jan";
+            case 2:
+                return "Feb";
+            case 3:
+                return "Mar";
+            case 4:
+                return "Apr";
+            case 5:
+                return "May";
+            case 6:
+                return "Jun";
+            case 7:
+                return "Jul";
+            case 8:
+                return "Aug";
+            case 9:
+                return "Sep";
+            case 10:
+                return "Oct";
+            case 11:
+                return "Nov";
+            case 12:
+                return "Dec";
+            default:
+                return "Invalid";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Date (dd mm yyyy):");
+        int dd = sc.nextInt();
+        int mm = sc.nextInt();
+        int yyyy = sc.nextInt();
+        
+        System.out.println();
+        System.out.println("Entered Date is:"+dd+"-"+mm+"-"+yyyy);
+        System.out.println();
+
+        Date date = new Date(dd, mm, yyyy);
+        date.displayDate();
+
+        sc.close();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Enter Date (dd mm yyyy):
+11
+2
+2035
+
+Entered Date is:11-2-2035
+
+11-Feb-2035
+
+===================================================================================================================================================================
+4.Create a base class Account (Acc_Holder_Name, Acc_Holder_Contact_No). 
+Derive a
+two classes as Saving_Account(S_Acc_No., Balance) and 
+Current_Account(
+C_Acc_No., Balance) from Account.
+ Write a  menu driven program to perform
+following functions :
+i. Accept the details for ‘n’ account holders.
+ii. Display the details of ‘n’ account holders by adding interest amount where
+interest rate for Saving account is 5% of balance and interest rate for
+Current account is 1.5% of balance.
+-->
+
+package assignment3;
+
+public class Account {
+
+	public String accHolderName;
+	public String contactNo;
+
+	public Account(String accHolderName, String accHolderContactNo) {
+		super();
+		this.accHolderName = accHolderName;
+		this.contactNo = accHolderContactNo;
+	}
+
+	public String getAccHolderName() {
+		return accHolderName;
+	}
+
+	public String getAccHolderContactNo() {
+		return contactNo;
+	}
+}
+
+class SavingAccount extends Account {
+	public String sAccNo;
+	public double balance;
+
+	public SavingAccount() {
+
+		super("unkown", "0");
+		this.sAccNo = "0";
+		this.balance = 0;
+	}
+
+	public SavingAccount(String accHolderName, String contactNo, String sAccNo, double balance) {
+
+		super(accHolderName, contactNo);
+		this.sAccNo = sAccNo;
+		this.balance = balance;
+	}
+
+	public void displayDetails() {
+		System.out.println("Account Holder Name:" + getAccHolderName());
+		System.out.println("Account Holder Contact Number:" + getAccHolderContactNo());
+		System.out.println("Saving Account Details:");
+		System.out.println("Account balance: Rs " + balance);
+		System.out.println("Interest + Amount:" + calInterestSavingAcc());
+	}
+
+	public double calInterestSavingAcc() {
+		return balance=balance+0.5 * balance;
+	}
+}
+
+class CurrentAccount extends Account {
+	public String cAccNo;
+	public double balance;
+
+	public CurrentAccount(String accHolderName, String contactNo, String cAccNo, double balance) {
+
+		super(accHolderName, contactNo);
+		this.cAccNo = cAccNo;
+		this.balance = balance;
+	}
+
+	public void displayDetails() {
+		System.out.println("Account Holder Name:" + getAccHolderName());
+		System.out.println(""
+				+ "Account Holder Contact Number:" + getAccHolderContactNo());
+		System.out.println("Current Account Details:");
+		System.out.println("Account balance: Rs " + balance);
+		System.out.println("Interest + Amount:" + calInterestCurrentAcc());
+	}
+
+	public double calInterestCurrentAcc() {
+		return balance=balance+0.015 * balance;
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------
+package assignment3;
+
+import java.util.Scanner;
+
+public class TestAccount {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter number of account holders");
+		int num= sc.nextInt();
+		Account[] account;
+		account =new Account[num]; 
+		boolean exit=false;
+		do {
+			System.out.println("Menu:");
+			System.out.println("i. Accept the details for ‘n’ account holders.");
+			System.out.println("ii. Display the details of ‘n’ account holders by adding interest amount where\r\n"
+					+ "interest rate for Saving account is 5% of balance and interest rate for\r\n"
+					+ "Current account is 1.5% of balance.\n0.Exit");
+
+			int choice = sc.nextInt();
+
+			switch (choice) {
+			case 1:
+
+				System.out.println("1. Accepting Details:");
+				int i = 0;
+
+				do {
+					System.out.println("Enter Account Holder Details for Account " + (i + 1));
+					System.out.println("Account Holder Name:");
+					String name = sc.next();
+					System.out.println("Enter contact No:");
+					String contactNo = sc.next();
+					System.out.println("Enter Account Type 1.Saving Account 2. Current Account");
+					int accountType = sc.nextInt();
+					if (accountType == 1) {
+						System.out.println("Enter Saving Acccount no:");
+						String sAccNo = sc.next();
+						System.out.println("Balance:");
+						double balance = sc.nextDouble();
+						account[i] = new SavingAccount(name, contactNo, sAccNo, balance);
+						i++;
+					} else if (accountType == 2) {
+						System.out.println("Enter Current Acccount no:");
+						String sAccNo = sc.next();
+						System.out.println("Enter Balance:");
+						double balance = sc.nextDouble();
+						account[i] = new CurrentAccount(name, contactNo, sAccNo, balance);
+						i++;
+					} else {
+						System.out
+								.println("Invalid choice:Please Enter 1 for Saving Account and 2 for current Account");
+					}
+				} while (i < num);
+				break;
+
+			case 2:
+				System.out.println("Display the Details with Interest :");
+
+				for (int j = 0; j < account.length; j++) {
+					System.out.println("Details for Account" + (j + 1) + ":");
+					if (account[j] instanceof SavingAccount) {
+						SavingAccount savingacc = (SavingAccount) account[j];
+						savingacc.displayDetails();
+						System.out.println();
+					} else if (account[j] instanceof CurrentAccount) {
+						CurrentAccount currentacc = (CurrentAccount) account[j];
+						currentacc.displayDetails();
+						System.out.println();
+					}
+
+				}
+				break;
+			case 0:
+				exit=true;
+				System.out.println("Thank for banking!!!");
+				System.out.println("Visit Again!!!");
+				break;
+
+			}
+
+		} while (exit!=true);
+	}
+
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+enter number of account holders
+2
+Menu:
+i. Accept the details for ‘n’ account holders.
+ii. Display the details of ‘n’ account holders by adding interest amount where
+interest rate for Saving account is 5% of balance and interest rate for
+Current account is 1.5% of balance.
+0.Exit
+1
+1. Accepting Details:
+Enter Account Holder Details for Account 1
+Account Holder Name:
+Yogesh
+Enter contact No:
+15646898
+Enter Account Type 1.Saving Account 2. Current Account
+1
+Enter Saving Acccount no:
+10000
+Balance:
+10000
+Enter Account Holder Details for Account 2
+Account Holder Name:
+Mangesh
+Enter contact No:
+25679859
+Enter Account Type 1.Saving Account 2. Current Account
+2
+Enter Current Acccount no:
+32356498
+Enter Balance:
+30000
+Menu:
+i. Accept the details for ‘n’ account holders.
+ii. Display the details of ‘n’ account holders by adding interest amount where
+interest rate for Saving account is 5% of balance and interest rate for
+Current account is 1.5% of balance.
+0.Exit
+2
+Display the Details with Interest :
+Details for Account1:
+Account Holder Name:Yogesh
+Account Holder Contact Number:15646898
+Saving Account Details:
+Account balance: Rs 10000.0
+Interest + Amount:15000.0
+
+Details for Account2:
+Account Holder Name:Mangesh
+Account Holder Contact Number:25679859
+Current Account Details:
+Account balance: Rs 30000.0
+Interest + Amount:30450.0
+
+Menu:
+i. Accept the details for ‘n’ account holders.
+ii. Display the details of ‘n’ account holders by adding interest amount where
+interest rate for Saving account is 5% of balance and interest rate for
+Current account is 1.5% of balance.
+0.Exit
+0
+Thank for banking!!!
+Visit Again!!!
+
+
+===================================================================================================================================================================
+5.Create a class Time which contains data members as: Hours, Minutes and Seconds.
+ Write program to perform following necessary member functions:
+i. To read time
+ii. To display time in format like: hh:mm:ss
+iii. To add two different times (Use Objects as argument)
+
+6.Create a Base class Train containing protected data members as Train_no, Train_Name.
+Derive a class Route (Route_id, Source, Destination) from Train class. 
+Also derive a class Reservation(Number_Of_Seats, Train_Class, Fare, Travel_Date) from Route. 
+Write a  program to perform following necessary functions :
+i. Enter details of ‘n’ reservations
+ii. Display details of all reservations
+iii. Display reservation details of a specified Train class
+-->
+1st way:
+package assignment3;
+
+import java.util.Scanner;
+
+class Time{
+	private int hours;
+	private int minutes;
+	private int seconds;
+	
+	public Time() {
+		hours=0;
+		minutes=0;
+		seconds=0;
+	}
+	
+	public void readTime() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter hours:");
+		hours=sc.nextInt();
+		System.out.println("Enter minutes:");
+		minutes=sc.nextInt();
+		System.out.println("Enter seconds:");
+		seconds=sc.nextInt();
+		
+		if(seconds >= 60) {
+			minutes=minutes+seconds/60;
+			seconds=seconds%60;
+		}
+		if(minutes >= 60) {
+			hours = hours+minutes/60;
+			minutes=minutes%60;
+		}	
+	}
+	
+	public void addTime(Time t1,Time t2) {
+		int totalSecond=(hours+t1.hours+t2.hours)*3600
+				+(minutes+t1.minutes+t2.minutes)*60
+				+(seconds+t1.seconds+t2.seconds);
+		
+			hours=totalSecond/3600;
+			totalSecond=totalSecond%3600;
+			
+			minutes=totalSecond/60;
+			seconds=totalSecond%60;
+			
+	}
+	
+	public void display() {
+		System.out.println("hh:mm:ss"+" :=: "+hours+":"+minutes+":"+seconds);
+	}
+	
+	public static void main(String []a) {
+		
+		Time t1 = new Time();
+		System.out.println("Enter Time 1:");
+		t1.readTime();
+		t1.display();
+		
+		Time t2 = new Time();
+		System.out.println("Enter Time 2:");
+		t2.readTime();
+		t2.display();
+		
+		Time total = new Time();
+		System.out.println("Result Time is:");
+		total.addTime(t1, t2);
+		total.display();
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+
+Enter Time 1:
+Enter hours:
+2
+Enter minutes:
+90
+Enter seconds:
+90
+hh:mm:ss :=: 3:31:30
+Enter Time 2:
+Enter hours:
+1
+Enter minutes:
+70
+Enter seconds:
+80
+hh:mm:ss :=: 2:11:20
+Result Time is:
+hh:mm:ss :=: 5:42:50
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package assignment3;
+
+import java.util.Scanner;
+
+public class Train {
+	private int Train_No;
+	private String Train_Name;
+	
+	public Train(int Train_No, String Train_Name) {
+		super();
+		this.Train_No = Train_No;
+		this.Train_Name = Train_Name;
+	}
+
+	public int getTrain_No() {
+		return Train_No;
+	}
+
+	public void setTrain_No(int train_No) {
+		Train_No = train_No;
+	}
+
+	public String getTrain_Name() {
+		return Train_Name;
+	}
+
+	public void setTrain_Name(String train_Name) {
+		Train_Name = train_Name;
+	}
+
+	public static void main(String []a) {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Railway Reservation:");
+		System.out.println("Enter no. of Reservation:");
+		int n=sc.nextInt();
+		
+		Reservation reserv[]= new Reservation[n];
+		
+		String choice;
+		
+		boolean flag=false;
+		do {
+			System.out.println("1. Accept Details\n 2. Display Details\n 3. Display Details with Specified Train class\n 4. Exit");
+			
+			int num = sc.nextInt();
+			
+			switch(num) {
+			case 1:
+				for(int i=0;i<n;i++) {
+					System.out.println("Enter Train_No,Train_Name,RouteId,Source,Destination,No of Seats, Trainclass, Fare, TravelDate");
+					int TrainNo=sc.nextInt();
+					String TrainName=sc.next();
+					String RouteId=sc.next();
+					String Source=sc.next();
+					String Destination=sc.next();
+					int NoofSeats=sc.nextInt();
+					String Trainclass=sc.next();
+					double Fare=sc.nextDouble();
+					String TravelDate=sc.next();
+					
+					reserv[i]= new Reservation(TrainNo, RouteId, i, Source, Destination, num, Trainclass, Fare, TravelDate);
+				}
+				break;
+				
+			case 2:
+				
+				for(int i=0;i<n;i++) {
+					reserv[i].displayDetails();
+				}
+				
+				break;
+				
+			case 3:
+				System.out.println("Enter class typ and Train No. :");
+				String Trainclass1=sc.next();
+				int TrainNo1=sc.nextInt();
+				
+				for(int i=0;i<n;i++) {
+					
+					if(Trainclass1.equals(reserv[i].getTrain_Class()) && TrainNo1==reserv[i].getTrain_No()) {
+						reserv[i].displayDetails();
+						flag=true;
+					}
+					if(flag==false)
+					System.out.println("No Reservation Details found.");
+				}
+				
+				break;
+				
+				default:
+					System.out.println("Invalid Choice");
+					break;
+			}
+			
+			System.out.println("Do you want to continue: y/Y");
+			 choice=sc.next();
+		}while(choice.equals("Y") || choice.equals("y"));
+		
+	}
+	
+	
+}
+
+
+ class Route extends Train{
+	
+	private int Route_Id;
+	private String Source;
+	private String Destination;
+	
+	public Route(int Train_No, String Train_Name, int route_Id, String source, String destination) {
+		super(Train_No, Train_Name);
+		Route_Id = route_Id;
+		Source = source;
+		Destination = destination;
+	}
+
+	public int getRoute_Id() {
+		return Route_Id;
+	}
+
+	public void setRoute_Id(int route_Id) {
+		Route_Id = route_Id;
+	}
+
+	public String getSource() {
+		return Source;
+	}
+
+	public void setSource(String source) {
+		Source = source;
+	}
+
+	public String getDestination() {
+		return Destination;
+	}
+
+	public void setDestination(String destination) {
+		Destination = destination;
+	}
+	
+}
+ 
+ class Reservation extends Route{
+	int Number_Of_Seats;
+	String Train_Class;
+	double Fare;
+	String Travel_Date;
+	
+	public Reservation(int Train_No, String Train_Name, int route_Id, String source, String destination,
+			int number_Of_Seats, String train_Class, double fare, String travel_Date) {
+		super(Train_No, Train_Name, route_Id, source, destination);
+		Number_Of_Seats = number_Of_Seats;
+		Train_Class = train_Class;
+		Fare = fare;
+		Travel_Date = travel_Date;
+	}
+
+	public int getNumber_Of_Seats() {
+		return Number_Of_Seats;
+	}
+
+	public void setNumber_Of_Seats(int number_Of_Seats) {
+		Number_Of_Seats = number_Of_Seats;
+	}
+
+	public String getTrain_Class() {
+		return Train_Class;
+	}
+
+	public void setTrain_Class(String train_Class) {
+		Train_Class = train_Class;
+	}
+
+	public double getFare() {
+		return Fare;
+	}
+
+	public void setFare(double fare) {
+		Fare = fare;
+	}
+
+
+	public String getTravel_Date() {
+		return Travel_Date;
+	}
+
+
+	public void setTravel_Date(String travel_Date) {
+		Travel_Date = travel_Date;
+	}
+
+
+	public void displayDetails() {
+		System.out.println("TrainNo:"+super.getTrain_No());
+		System.out.println("TrainName:"+getTrain_Name());
+		System.out.println("RouteId:"+getRoute_Id());
+		System.out.println("Source:"+super.getSource());
+		System.out.println("Destination:"+super.getDestination());
+		System.out.println("No of Seats:"+getNumber_Of_Seats());
+		System.out.println("Train class:"+getTrain_Class());
+		System.out.println("Fare:"+getFare());
+		System.out.println("TravelDate :"+getTravel_Date());
+		System.out.println("TrainNo:");
+		
+	}
+	
+	
+ }
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+
+Railway Reservation:
+Enter no. of Reservation:
+2
+1. Accept Details
+ 2. Display Details
+ 3. Display Details with Specified Train class
+ 4. Exit
+1
+Enter Train_No,Train_Name,RouteId,Source,Destination,No of Seats, Trainclass, Fare, TravelDate
+135555888
+DurantoExpress
+2
+Nanded
+Delhi
+300
+AC
+2000
+23-11-203
+Enter Train_No,Train_Name,RouteId,Source,Destination,No of Seats, Trainclass, Fare, TravelDate
+31398949
+RajdhaniExpress
+3
+Nagpur
+Aurangabad
+250
+Sleeper
+1000
+12-11-203
+Do you want to continue: y/Y
+y
+1. Accept Details
+ 2. Display Details
+ 3. Display Details with Specified Train class
+ 4. Exit
+2
+TrainNo:135555888
+TrainName:2
+RouteId:0
+Source:Nanded
+Destination:Delhi
+No of Seats:1
+Train class:AC
+Fare:2000.0
+TravelDate :23-11-203
+TrainNo:
+TrainNo:31398949
+TrainName:3
+RouteId:1
+Source:Nagpur
+Destination:Aurangabad
+No of Seats:1
+Train class:Sleeper
+Fare:1000.0
+TravelDate :12-11-203
+TrainNo:
+Do you want to continue: y/Y
+y
+1. Accept Details
+ 2. Display Details
+ 3. Display Details with Specified Train class
+ 4. Exit
+3
+Enter class typ and Train No. :
+Sleeper
+31398949
+No Reservation Details found.
+TrainNo:31398949
+TrainName:3
+RouteId:1
+Source:Nagpur
+Destination:Aurangabad
+No of Seats:1
+Train class:Sleeper
+Fare:1000.0
+TravelDate :12-11-203
+TrainNo:
+Do you want to continue: y/Y
+y
+1. Accept Details
+ 2. Display Details
+ 3. Display Details with Specified Train class
+ 4. Exit
+3
+Enter class typ and Train No. :
+AC
+135555888
+TrainNo:135555888
+TrainName:2
+RouteId:0
+Source:Nanded
+Destination:Delhi
+No of Seats:1
+Train class:AC
+Fare:2000.0
+TravelDate :23-11-203
+TrainNo:
+Do you want to continue: y/Y
+y
+1. Accept Details
+ 2. Display Details
+ 3. Display Details with Specified Train class
+ 4. Exit
+4
+Invalid Choice
+Do you want to continue: y/Y
+n
+
+==================================================================================================================================================================
+7.Create two base classes Learning_Info( Roll_No, Stud_Name, Class, Percentage) and
+Earning_Info(No_of_hours_worked, Charges_per_hour).
+ Derive a class Earn_Learn_info	
+from above two classes. Write necessary member functions to accept and display Student
+information. Calculate total money earned by the student. (Use constructor in derived
+class)
+-->
+
+1st way:-
+
+package assignment3;
+import java.util.Scanner;
+public interface Eearning_Info {
+	
+	public void acceptLearning();
+	public void displayEarning();
+	public double calEarning();
+}
+
+
+---------------------------------------------------------------
+package assignment3;
+
+import java.util.Scanner;
+
+public class Learning_Info {
+	private int Roll_No;
+	private String Stud_Name;
+	private String Class;
+	private double Percentage;
+	
+	public void acceptLearning() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Learning Information:");
+		System.out.println("Enter Roll No:");
+		Roll_No=sc.nextInt();
+		System.out.println("Enter Student Name:");
+		Stud_Name=sc.next();
+		System.out.println("Enter studied Class");
+		Class=sc.next();
+		System.out.println("Enter percentage scored:");
+		Percentage=sc.nextDouble();
+	}
+	
+	public void displayLearning_Info() {
+		System.out.println("Roll_No: "+Roll_No);
+		System.out.println("Stud_Name: "+Stud_Name);
+		System.out.println("Class: "+Class);
+		System.out.println("Percentage: "+Percentage);
+	}
+}
+--------------------------------------------------------------------
+package assignment3;
+
+import java.util.Scanner;
+
+/*Create two base classes Learning_Info( Roll_No, Stud_Name, Class, Percentage) and
+Earning_Info(No_of_hours_worked, Charges_per_hour).
+ Derive a class Earn_Learn_info	
+from above two classes. Write necessary member functions to accept and display Student
+information. Calculate total money earned by the student. (Use constructor in derived
+class)*/
+public class Learn_Earn_Info extends Learning_Info implements Eearning_Info{
+	private int No_of_hours_worked;
+	private int Charges_per_hour;
+//	private double totalearning;
+	
+	public Learn_Earn_Info(int No_of_hours_worked, int Charges_per_hour) {
+		super();
+		this.No_of_hours_worked = No_of_hours_worked;
+		this.Charges_per_hour = Charges_per_hour;
+	}
+	
+	public void acceptEarning() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter No of hours worked:");
+		No_of_hours_worked=sc.nextInt();
+		System.out.println("Enter Charges_per_hour");
+		Charges_per_hour=sc.nextInt();
+	}
+	public void displayEarning() {
+		System.out.println();
+		System.out.println("No. of Hours Worked:"+No_of_hours_worked);
+		System.out.println("Charges Per Hour:"+Charges_per_hour);
+	}
+	
+	public double calEarning() {
+		return No_of_hours_worked*Charges_per_hour;
+	}
+
+	public static void main(String[] args) {
+		int No_of_hours_worked=0;
+		int Charges_per_hour=0;
+		Learn_Earn_Info obj = new Learn_Earn_Info(No_of_hours_worked, Charges_per_hour);
+		System.out.println("Learning Information:");
+		obj.acceptLearning();
+		obj.displayLearning_Info();
+		System.out.println();
+		System.out.println("Earning Information:");
+		obj.acceptEarning();
+		obj.displayEarning();
+		System.out.println("total earning: "+obj.calEarning());
+	}
+}
+
+--------------------------------------------------------------------------------------------------------------
+O/P :-
+
+Learning Information:
+Learning Information:
+Enter Roll No:
+1
+Enter Student Name:
+Mangesh
+Enter studied Class
+BEFirstYear
+Enter percentage scored:
+85
+Roll_No: 1
+Stud_Name: Mangesh
+Class: BEFirstYear
+Percentage: 85.0
+
+Earning Information:
+Enter No of hours worked:
+300
+Enter Charges_per_hour
+400
+
+No. of Hours Worked:300
+Charges Per Hour:400
+total earning: 120000.0
+-------------------------------
+2nd way :-
+
+package assignment3;
+
+public interface Learning_Info {
+	public void accept();
+	public void display();
+}
+
+
+package assignment3;
+
+public interface Eearning_Info {
+	static int No_of_hours_worked=150;
+	static int Charges_per_hour=250;
+	public void accept();
+	public void display();
+}
+
+
+package assignment3;
+/*Create two base classes Learning_Info( Roll_No, Stud_Name, Class, Percentage) and
+Earning_Info(No_of_hours_worked, Charges_per_hour).
+ Derive a class Earn_Learn_info	
+from above two classes. Write necessary member functions to accept and display Student
+information. Calculate total money earned by the student. (Use constructor in derived
+class)*/
+public class Eearn_Learn_Info implements Learning_Info,Eearning_Info{
+	
+	private int Roll_No;
+	private String Stud_Name;
+	private String Class;
+	private double Percentage;
+	private int No_of_hours_worked;
+	private int Charges_per_hour;
+	private double totalearning;
+	
+	public Eearn_Learn_Info(int no_of_hours_worked, int charges_per_hour) {
+		super();
+		No_of_hours_worked = no_of_hours_worked;
+		Charges_per_hour = charges_per_hour;
+	}
+	
+	public void accept() {
+		Roll_No=123;
+		Stud_Name="YOGESH";
+		Class="FIRST";
+		Percentage=89.90;
+	}
+	public void display() {
+		System.out.println("Roll_No: "+Roll_No);
+		System.out.println("Stud_Name: "+Stud_Name);
+		System.out.println("Class: "+Class);
+		System.out.println("Percentage: "+Percentage);
+	}
+	public double calEarning() {
+		return No_of_hours_worked*Charges_per_hour;
+	}
+
+	public static void main(String[] args) {
+		
+		Eearn_Learn_Info obj=new Eearn_Learn_Info(158,250);
+		obj.accept();
+		obj.display();
+		System.out.println("total earning: "+obj.calEarning());
+
+	}
+
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+
+Roll_No: 123
+Stud_Name: YOGESH
+Class: FIRST
+Percentage: 89.9
+total earning: 39500.0
+---------------------------------------------
+3rd Way :-
+
+package assignment3;
+
+import java.util.Scanner;
+
+/*Create two base classes Learning_Info( Roll_No, Stud_Name, Class, Percentage) and
+Earning_Info(No_of_hours_worked, Charges_per_hour).
+ Derive a class Earn_Learn_info	
+from above two classes. Write necessary member functions to accept and display Student
+information. Calculate total money earned by the student. (Use constructor in derived
+class)*/
+public class Learn_Earn_Info implements Learning_Info,Eearning_Info{
+	
+	private int Roll_No;
+	private String Stud_Name;
+	private String Class;
+	private double Percentage;
+	private int No_of_hours_worked;
+	private int Charges_per_hour;
+//	private double totalearning;
+	
+	public Learn_Earn_Info(int No_of_hours_worked, int Charges_per_hour) {
+		super();
+		this.No_of_hours_worked = No_of_hours_worked;
+		this.Charges_per_hour = Charges_per_hour;
+	}
+	
+	public void accept() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Roll No:");
+		Roll_No=sc.nextInt();
+		System.out.println("Enter Student Name:");
+		Stud_Name=sc.next();
+		System.out.println("Enter studied Class");
+		Class=sc.next();
+		System.out.println("Enter percentage scored:");
+		Percentage=sc.nextDouble();
+		System.out.println("Enter No of hours worked:");
+		No_of_hours_worked=sc.nextInt();
+		System.out.println("Enter Charges_per_hour");
+		Charges_per_hour=sc.nextInt();
+		
+		
+		//		Roll_No=123;
+//		Stud_Name="YOGESH";
+//		Class="FIRST";
+//		Percentage=89.90;
+	}
+	public void display() {
+		System.out.println();
+		System.out.println("Learning Information for Student:");
+		System.out.println("Roll_No: "+Roll_No);
+		System.out.println("Stud_Name: "+Stud_Name);
+		System.out.println("Class: "+Class);
+		System.out.println("Percentage: "+Percentage);
+		System.out.println();
+		System.out.println("Earning Information for Student:");
+		System.out.println("No. of Hours Worked:"+No_of_hours_worked);
+		System.out.println("Charges Per Hour:"+Charges_per_hour);
+	}
+	
+	public double calEarning() {
+		return No_of_hours_worked*Charges_per_hour;
+	}
+
+	public static void main(String[] args) {
+		int No_of_hours_worked=0;
+		int Charges_per_hour=0;
+		Learn_Earn_Info obj = new Learn_Earn_Info(No_of_hours_worked, Charges_per_hour);
+		obj.accept();
+		obj.display();
+
+		System.out.println("total earning: "+obj.calEarning());
+	}
+}
+-----------------------------------------------------------------------------------------------------------------
+O/P :
+Enter Roll No:
+1
+Enter Student Name:
+Yogesh
+Enter studied Class
+PGDAC
+Enter percentage scored:
+85
+Enter No of hours worked:
+150
+Enter Charges_per_hour
+200
+
+Learning Information for Student:
+Roll_No: 1
+Stud_Name: Yogesh
+Class: PGDAC
+Percentage: 85.0
+
+Earning Information for Student:
+No. of Hours Worked:150
+Charges Per Hour:200
+total earning: 30000.0
+	
+==================================================================================================================================================================
+8.Create a class College containing data members as College_Id, College_Name,
+Establishment_year, University_Name. Write a java program with following member
+functions:
+
+i. To accept ‘n’ College details
+ii. To display College details of a specified University
+iii. To display College details according to a specified establishment year
+(Use Array of Object and Function overloading)
+-->
+
+package assignment3;
+
+public class College {
+	int College_Id;
+	String College_Name;
+	String Establishment_year; 
+	String University_Name;
+	
+	public College(int college_Id, String college_Name, String establishment_year, String university_Name) {
+		super();
+		College_Id = college_Id;
+		College_Name = college_Name;
+		Establishment_year = establishment_year;
+		University_Name = university_Name;
+	}
+
+	public int getCollege_Id() {
+		return College_Id;
+	}
+
+	public String getCollege_Name() {
+		return College_Name;
+	}
+
+	public String getEstablishment_year() {
+		return Establishment_year;
+	}
+	
+	public String getUniversity_Name() {
+		return University_Name;
+	}
+	
+	public void displayDetails() {
+		System.out.println("College Id:" + getCollege_Id());
+		System.out.println("College Name:" + College_Name);
+		System.out.println("Establishment Year:"+getEstablishment_year());
+		System.out.println("University Name: " + getUniversity_Name());
+	}
+
+}
+---------------
+package assignment3;
+
+import java.util.Scanner;
+
+public class TestCollege {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter No of Colleges you want:");
+		int num = sc.nextInt();
+		College[] college = new College[num];
+
+		boolean exit = false;
+		do {
+			System.out.println("Menu:");
+			System.out.println("1. To accept ‘n’ College details");
+			System.out.println("2. To display College details of a specified University");
+			System.out.println("3. To display College details according to a specified establishment year");
+
+			int choice = sc.nextInt();
+			int i = 0;
+			switch (choice) {
+			case 1:
+				System.out.println("1. To accept ‘n’ College details");
+				for (i = 0; i < num; i++) {
+					System.out.println("Enter College Details for College" + (i + 1));
+					System.out.println("College Id:");
+					int Id = sc.nextInt();
+					System.out.println("College Name:");
+					String name = sc.next();
+					System.out.println("Enter Establishment Year:");
+					String year = sc.next();
+					System.out.println("Enter Afflilated University ");
+					String university = sc.next();
+					college[i] = new College(Id, name, year, university);
+
+				}
+
+				break;
+
+			case 2: {
+				System.out.println("To display College details of a specified University enter the university name ");
+				System.out.println("Enter the university name");
+				String a = sc.next();
+				for (i = 0; i < num; i++) {
+
+					if (a.equals(college[i].getUniversity_Name())) {
+						college[i].displayDetails();
+					}
+				}
+			}
+				break;
+
+			case 3: {
+				System.out.println("To display College details according to a specified establishment year");
+				System.out.println("Enter Establishment Year:");
+				String e = sc.next();
+				for (i = 0; i < num; i++) {
+
+					if (e.equals(college[i].getEstablishment_year())) {
+						college[i].displayDetails();
+					}
+				}
+			}
+				break;
+
+			case 0:
+				exit = true;
+				System.out.println("Thanks!!\nVisit Again!!");
+
+			default:
+				System.out.println("Plese enter valid choice.");
+
+				break;
+			}
+
+		} while (exit != true);
+
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Enter No of Colleges you want:
+3
+Menu:
+1. To accept ‘n’ College details
+2. To display College details of a specified University
+3. To display College details according to a specified establishment year
+1
+1. To accept ‘n’ College details
+Enter College Details for College1
+College Id:
+101
+College Name:
+MIT
+Enter Establishment Year:
+1969
+Enter Afflilated University 
+BAMU
+Enter College Details for College2
+College Id:
+102
+College Name:
+JNEC
+Enter Establishment Year:
+1969
+Enter Afflilated University 
+BAMU
+Enter College Details for College3
+College Id:
+103
+College Name:
+PES
+Enter Establishment Year:
+1954
+Enter Afflilated University 
+BATU
+Menu:
+1. To accept ‘n’ College details
+2. To display College details of a specified University
+3. To display College details according to a specified establishment year
+2
+To display College details of a specified University enter the university name 
+Enter the university name
+BAMU
+College Id:101
+College Name:MIT
+Establishment Year:1969
+University Name: BAMU
+College Id:102
+College Name:JNEC
+Establishment Year:1969
+University Name: BAMU
+Menu:
+1. To accept ‘n’ College details
+2. To display College details of a specified University
+3. To display College details according to a specified establishment year
+3
+To display College details according to a specified establishment year
+Enter Establishment Year:
+1969
+College Id:101
+College Name:MIT
+Establishment Year:1969
+University Name: BAMU
+College Id:102
+College Name:JNEC
+Establishment Year:1969
+University Name: BAMU
+Menu:
+1. To accept ‘n’ College details
+2. To display College details of a specified University
+3. To display College details according to a specified establishment year
+0
+Thanks!!
+Visit Again!!
+
+==================================================================================================================================================================
+9.Write a java program to create a class Book which contains data members as B_Id,
+B_Name, B_Author, B_Publication. Write member functions to accept and display Book
+information also display Count of books. (Use Static data member to maintain Count of
+books)
+-->
+
+package assignment3;
+
+import java.util.Scanner;
+
+public class Book {
+	private int B_Id;
+	private String B_Name;
+	private String B_Author;
+	private String B_Publication;
+	
+	public static int count;
+	
+	public Book() {
+		// TODO Auto-generated constructor stub
+		count++;
+	}
+
+	
+	public void accept() {
+		Scanner sc =new Scanner(System.in);
+		System.out.println("Enter Book Id:");
+		B_Id=sc.nextInt();
+		System.out.println("Enter Book Name:");
+		B_Name=sc.next();
+		System.out.println("Enter Book Author:");
+		B_Author=sc.next();
+		System.out.println("Enter Book Publication:");
+		B_Publication=sc.next();
+	}
+	
+	public void display() {
+		System.out.println(" Book Id:"+B_Id);
+		System.out.println(" Book Name:"+B_Name);
+		System.out.println("Enter Book Author:"+B_Author);
+		System.out.println("Enter Book Publication:"+B_Publication);
+	}
+}
+-------------------
+package assignment3;
+
+public class TestBook {
+
+	public static void main(String[] args) {
+		
+		Book[] book = new Book[3];
+		
+		for(int i=0;i<3;i++) {
+			book[i] = new Book();
+			book[i].accept();
+		}
+		
+		for(int i=0;i<3;i++) {
+			book[i].display();
+		}
+		
+		System.out.println("Count of Books are:"+Book.count);
+
+	}
+}
+-------------------------------------------------------------------------------------------
+O/P:
+Enter Book Id:
+100
+Enter Book Name:
+yogesh
+Enter Book Author:
+kahnegaonkar
+Enter Book Publication:
+buldhana
+Enter Book Id:
+101
+Enter Book Name:
+cpp
+Enter Book Author:
+balaguru
+Enter Book Publication:
+bpb
+Enter Book Id:
+102
+Enter Book Name:
+java
+Enter Book Author:
+siera
+Enter Book Publication:
+rajhance
+ Book Id:100
+ Book Name:yogesh
+Enter Book Author:kahnegawankar
+Enter Book Publication:buldhana
+ Book Id:101
+ Book Name:cpp
+Enter Book Author:balaguru
+Enter Book Publication:bpb
+ Book Id:102
+ Book Name:java
+Enter Book Author:siera
+Enter Book Publication:rajhance
+Count of Books are:3
+
+==================================================================================================================================================================
+10.
+Create a java class Sumdata to perform following functions:
+
+int sum( int, int) – returns the addition of two integer arguments.
+float sum(flaot, float, float) – returns the addition of three float arguments.
+int sum( int [ ] ,int) – returns the sum of all elements in an array of size ‘n’.
+(method overloding)
+-->
+
+package assignment3;
+
+public class SumData {
+	
+	public int sum( int a, int b) {
+		return 	(a+b);
+	}
+	
+	public float sum(float a, float b, float c) {
+		return (a+b+c);
+	}
+
+	public int sum(int []a) {
+		int add=0;
+		for(int i=0;i<a.length;i++){
+			add=add+a[i];
+		}
+		return add;
+	}
+	
+	public static void main(String[] args) {
+		SumData sumdata1=new SumData();
+		System.out.println("Addition of 2 int parameter:"+sumdata1.sum(10, 20));
+		sumdata1.sum(10.0f, 5.0f, 5.0f);
+		System.out.println("Addition of 2 int parameter:"+sumdata1.sum(10.0f, 20.0f,10.0f));
+		
+		int[] a= {1,2,3,4,5};
+		int addarr= sumdata1.sum(a);
+		System.out.println("Sum of elements in the array:"+addarr);
+	}
+
+}
+---------------------------------------------------------------------------------------------------------------
+O/P:
+Addition of 2 int parameter:30
+Addition of 2 int parameter:40.0
+Sum of elements in the array:15
+
+
+==================================================================================================================================================================
+11.
+Create a class named 'PrintNumber' to print various numbers of different datatypes by creating different functions with the same name 'printn' having a parameter for each datatype.
+-->
+
+package assignment3;
+
+public class PrintNumber {
+	
+	public int printn(int i) {
+		return i;
+	}
+	
+	public float printn(float f) {
+		return f;
+	}
+	
+	public double printn(double d) {
+		return d;
+	}
+	
+	public char printn(char c) {
+		return c;
+	}
+	
+	public String printn(String s) {
+		return s;
+	}
+	
+
+	public static void main(String a[]) {
+		PrintNumber num= new PrintNumber();
+		System.out.println("Integer Datatype is:"+ num.printn(10));
+		System.out.println("Float Datatype is:"+ num.printn(5.0f));
+		System.out.println("Character Datatype is:"+ num.printn('Y'));
+		System.out.println("Double Datatype is:"+ num.printn(30.0));
+		System.out.println("String Datatype is:"+ num.printn("Yogesh"));
+	}
+}
+-----------------------------------------------------------------------------------------------------
+O/P:
+Integer Datatype is:10
+Float Datatype is:5.0
+Character Datatype is:Y
+Double Datatype is:30.0
+String Datatype is:Yogesh
+
+==================================================================================================================================================================
+12.Create a class 'Degree' having a function 'getDegree' that prints "I got a degree". It has two subclasses namely 'Undergraduate' and 'Postgraduate' each having a function with the same name that prints "I am an Undergraduate" and "I am a Postgraduate" respectively. Call the function by creating an object of each of the three classes.
+-->
+package assignment3;
+
+ class Degree {
+	public void getDegree() {
+		System.out.println("I got a degree");
+	}
+}
+
+class Undergraduate extends Degree{
+	public void getDegree() {
+		System.out.println("I am an undergraduate");
+	}
+}
+
+class Postgraduate extends Degree{
+	public void getDegree() {
+		System.out.println("I am an Postgraduate");
+	}
+}
+
+class Degree1{
+	public static void main(String a[]) {
+		Degree degree= new Degree();
+		degree.getDegree();
+		
+		Undergraduate undergraduate= new Undergraduate();
+		undergraduate.getDegree();
+		
+		Postgraduate postgraduate = new Postgraduate();
+		postgraduate.getDegree();
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P;
+I got a degree
+I am an undergraduate
+I am an Postgraduate
+
+==================================================================================================================================================================
+13.In a bank, different customers having saving account. Some customers may have taken a loan from the bank. So bank always maintains information about bank depositors and borrowers. Design a Base class Customer (name, phone-number).Derive a class Depositor (accno , balance) from Customer. Again derive a class Borrower (loan-no, loan-amt) from Depositor. Write necessary member functions to read and display the details of ‘n’ customers.
+-->package assignment3;
+
+import java.util.Scanner;
+
+class Customer {
+    String name;
+    long phoneNumber;
+
+    public void acceptCustInfo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter customer name:");
+        name = sc.next();
+
+        System.out.println("Enter phoneNumber:");
+        phoneNumber = sc.nextLong();
+    }
+
+    public void displayCustomerInfo() {
+        System.out.println("Customer Name: " + name);
+        System.out.println("Phone Number: " + phoneNumber);
+    }
+}
+
+class Depositor extends Customer {
+    int accNo;
+    double balance;
+
+    public void acceptDepositorInfo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Account No:");
+        accNo = sc.nextInt();
+        System.out.println("Enter Balance:");
+        balance = sc.nextDouble();
+    }
+
+    public void displayDepositorInfo() {
+        System.out.println("Account No: " + accNo);
+        System.out.println("Balance: " + balance);
+    }
+
+}
+
+class Borrower extends Depositor {
+    int loanNo;
+    double loanAmt;
+
+    public void acceptBorrowerInfo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Loan No:");
+        loanNo = sc.nextInt();
+        System.out.println("Enter loanAmt:");
+        loanAmt = sc.nextDouble();
+    }
+
+    public void displayBorrowerInfo() {
+        System.out.println("Loan No: " + loanNo);
+        System.out.println("LoanAmt: " + loanAmt);
+    }
+
+    public static void main(String a[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of customers:");
+        int n = sc.nextInt();
+        Borrower[] cust = new Borrower[n];
+
+        for (int i = 0; i < n; i++) {
+            cust[i] = new Borrower();
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter details for customer " + (i + 1) + ":");
+            cust[i].acceptCustInfo();
+            cust[i].acceptDepositorInfo();
+            cust[i].acceptBorrowerInfo();
+        }
+
+        System.out.println("Customer Details:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("Customer " + (i + 1) + ":");
+            cust[i].displayCustomerInfo();
+            cust[i].displayDepositorInfo();
+            cust[i].displayBorrowerInfo();
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Enter the number of customers:
+2
+Enter details for customer 1:
+Enter customer name:
+mangesh
+Enter phoneNumber:
+2354985362
+Enter Account No:
+234569
+Enter Balance:
+900000
+Enter Loan No:
+565649
+Enter loanAmt:
+20000
+Enter details for customer 2:
+Enter customer name:
+ganesh
+Enter phoneNumber:
+2654699
+Enter Account No:
+15497923
+Enter Balance:
+60000
+Enter Loan No:
+2697
+Enter loanAmt:
+8000000
+Customer Details:
+Customer 1:
+Customer Name: mangesh
+Phone Number: 2354985362
+Account No: 234569
+Balance: 900000.0
+Loan No: 565649
+LoanAmt: 20000.0
+Customer 2:
+Customer Name: ganesh
+Phone Number: 2654699
+Account No: 15497923
+Balance: 60000.0
+Loan No: 2697
+LoanAmt: 8000000.0
+
+==================================================================================================================================================================
+14. Create an abstract class 'Parent' with a method 'message'. It has two subclasses each having a method with the same name 'message' that prints "This is first subclass" and "This is second subclass" respectively. Call the methods 'message' by creating an object for each subclass.
+-->
+
+package Assignment3;
+//Q.14)
+ abstract class Parent {
+public abstract void message();
+
+}
+
+class First extends Parent{
+
+public void message() {
+System.out.println("This is first subclass");
+}
+}
+
+class Second extends Parent{
+public void message() {
+System.out.println("This is second subclass");
+}
+
+public static void main(String [] a) {
+
+First f= new First();
+f.message();
+Second s = new Second();
+s.message();
+
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+This is first subclass
+This is second subclass
+==================================================================================================================================================================
+15.Create an abstract class 'Bank' with an abstract method 'getBalance'. $100, $150 and $200 are deposited in banks A, B and C respectively. 'BankA', 'BankB' and 'BankC' are subclasses of class 'Bank', each having a method named 'getBalance'. Call this method by creating an object of each of the three classes.
+-->
+package Assignment3;
+
+ abstract class Bank{
+public abstract void getBalance();
+}
+
+class BankA extends Bank{
+public void getBalance() {
+System.out.println("Balance is:$100");
+}
+}
+
+class BankB extends Bank{
+public void getBalance() {
+System.out.println("Balance is:$150");
+}
+}
+
+class BankC extends Bank{
+public void getBalance() {
+System.out.println("Balance is:$200");
+}
+}
+
+public class AbstractQ15 {
+
+public static void main(String[] args) {
+BankA a= new BankA();
+a.getBalance();
+BankB b= new BankB();
+b.getBalance();
+BankB c= new BankB();
+c.getBalance();
+
+
+}
+
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+A Balance is:$100
+B Balance is:$150
+B Balance is:$150
+
+==================================================================================================================================================================
+16. An abstract class has a construtor which prints "This is constructor of abstract class", an abstract method named 'a_method' and a non-abstract method which prints "This is a normal method of abstract class". A class 'SubClass' inherits the abstract class and has a method named 'a_method' which prints "This is abstract method". Now create an object of 'SubClass' and call the abstract method and the non-abstract method. (Analyse the result)
+-->
+package javaassignment3;
+
+abstract class One {
+	public One() {
+		System.out.println("This is constructor of abstract class");
+	}
+
+	public void display() {
+		System.out.println("This is a normal method of abstract class");
+	}
+
+	abstract void a_method();
+}
+
+class SubClass extends One {
+	void a_method() {
+		System.out.println("This is abstract method");
+	}
+}
+
+public class TestAbstractClass {
+
+	public static void main(String[] args) {
+		SubClass subClass = new SubClass();
+
+		subClass.display();
+		subClass.a_method();
+
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This is constructor of abstract class
+This is a normal method of abstract class
+This is abstract method
+==================================================================================================================================================================
+17.We have to calculate the area of a rectangle, a square and a circle. Create an abstract class 'Shape' with three abstract methods namely 'RectangleArea' taking two parameters, 'SquareArea' and 'CircleArea' taking one parameter each. The parameters of 'RectangleArea' are its length and breadth, that of 'SquareArea' is its side and that of 'CircleArea' is its radius. Now create another class 'Area' containing all the three methods 'RectangleArea', 'SquareArea' and 'CircleArea' for printing the area of rectangle, square and circle respectively. Create an object of class 'Area' and call all the three methods.
+-->
+class 'Area' and call all the three methods.
+package javaassignment3;
+
+abstract class Shape {
+	public abstract void RectangleArea(int length, int breadth);
+
+	public abstract void SquareArea(int side);
+
+	public abstract void CircleArea(float radius);
+}
+
+class Area extends Shape {
+	double area;
+	static final double PI = 3.14;
+
+	public void RectangleArea(int length, int breadth) {
+		area = length * breadth;
+		System.out.println("Area of Rectangle: " + area);
+	}
+
+	public void SquareArea(int side) {
+		area = side * side;
+		System.out.println("Area of Square: " + area);
+	}
+
+	public void CircleArea(float radius) {
+		area = PI * radius * radius;
+		System.out.println("Area of Circle: " + area);
+	}
+
+}
+
+public class TestShape {
+
+	public static void main(String[] args) {
+		Area area = new Area();
+		
+		area.RectangleArea(15, 20);
+		area.SquareArea(20);
+		area.CircleArea(8);
+
+	}
+
+}
+==============================
+Area of Rectangle: 300.0
+Area of Square: 400.0
+Area of Circle: 200.96
+==================================================================================================================================================================
+18.Create an abstract class pen with methods write () and refill () as abstract methods.
+-->
+package javaassignment3;
+
+abstract class Pen {
+	abstract void write();
+
+	abstract void refill();
+
+}
+
+class AbstractPen extends Pen {
+
+	public void write() {
+		System.out.println("Writing...");
+	}
+
+	public void refill() {
+		System.out.println("Refilling.....");
+	}
+
+}
+
+public class TestPen {
+
+	public static void main(String[] args) {
+		AbstractPen ap = new AbstractPen();
+
+		ap.write();
+		ap.refill();
+
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Writing...
+Refilling.....
+===================================================================================================================================================================
+19.Design a Super class Customer (name, phone-number). Derive a class Depositor(accno , balance) from Customer. Again, derive a class Borrower (loan-no, loan-amt) from Depositor. Write necessary member functions to read and display the details of ‘n’customers.
+
+import java.util.Scanner;
+
+class Customer {
+    String name;
+    String phoneNumber;
+
+    public void readCustomerDetails() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Name: ");
+        name = scanner.nextLine();
+        System.out.print("Enter Phone Number: ");
+        phoneNumber = scanner.nextLine();
+    }
+
+    public void displayCustomerDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Phone Number: " + phoneNumber);
+    }
+}
+
+class Depositor extends Customer {
+    int accno;
+    double balance;
+
+    public void readDepositorDetails() {
+        readCustomerDetails();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Account Number: ");
+        accno = scanner.nextInt();
+        System.out.print("Enter Account Balance: ");
+        balance = scanner.nextDouble();
+    }
+
+    public void displayDepositorDetails() {
+        displayCustomerDetails();
+        System.out.println("Account Number: " + accno);
+        System.out.println("Account Balance: $" + balance);
+    }
+}
+
+class Borrower extends Depositor {
+    int loanNo;
+    double loanAmt;
+
+    public void readBorrowerDetails() {
+        readDepositorDetails();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Loan Number: ");
+        loanNo = scanner.nextInt();
+        System.out.print("Enter Loan Amount: ");
+        loanAmt = scanner.nextDouble();
+    }
+
+    public void displayBorrowerDetails() {
+        displayDepositorDetails();
+        System.out.println("Loan Number: " + loanNo);
+        System.out.println("Loan Amount: $" + loanAmt);
+    }
+
+
+public class {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of customers (n): ");
+        int n = scanner.nextInt();
+
+        Borrower[] customers = new Borrower[n];
+
+        for (int i = 0; i < n; i++) {
+            customers[i] = new Borrower();
+            System.out.println("Enter details for Customer " + (i + 1) + ":");
+            customers[i].readBorrowerDetails();
+        }
+
+        System.out.println("Customer Details:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("Customer " + (i + 1) + ":");
+            customers[i].displayBorrowerDetails();
+            System.out.println();
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+
+Enter the number of customers (n): 2
+Enter details for Customer 1:
+Enter Name: Mangesh
+Enter Phone Number: 9877653212
+Enter Account Number: 234
+Enter Account Balance: 30000
+Enter Loan Number: 123
+Enter Loan Amount: 100000
+Enter details for Customer 2:
+Enter Name: Yogesh
+Enter Phone Number: 5623986699
+Enter Account Number: 387
+Enter Account Balance: 20000
+Enter Loan Number: 124
+Enter Loan Amount: 90000
+
+Customer Details:
+Customer 1:
+Name: Yogesh
+Phone Number: 9877653212
+Account Number: 234
+Account Balance: $30000.0
+Loan Number: 123
+Loan Amount: $100000.0
+=============================
+Customer 2:
+Name: Yogesh
+Phone Number: 5623986699
+Account Number: 387
+Account Balance: $20000.0
+Loan Number: 124
+Loan Amount: $90000.0
+
+========================================================================================================================================================
+20.Write a Program to illustrate multilevel Inheritance such that country is inherited from continent. State is inherited from country. Display the place, state, country and continent.
+-->
+class Continent
+{
+	void display()
+	{
+		System.out.println("ASIA is the continent....");
+	}
+}
+class Country extends Continent
+{
+	void display()
+	{
+		super.display();
+		System.out.println("INDIA is my country...");
+	}
+}
+class State extends Country
+{
+	void display()
+	{
+		super.display();
+		System.out.println("MAHARASHTRA is one of the State in India .....");
+	}
+}
+
+public class TestContinents {
+
+	public static void main(String[] args) 
+	{
+		State state=new State();
+		state.display();
+		
+	}
+
+}
+==========================================
+ASIA is the continent....
+INDIA is my country...
+MAHARASHTRA is one of the State in India .....
+
+==================================================================================================================================================================
+21.Define a class MyDate(Day, Month, year) with methods to accept and display a MyDateobject. Accept date as dd,mm,yyyy. Throw user defined exception "InvalidDateException" if the date is invalid.
+-->
+class InvalidDateException extends Exception {
+    public InvalidDateException(String message) {
+        super(message);
+    }
+}
+
+class MyDate {
+    int day;
+    int month;
+    int year;
+
+    public MyDate(int day, int month, int year) throws InvalidDateException {
+        if (!isValidDate(day, month, year)) {
+            throw new InvalidDateException("Invalid date: " + day + "-" + month + "-" + year);
+        }
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+
+    public void displayDate() {
+        System.out.println("Date: " + day + "-" + month + "-" + year);
+    }
+
+    private boolean isValidDate(int day, int month, int year) {
+        if (year < 0 || month < 1 || month > 12 || day < 1) {
+            return false;
+        }
+
+        int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        
+        if (isLeapYear(year)) {
+            daysInMonth[2] = 29;
+        }
+
+        return day <= daysInMonth[month];
+    }
+
+    private boolean isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+}
+
+public class MyDateDemo {
+    public static void main(String[] args) {
+        try {
+            MyDate date = new MyDate(23, 10, 2023);
+            date.displayDate();
+        } catch (InvalidDateException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+O/P:
+try {
+    MyDate date = new MyDate(23, 10, 2023);
+    date.displayDate();
+} catch (InvalidDateException e) {
+    System.out.println("Error: " + e.getMessage());
+}
+
+==================================================================================================================================================================
+22.  Define a class ‘Donor’ to store the below mentioned details of a blood donor. name, age, address, contactnumber, bloodgroup, date of last donation. Create ‘n’ objects of this class for all the regular donors at Nashik. Write these objects to a file. Read these objects from the file and display only those donors’ details whose blood group is ‘A+ve’ and had not donated for the recent six months. 
+-->
+import java.io.Serializable;
+import java.util.Date;
+
+class Donor implements Serializable {
+    String name;
+    int age;
+    String address;
+    String contactNumber;
+    String bloodGroup;
+    Date lastDonationDate;
+    
+	public Donor(String name, int age, String address, String contactNumber, String bloodGroup, Date lastDonationDate) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.address = address;
+		this.contactNumber = contactNumber;
+		this.bloodGroup = bloodGroup;
+		this.lastDonationDate = lastDonationDate;
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	public String getBloodGroup() {
+		return bloodGroup;
+	}
+
+	public void setBloodGroup(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
+	}
+
+	public Date getLastDonationDate() {
+		return lastDonationDate;
+	}
+
+	public void setLastDonationDate(Date lastDonationDate) {
+		this.lastDonationDate = lastDonationDate;
+	}
+    
+    
+
+}
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class DonorManagement {
+    public static void writeDonorsToFile(ArrayList<Donor> donors, String filename) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(donors);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Donor> readDonorsFromFile(String filename) {
+        ArrayList<Donor> donors = new ArrayList<>();
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename)) {
+            Object obj = ois.readObject();
+            if (obj instanceof ArrayList) {
+                donors = (ArrayList<Donor>) obj;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return donors;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Donor> donors = new ArrayList<>();
+
+        writeDonorsToFile(donors, "donors.dat");
+
+        ArrayList<Donor> readDonors = readDonorsFromFile("donors.dat");
+
+        Date sixMonthsAgo = new Date(System.currentTimeMillis() - 6L * 30L * 24L * 60L * 60L * 1000L); // 6 months in milliseconds
+
+        for (Donor donor : readDonors) {
+            if (donor.bloodGroup.equals("A+ve") && donor.lastDonationDate.before(sixMonthsAgo)) {
+                System.out.println("Name: " + donor.name);
+                System.out.println("Age: " + donor.age);
+                System.out.println("Address: " + donor.address);
+                System.out.println("Contact Number: " + donor.contactNumber);
+                System.out.println("Blood Group: " + donor.bloodGroup);
+                System.out.println("Last Donation Date: " + donor.lastDonationDate);
+                System.out.println();
+            }
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Donor donor1 = new Donor("John", 30, "123 Main St", "123-456-7890", "A+ve", new Date(1234567890L));
+Donor donor2 = new Donor("Alice", 25, "456 Elm St", "987-654-3210", "B+ve", new Date(1678901234L));
+Donor donor3 = new Donor("Bob", 40, "789 Oak St", "555-123-4567", "A+ve", new Date(1718901234L));
+Name: John
+Age: 30
+===============================
+Address: 123 Main St
+Contact Number: 123-456-7890
+Blood Group: A+ve
+Last Donation Date: Wed Feb 14 17:30:00 UTC 1970
+============================
+Name: Bob
+Age: 40
+Address: 789 Oak St
+Contact Number: 555-123-4567
+Blood Group: A+ve
+Last Donation Date: Sun Feb 18 13:36:41 UTC 1970
+==================================================================================================================================================================
+23.Create a class Clock that contains integer data members as hours, minutes and seconds.Write a Java program to perform following member functions:void setclock(int, int, int ) to set the initial time of clock object.void showclock() to display the time in hh:min:sec format.Write a function tick( ) which by default increment the value of second by 1 or according touser specified second. The clock uses 24 hours format.
+-->
+public class Clock {
+    private int hours;
+    private int minutes;
+    private int seconds;
+
+    public void setClock(int hours, int minutes, int seconds) {
+        if (hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60 && seconds >= 0 && seconds < 60) {
+            this.hours = hours;
+            this.minutes = minutes;
+            this.seconds = seconds;
+        } else {
+            System.out.println("Invalid time. Please enter a valid time in 24-hour format.");
+        }
+    }
+
+    public void showClock() {
+        System.out.printf("%02d:%02d:%02d\n", hours, minutes, seconds);
+    }
+
+    public void tick() {
+        tick(1); // By default, increment seconds by 1
+    }
+
+    public void tick(int seconds) {
+        int totalSeconds = this.hours * 3600 + this.minutes * 60 + this.seconds;
+        totalSeconds += seconds;
+
+        this.hours = (totalSeconds / 3600) % 24;
+        this.minutes = (totalSeconds / 60) % 60;
+        this.seconds = totalSeconds % 60;
+    }
+
+    public static void main(String[] args) {
+        Clock clock = new Clock();
+
+        // Set the initial time
+        clock.setClock(12, 30, 45);
+
+        // Display the initial time
+        System.out.print("Initial Time: ");
+        clock.showClock();
+
+        // Increment the time by 5 seconds
+        clock.tick(5);
+
+        // Display the updated time
+        System.out.print("Updated Time: ");
+        clock.showClock();
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Initial Time: 12:30:45
+Updated Time: 12:30:50
+==================================================================================================================================================================
+24.Write a  program to  create parent  class  College(cno,  cname,  caddr)  and  derived class Department(dno, dname) from College. Write a necessary methods to display College details.
+
+class College {
+    int cno;
+    String cname;
+    String caddr;
+
+    public College(int cno, String cname, String caddr) {
+        this.cno = cno;
+        this.cname = cname;
+        this.caddr = caddr;
+    }
+
+    public void displayCollegeDetails() {
+        System.out.println("College Number: " + cno);
+        System.out.println("College Name: " + cname);
+        System.out.println("College Address: " + caddr);
+    }
+}
+
+class Department extends College {
+    int dno;
+    String dname;
+
+    public Department(int cno, String cname, String caddr, int dno, String dname) {
+        super(cno, cname, caddr);
+        this.dno = dno;
+        this.dname = dname;
+    }
+
+    public void displayDepartmentDetails() {
+        displayCollegeDetails(); // Inherited method to display college details
+        System.out.println("Department Number: " + dno);
+        System.out.println("Department Name: " + dname);
+    }
+}
+
+public class CollegeDepartmentDemo {
+    public static void main(String[] args) {
+        Department department = new Department(1, "ABC College", "123 Main St", 101, "Computer Science");
+
+        System.out.println("College Details:");
+        department.displayCollegeDetails();
+
+        System.out.println("\nDepartment Details:");
+        department.displayDepartmentDetails();
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+output--:
+College Details:
+College Number: 1
+College Name: ABC College
+College Address: 123 Main St
+
+Department Details:
+College Details:
+College Number: 1
+College Name: ABC College
+College Address: 123 Main St
+Department Number: 101
+Department Name: Computer Science
+
+==================================================================================================================================================================
+25.Write a class sales (Salesmam_Name, Product_name, Sales_Quantity, Target). Each salesman deals with a separate product and is assigned a target for a month. At the end of the month his monthly sales is compared with target and commission is calculated as follows: If Sales_Quantity > target then commission is 25% of extra sales made + 10% of target If Sales_Quantity ==target then commission is 10% of target. Otherwise commission is zero Display the salesman information along with commission obtained. (Use array of objects)
+-->
+class Sales {
+    private String Salesman_Name;
+    private String Product_name;
+    private int Sales_Quantity;
+    private int Target;
+
+    public Sales(String salesmanName, String productName, int salesQuantity, int target) {
+        Salesman_Name = salesmanName;
+        Product_name = productName;
+        Sales_Quantity = salesQuantity;
+        Target = target;
+    }
+
+    public void calculateCommission() {
+        double commission;
+        if (Sales_Quantity > Target) {
+            commission = 0.25 * (Sales_Quantity - Target) + 0.10 * Target;
+        } else if (Sales_Quantity == Target) {
+            commission = 0.10 * Target;
+        } else {
+            commission = 0.0;
+        }
+        displaySalesInfo(commission);
+    }
+
+    public void displaySalesInfo(double commission) {
+        System.out.println("Salesman Name: " + Salesman_Name);
+        System.out.println("Product Name: " + Product_name);
+        System.out.println("Sales Quantity: " + Sales_Quantity);
+        System.out.println("Target: " + Target);
+        System.out.println("Commission: $" + commission);
+    }
+
+    public static void main(String[] args) {
+        Sales[] salespeople = new Sales[3];        salespeople[0] = new Sales("John", "Product A", 150, 100);
+        salespeople[1] = new Sales("Mary", "Product B", 90, 80);
+        salespeople[2] = new Sales("Bob", "Product C", 70, 90);
+
+        for (Sales salesperson : salespeople) {
+            salesperson.calculateCommission();
+            System.out.println(); 
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Salesman Name: John
+Product Name: Product A
+Sales Quantity: 150
+Target: 100
+Commission: $17.5
+
+Salesman Name: Mary
+Product Name: Product B
+Sales Quantity: 90
+Target: 80
+Commission: $9.0
+
+Salesman Name: Bob
+Product Name: Product C
+Sales Quantity: 70
+Target: 90
+Commission: $0.0
+
+==================================================================================================================================================================
+26.Write code that creates an ArrayList that can hold string objects. Add the names of three cars to the ArrayList, and then display the contents of the ArrayList.
+-->
+import java.util.ArrayList;
+
+public class CarListExample {
+    public static void main(String[] args) {
+        ArrayList<String> carList = new ArrayList<>();
+
+        carList.add("Toyota Camry");
+        carList.add("Honda Civic");
+        carList.add("Ford Mustang");
+
+        System.out.println("List of Cars:");
+        for (String car : carList) {
+            System.out.println(car);
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+List of Cars:
+Toyota Camry
+Honda Civic
+Ford Mustang
+
+==================================================================================================================================================================
+27.
+i.  Write a program create ArrayList.
+ii. Insert an element into the array list at the first position.
+iii.Remove the fifth element from a array list.
+iv. To sort a given array list
+v.  Reverse elements in a array list
+vi. Retrieve an element (at a specified index) from a given array list
+-->
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ArrayListOperations {
+    public static void main(String[] args) {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Element 1");
+        arrayList.add("Element 2");
+        arrayList.add("Element 3");
+        arrayList.add("Element 4");
+        arrayList.add("Element 5");
+        arrayList.add("Element 6");
+
+        System.out.println("Original ArrayList: " + arrayList);
+
+        arrayList.add(0, "Inserted Element");
+        System.out.println("ArrayList after inserting at the first position: " + arrayList);
+
+        arrayList.remove(4);
+        System.out.println("ArrayList after removing the fifth element: " + arrayList);
+
+        Collections.sort(arrayList);
+        System.out.println("Sorted ArrayList: " + arrayList);
+
+        Collections.reverse(arrayList);
+        System.out.println("Reversed ArrayList: " + arrayList);
+
+        int index = 2;
+        if (index >= 0 && index < arrayList.size()) {
+            String retrievedElement = arrayList.get(index);
+            System.out.println("Element at index " + index + ": " + retrievedElement);
+        } else {
+            System.out.println("Index out of bounds.");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Original ArrayList: [Element 1, Element 2, Element 3, Element 4, Element 5, Element 6]
+ArrayList after inserting at the first position: [Inserted Element, Element 1, Element 2, Element 3, Element 4, Element 5, Element 6]
+ArrayList after removing the fifth element: [Inserted Element, Element 1, Element 2, Element 3, Element 5, Element 6]
+Sorted ArrayList: [Element 1, Element 2, Element 3, Element 5, Element 6, Inserted Element]
+Reversed ArrayList: [Inserted Element, Element 6, Element 5, Element 3, Element 2, Element 1]
+
+==================================================================================================================================================================
+28.
+i.   Write a Java program to append the specified element to the end of a hash set.
+ii.  Get the number of elements in a hash set.
+iii. empty an hash set.
+iv.  Test if a hash set is empty or not.
+-->
+import java.util.HashSet;
+
+public class HashSetOperations {
+    public static void main(String[] args) {
+        HashSet<String> hashSet = new HashSet<>();
+
+        hashSet.add("Element 1");
+        hashSet.add("Element 2");
+        hashSet.add("Element 3");
+
+        System.out.println("HashSet after adding elements: " + hashSet);
+
+        int size = hashSet.size();
+        System.out.println("Number of elements in the HashSet: " + size);
+
+        hashSet.clear();
+        System.out.println("HashSet after clearing: " + hashSet);
+
+        boolean isEmpty = hashSet.isEmpty();
+        System.out.println("Is the HashSet empty? " + isEmpty);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+HashSet after adding elements: [Element 1, Element 2, Element 3]
+Number of elements in the HashSet: 3
+HashSet after clearing: []
+Is the HashSet empty? true
+==================================================================================================================================================================
+29. Write a generic method to count the number of elements in a collection that have a specific property (for example, odd integers, prime numbers, palindromes).
+-->
+import java.util.Collection;
+
+
+import java.util.function.Predicate;
+
+public class CollectionUtils {
+    public static <T> int countElementsWithProperty(Collection<T> collection, Predicate<T> property) {
+        int count = 0;
+        for (T element : collection) {
+            if (property.test(element)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Collection<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        int oddCount = countElementsWithProperty(numbers, n -> n % 2 != 0);
+        System.out.println("Count of odd numbers: " + oddCount);
+
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+O/P:
+Count of odd numbers: 5
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+==================================================================================================================================================================

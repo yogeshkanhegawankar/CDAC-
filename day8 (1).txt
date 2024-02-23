@@ -1,0 +1,403 @@
+--1
+try{
+..
+..
+..}
+catch(){
+..
+}
+======================
+--2
+try{
+..
+..}
+catch(){
+..
+}
+catch(){
+..
+}
+catch(){
+..
+..}
+=================
+--3
+try{
+..
+..}
+catch(){
+..
+}
+finally{
+..
+..}
+==================
+--Propogation of Exception
+   if there are nested try catch blocks, if there is an error in the inner most try block, will check, whether you have a matching exception in the immediate catch, if not present the will check the exception, in the next catch block. Still it is not present will be checked in the sequential catch blocks. this is called as Propogation of Exception.
+
+
+try{
+.. 
+..		try{
+		..
+		..		try{
+				..
+				....}
+				catch(){
+				..
+				..}
+		}
+		catch(){
+		..
+		..
+		}
+..}
+catch(){
+..
+}
+
+-----------------------
+ArithmeticException   : runtime / unchecked 
+			not compulaory to handle the same
+
+IOException : compiletime / checked Exception  
+		        reading / writing , append
+			compulaory to handle the same
+
+--create a file Myfile.txt
+D:\cdac  
+
+--handle the exeception
+1 try catch
+2 throws		: we need not have to write the try catch
+			: the code will be short 
+
+--1
+public static void main(String[] args) throws IOException  {
+		FileInputStream fs=new FileInputStream("D:\\cdac\\Myfile.txt");
+		int k;
+		while((k =fs.read()) != -1) {
+			System.out.print((char)k);
+			
+		}
+		
+	}
+
+--2nd method
+public static void main(String[] args)  {
+		try{
+		FileInputStream fs=new FileInputStream("D:\\cdac\\Myfile78787.txt");
+		int k;
+		while((k =fs.read()) != -1) { //-1 till the EOF
+			System.out.print((char)k);
+			
+		}
+		}catch(IOException e) {
+			System.out.println("the path of the file is not correct...");
+			System.out.println(e.getMessage());
+		}
+	}
+
+==
+public static void main(String[] args) throws ArithmeticException, NumberFormatException{
+	
+
+--note
+if there are multiple exceptions , then the Generalized exception should be at the end.
+the sequence of the exception is important .
+if the specific exception is not handled, then it will throw a "Generalized" exception
+
+====
+--types exceptions
+1. pre defined
+	it is already there in java application
+
+2. user defined   / custom exceptions
+	it is created by user 
+	
+--Why user defined  exceptions
+	it is used to check the conditions
+	it is used for validations of the data 
+
+--validations can be done using 
+1 using the functions : checkName(), checkSal(), checkAge, checkAll()
+2 custom exceptions
+
+==============================
+--eg validations of password
+	1  no of ch > 8
+	2. should have special  ch , digit, alphabets  
+
+--eg mobile number : String : 78788 88 999  : 12 ch 
+  mobile.length()   
+
+--steps
+1 declare the class 
+2 para constructor should be present
+3 if condition
+4 throw the exception
+=====
+
+--diff in throws and throw
+throws  :  it is used with a method "main" and any other method
+
+throw   :  it used with "if condtion "
+		can be used with the custom exception and the pre defined exception.
+
+=====
+The Exception class inherits from the Throwable class. 
+
+		      java.lang 
+			|
+		     Object
+			|
+		    Throwable
+			|
+	-----------------------------------
+	|			|
+	Error		Exception
+	|			|
+				|
+	----------------------------------------
+	|					           |	
+RuntimeException  	 			Others Exception(Checked)/ compiletime
+   | (UNCHECKED/logical err)   				|
+   |			------------------------------------------------------------------
+   |			|	     |	  		|     			 |                 |
+   |			SQLException EOFException IOException FileNotFoundException    |				
+----------------------------------------------------------------------
+|		   				 |				|	
+ArithmeticException |   | NumberFormatException RedSignalDishonouredException 
+		    |   |
+   NullPointerException |
+			|
+	IndexOutOfBoundsException
+		|
+-------------------------------------------------------------
+|								|
+ArrayIndexOutOfBoundsException      StringIndexOutOfBoundsException
+
+
+--details
+NumberFormatException : datatype is integer and stored the string into
+
+
+ArithmeticException   : divide by 0
+
+IOException 	      : file i/o : need to be handle if using file I/O
+
+IndexOutOfBounds      : If a request for a negative or an index greater than or equal to size of array
+
+ArrayIndexOutOfBounds :  access an element of an array for which index given wrongly
+					
+
+StringIndexOutOfBounds :  thrown by the methods of the String class, in order to indicate that an index is either negative, or greater than the size of the string 
+eg
+		String str="nivedita";
+		System.out.println(str.substring(10));
+
+NullPointer	      :  If we have a null value in any variable, performing any operation on the variable
+--eg
+		Emp emp=new Emp();
+		emp=null;
+		emp.accept();
+		emp.display();
+
+SQLException  : The SQLException class provides information on a database access error.
+             JDBC
+Java ---------------------> Mysql(employee)
+mysql driver --> s/w
+
+
+EOFException  : Signals that an end of file or end of stream has been reached unexpectedly during input.
+
+FileNotFoundException : specified pathname has failed.
+
+throws : informing the complier that the code might generate the given exce
+multiple exceptions can be given with throws
+
+
+throw : generating / throwing the exception expicitly : can be used with either userdefined  or predefined excep , 
+
+--note
+with in 1 program we can custom exception + predefine defined exception ( runtime / compiletime exception)
+
+
+====
+
+Architechture
+
+
+JDK = Development Enviornment +JRE 
+JRE= JVM + Java Class Library
+Other classes = Utility classes
+JDK = javac compiler  +   .jar (libraries) +JRE + java debugger
+
+JVM : Java Virtual Machine
+Is a software that is platform specific
+JVM is different for different OS. We have JVM for Windows, JVM for Unix, JVM for Mac OS.
+JVM converts the byte code into machine language executable code. It has byte code verifier. It interprets the byte code ,  it converts the code into  executable code.
+
+The JVM performs the following main tasks:
+1.Loads code
+2. Verifies code
+3Executes code
+4.Provides runtime environment
+
+
+JDK :  Java Development Kit.
+Is a software package which is used to develop and deploy java applications.
+JDK is a compiler.  It is used to develop Java applications . The JDK contains a private Java Virtual Machine (JVM) and a few other resources such as an interpreter/loader (java), a compiler (javac), an archiver (jar), a documentation generator (Javadoc), etc.
+
+                  javac compiler
+file1.java ---------------->   file1.class
+
+JRE: Java Runtime Environment
+Is required to run java application. JRE has JIT(Just In Time) compier. JIT avoids the repeated translation  of the code which embedded in a loop, to make execution process fast. It perform the translation of such code and keep it in the memory for future use.
+It contains a set of libraries + other files that JVM uses at runtime.
+
+Javac : java complier is used to convert java code to a class file. 
+.jar : files has number of classes and interfaces 
+
+=======================
+Collections
+
+20 names --> array :same data types
+
+--adv array
+1 we need to remember 1 variable
+2 faster 
+
+--dis adv 
+1 the size of an array is fixed
+2 the data stored is homogeneous (same datatype)
+3  we do not have the readymade methods for doing the operations(add a element, delete the element, drop the array, traversal , change the value for one of the element)
+4 no standard datastructure is used in the industry 
+
+======================
+Collections
+    it is a collection of objects
+
+--eg
+
+shilpa  komal  usha  uma 
+
+emp1  emp2   student1  circle1  10  20.55  true  Priti
+ o       o           o  		o         int    double b     string
+
+
+adv Collection 
+1 collection is growable 
+2  the data stored is homogeneous (same datatype) or herterogeneous data
+3  we do have the readymade methods for doing the operations(add a object, delete the object, drop the obj, traversal , change the value for one of the obj)
+4 standard datastructure is used in the industry 
+
+--eg :
+Collection students
+Collection emps
+Collection books
+Collection bags
+
+====================
+what is Collection framework?
+it is provides the collection of classes and interfaces 
+will manage the objects, provides all the methods for the different operations
+
+--eg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

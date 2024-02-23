@@ -1,0 +1,311 @@
+--multiple inheritance
+  it is possible by using interfaces
+  in interfaces all the methods are empty, no body
+
+		fun1(int a)			fun1(int a)
+		Interface1		Interface2
+		 | 				  |
+		---------------------------
+				|
+				Class1
+				fun1(int a){sdjfksjdk}
+==========================================
+--multi dimentional array
+--eg need to store the marks for diff subjects for diff rollno
+--eg need to store the empno, mobileno, adharno
+
+0		1	2		3		4
+rollno	C	C++		Mysql	Java 
+1	       66	77		88		90   		0
+2		87	89		92		78		1
+3		80	70		91		94		2
+
+92  [1,3]
+      R  C
+
+94[2,4]
+3[2,0]
+
+empno   mobileno		adharno
+1		89898		5656
+2		6767		4545
+3		767676		35454	
+
+
+=========
+Constructor
+  the name of the Constructor is same as that of class name
+  it is always public
+  no return type
+  it can be overloadded 
+  we can pass arguments to the Constructor
+  it is called automatically when the object is created
+
+--why Constructor?
+it is used to initialize the object
+
+--types of Constructor
+1 default 
+	no parameters
+2 parameterized Constructor
+	has parameters
+
+--note
+if the user is not providing any Constructor, the default Constructor will be provided by the application
+if the user has provided the default Constructor, the paramerized Constructor is not provided by the application
+if the user has provided the paramerized  Constructor, the default Constructor is not provided by the application
+
+
+Account {
+	private int accNo;
+	private String accHolderName;
+	private double accBal
+
+	def const
+	para const
+	public void withdraw(double amt)
+	public void deposit(double amt)
+        public void transfer(double amt)
+	display()
+
+
+
+TestAccount 
+	main()
+	create an obj  --without para
+	create an obj  --with para
+
+===
+--shortcuts
+1. def const : ctrl + spacebar
+2. para const
+	rt--source--generate const using fields
+3. toString
+	rt--source--generate toString()
+4. getter , setter
+rt--source--generate getter setter
+
+Student
+         private int rollno;
+	 private String name; 
+	 private String address;
+	 private double score;
+	def const
+	para const
+    display()
+
+TestStudent
+	main()
+	create an obj  --without para
+	call display()
+
+	create an obj  --with para
+	call display()
+
+==
+Emp
+          int empno;
+	  String name; 
+	  String address;
+	  double sal;
+          def const
+	  para const
+
+TestEmp
+	main()
+	create an obj  --without para
+	call display()
+
+	create an obj  --with para
+	call display()
+
+--annotation
+	@Override
+
+=============
+getter
+	used to get the value of member variable
+
+setter
+	used to set the value of member variable
+
+=====
+Account {
+	private int accNo;
+	private String accHolderName;
+	private double accBal
+
+	def const
+	para const
+	getter setter
+	tostring
+	public void withdraw(double amt)
+	public void deposit(double amt)
+        public void transfer(double amt)
+	display()
+
+
+
+TestAccount 
+	main()
+	create an obj  --without para
+	create an obj  --with para
+
+
+account				account2
+1   pr    9000			10, "rohit", 20000
+   amt        5000-------------> 
+newbal     4000					   25000
+
+
+==
+passing objects to a function
+	
+	public void fun1(Account account2, Loan loan, Trasport tr, double amt ) {
+				   ----------------------   -------------  -------------- 
+				        	1			2			3
+	..
+	}
+================================
+types of functions
+1.  function with no return type and no parameters
+     eg : public void accept(), 
+	 public void display(), 
+
+2.  function  with return type and no parameters
+  eg : public String toString()
+    public double getAccBal() 
+
+3.  function with no return type and with parameters
+  eg public void setAccBal(double accBal)
+	public void sum(int a, int b)
+
+4.  function with  return type and with parameters
+eg :    public int sum(int a, int b)
+
+=============================
+--Wrapper class
+    used to wrap the primitive data types to an object
+    for every primitive data types we have a wrapper class
+
+--Wrapper classes
+int 			Integer
+float 		Float
+double 		Double
+short		Short
+long			Long
+boolean		Boolean
+byte			Byte
+..
+..
+
+--methods of the Wrapper classes
+valueOf()
+toString()
+max_value()
+min_value()
+parseInt()
+parseFloat()
+parseDouble()
+hashCode()
+compare()
+reverse()
+toHexString()
+..===============================
+==static
+1 static variable
+2 static method
+3 static block
+
+-- static variable
+  there is only one copy which will be maintained
+  the static variable will be shared among all the objects
+
+
+				Numbers
+				  | private static int num=4;			1   2
+				  | display()
+		-----------------------------------------------------
+		|				|			    |
+		obj1				obj2			obj3
+	display()			display()			display()
+
+--eg  it is used to count the number of objects created 
+--eg : count the TRP of the program, visitors of a site
+
+=======
+static method
+   can access only static variables
+   non static variables can not be accessed
+   to call the static metbod , we need not have to create an object, we can call directly without creating an object
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

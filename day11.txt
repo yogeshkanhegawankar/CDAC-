@@ -1,0 +1,76 @@
+Iterator interface
+--methods
+hasNext()		: return true / false
+next()			: will return a obj
+
+--topics for interviews
+OOP Concepts 
+types of inheritance
+types of polymorphism
+constructor
+Object class
+Class class
+Scanner
+inheritance , abstract class, interfaces
+Generics
+function overloadding
+function overriding 
+types of constructors
+toString 
+String class methods
+Math class methods
+Why String class is immutable 
+why to use StringBuffer and StringBuilder
+diff in StringBuffer and StringBuilder clas
+exception handling
+user defined exception
+tree diagram of  exception
+types of exception , generalized exception
+tree diagram of  collection
+collection 
+diff between the set and list
+diff between the HashMap and HashTable
+diff between the TreeSet and List
+association / aggr / composition 
+final class
+final method
+final variable
+static variable
+static method
+diff between equals()   , ==
+6 methods of String class
+diff throw and throws 
+main()
+function signature : 
+lambda 
+multi threading
+why mutiple inheriance is not possible in java 
+why mutiple inheriance is possible  using interfaces?
+deadlock
+synchornization 
+drawback of array
+why to use the collection over an Array?
+diff collection and collection framework?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

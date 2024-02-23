@@ -1,0 +1,280 @@
+--function overriding
+   same fun is present in parent and child class
+
+				Shape
+				  | calArea() , display() : mf
+				  |
+		------------------------------------------------------
+		|				|				  |
+      Rectangle			  Circle				square
+  calArea() , display()
+
+Share shape=new Shape();
+..
+shape  = new Rectangle();
+..
+shape  = new Circle();
+..
+shape  = new Squre();
+..
+================
+--compiletime polymorphism
+  the details of the obj is given at compile time
+  left side and the right side class is matching
+Rectangle rect=new Rectangle();   //static poly or compiletime po
+-----------------    --------------------
+
+--runtime polymorphism // dynamic po
+at compile time shape is a obj of parent class
+at run time shape is a obj of child class
+we need not have to create several objs, the parent class obj can be reused for mutiple times
+
+
+shape  = new Rectangle();//dynamic po or runtime poly
+------       ---------------------
+compile    runtime 
+time        
+
+===================
+Abstract class
+ it has abstract and non abstract methods
+ used in inheritance
+ reused the mv of the related classes in the child class
+ extensibility of the code
+ abstract methods does not have the body
+ abstract methods need to override in the child classes
+Abstract class can not be instantiated
+"is a" relationship
+
+--abstraction
+using Abstract class, abstraction can be achieved 0 to 100%
+    because there can be non abstract method which has the body 
+
+using Interfaces, abstraction can be achieved 100%
+  because all the methods are abstract method by default , so there is no body in all the methods
+
+				Animal
+				| mv :legs
+				| mf : classInfo(){..}		non abstract method
+				| mf : sound()			abstract method
+	----------------------------------------------------------
+	|									|
+	Dog								Lion
+legs									legs
+classInfo(){..}							classInfo(){..}	
+sound(){..}							sound(){..}
+
+
+--multiple inheritance
+   using the abstract class it is  not possible 
+
+
+				Animal			Class1			abstract class
+				 |                               |
+				--------------------------
+					  |
+					Dog
+===
+					BankAccount
+						  |  mv  int id;, balance
+						  | calculateInterest()   --> abs method
+		----------------------------------------------------------------------
+		|				  |							|
+	   CurrentAccount		LoanAccount					SavingAccount
+ int id;, balance			 int id;, balance				 int id;, balance
+ calculateInterest(){..}		 calculateInterest(){..}			 calculateInterest(){.}
+
+
+
+
+==============
+Interfaces
+   it is a contract between the class and the outside world
+   all the methods are abstract and public by default
+   all the member variables are public, static, final by default
+  "has a " relationship is present
+  there are unrelated classes will be present
+  abstraction will be achieved 100% using interfaces
+  "implements" keyword will be used
+  can not be instantiated
+  we need to override all the methods in the child class
+  multiple inheritance can be possible
+
+
+					Graphic			interface
+ 				            |  mv PI =3.14
+					    | mf : calArea(), calPeri() 		 abs method
+			-----------------------------------------------
+			|							 |
+			Circle					Rectangle		class
+		 PI =3.14					 PI =3.14
+		+								+
+		radius 							height, width
+	calArea(){..}, calPeri(){..} 			calArea(){..}, calPeri(){..} 	
+
+			
+					instruments			abs class
+					  | mv : price, make, color, 
+					  | sound()			abs method
+			--------------------------------------------
+			|							|
+		Guitar						Tabla
+		 sound(){..}					 sound(){..}	
+
+						mobile					abs class
+						 |  texting(), calling() 		abs method
+					-----------------------------------------
+					|						  |
+				  smartphone					textmobile
+
+
+						OS   abs class
+						  |  mv: version, price, ext
+						  |  mf: logging()  , createFile(), 		abs method
+			--------------------------------------
+			|			|			|
+			Windows    Unix 			MacOs
+
+--diff abstract class and interface
+abstract class :  will have abstract and non abstract method
+interface : all the methods are abstract by default
+
+abstract class : relation between the related clasess
+interface :relation between the unrelated clasess
+
+abstract class :  "is a"
+interface :  "has a "
+
+abstract class : "abstract" keyword
+interface : "interface" keyword will be used
+
+abstract class : "extends" keyword will be used
+interface : "implements"  keyword will be used
+
+abstract class :  abstraction can be achieved 0 to 100%
+interface : abstraction can be achieved 100%
+
+abstract class :  multiple inheritance is not possible 
+interface :   multiple inheritance is possible 
+
+--multiple inheritance 
+	multiple inheritance , is possible in interfaces
+
+--what is 	multiple inheritance?
+	it means we can have multiple parent interfaces for a child class
+
+			Interface1			Interface2
+			| fun1()					| fun1()
+			-------------------------------------
+					|
+					 Myclass1
+					fun1(){..}
+
+
+===Exception handling
+  it is error handling 
+
+--what is Exception?
+it is unexpected event which has occured during the program execution.
+it  is an abnormal situation which has occoured in the program 
+
+--eg 
+pot holes
+rain duting the cricket match
+driving ---> one way --police man --> 
+rahil--attending the marriage
+
+
+--why Exception?
+if the Exception is not handled by the programmer the program excution is stopped, it will throw you out of the program and the rest of the program is not executed
+to avoid this we have to handle the Exception.
+
+--types of Exception
+1 unchecked Exception /runtime Exception
+    it is not compulsary to handle the same
+	eg : ArrayIndexOutOfBound(), AirthmaticException()
+
+2 checked Exception  / compile time Exception
+	it is neccessory to handle the same
+	eg: IOException, SQLException
+
+JVM will handle the Exception.
+
+--types of blocks
+1 try
+   in this block we need to write the code, which may result to an exception
+   for every  try , there has to be 1 catch block
+   we can have multiple catch blocks
+   it will always executes the matching catch block
+
+2 catch
+      used to display the user defined message
+      if there is an error then only catch block will be executed
+      if there is no error then only catch block will not be executed
+    
+3 finally
+     will be executed always , irrespective of the error
+     it is used to close the resources or objects (database connection obj, file io obj)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

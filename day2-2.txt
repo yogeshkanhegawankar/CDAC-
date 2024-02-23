@@ -1,0 +1,307 @@
+what is workspace?
+	it is a collection of project 
+		javaproject1
+		javaproject2
+		javaproject3
+
+--what is package?
+	collection of classes
+	Myclass1
+	Myclass2
+	Student
+
+=============
+Enumeration	
+	it set of predefined values
+	eg dname : accouting , research, sales , operation 
+	eg color: red , green , blue 
+	eg days : m,t,------------- s
+	eg months: 
+
+===
+--naming convensions
+1 package  : 		lower case  eg : module1
+2 member variables: camel case  : eg  accHolderName, accNo
+3 member functions  : camel case : eg  markAttendance(), checkResult()
+4 class			 : pascal case eg : Student, MyClass
+5 final variable (constants)	: upper case 
+	eg : PI, TAX, IFSC 
+
+--comments
+// single line comments
+
+--multiple line comments
+/*
+sdfsf
+sd
+fs
+df
+sdf
+sdf  */
+
+--documentation comments
+     used to write the more details about the mv, mf, class
+/*
+*sdfsf
+*sd
+*fs
+*df
+*sdf
+*sdf  */
+
+=============
+ accHolderName, accNo
+
+==shortcuts
+ctrl + f11
+comments     ctrl + /
+uncomments     ctrl + /
+format 		: ctrl + shift + f
+sys  
+
+
+---note
+if there are multiple classes in the file then only 1 class will be defined as public, 
+the class which has the main method will be a public class.
+the other class should have the less accessibility. or
+all the classes can have the same accessiblity (default)
+a class  can not be private
+
+if no access specifie is written , then it is default for class, mf, mv
+if there is a single class , the class be public or default
+
+
+--access specifiers / access modifiers
+1 private		: mv			: it is accessible to the same class
+2 protected	: mv, mf		:  it is accessible to the child class only
+3 default		: class, mv, mf :  it is accessible to the other classes in the same package
+4 public		: class , mf  	: it is accessible to the all classes inside and outside the 			package
+
+
+					Account		 P
+					 |  protected accNo, 
+					 | protected bal
+					 | protected accHolderName
+		-------------------------------------------
+		|						   |
+	SavingAccount			CurrentAccount   C
+accNo, 						 accNo
+bal							bal
+accHolderName				accHolderName
+
+
+---Math class 
+    it is immutable (can not change) class in java
+     
+--methods
+random()			: generates number between 0 to 1
+abs()
+min()
+max()
+floor()
+ceil()
+pow
+round()
+..
+
+--modularization of the code
+Student							mv, mf
+	 private int rollno;
+	 private String name; 
+	 private String address;
+	 private double score;
+
+	 public accept()
+	 public display()
+	 public markAttendance()
+	 public attendClass()
+	public checkResult()
+
+
+
+TestSudent 		--> tester class / driver class
+	main() method
+	create an obj 
+	call the methods
+
+
+--default values
+int 		0
+double     0.0
+float		0.0
+boolean false
+String     null
+object 	null
+short 	0
+byte        0
+char 		'\u0000'
+
+===================
+
+Emp
+         private int empno
+	 private String name; 
+	 private String address;
+	 private double sal;
+
+	 public void accept()
+	 public void display()
+	 public void checkSalary()
+	 public void applyLeave()
+	
+TestEmp  ------------------------------> tester class
+	main() method
+	create an obj 
+	call the methods
+
+=======================
+--to change the name of the class
+refactor
+
+--import the class
+import module2.Student;
+import module2.Emp;
+               |             |
+      package      class
+
+--to import all the classes
+import module2.*;
+
+
+--declare a package
+package module3;
+
+--
+package module3;       // 1st
+
+import module2.Student;
+import module2.Emp;
+
+=============================
+Scanner 
+     
+	used to accept the i/p from user at runtime
+	Scanner class is from java.util  package
+	it has started from java 1.5 version
+
+	Scanner sc=new Scanner(System.in);  //2
+	   |          |					|
+    class      object			parameter
+
+in :  object of InputStream
+
+--methods of Scanner class 
+1  nextInt()
+2 nextDouble()
+3 nextFloat()
+4 next()
+5 nextLine()
+6 nextByte()
+7 nextShort()
+8 nextLong()
+9 nextBoolean()
+..
+..
+..
+
+
+
+=====
+
+
+Emp1
+          int empno
+	  String name; 
+	  String address;
+	  double sal;
+
+	 public void accept()
+	 public void display()
+	 public void checkSalary()
+	 public void applyLeave()
+	
+TestEmp1  ------------------------------> tester class
+	main() method
+	create an obj 
+	call the methods
+
+	Scanner sc=new Scanner(System.in);  //2
+	   |          |					|
+    class      object			parameter
+
+--methods of Scanner class 
+
+---assignment
+Customer
+		private int cusId;
+		pricate String custName
+		pricate String address;
+		
+		public void accept()
+		public void display()
+
+TestCustomer
+	main() method
+	create an obj 
+	call the methods
+
+====================
+java is 100% object oriented 
+
+
+
+
+==========================
+Circle
+	private double radius;
+	private double area1;
+	private double perimeter;
+	
+	public void accept()
+	public void calPerimeter();
+	public void calArea();
+	public void display()
+
+TestCircle
+	main() method
+	create an obj 
+	call the methods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

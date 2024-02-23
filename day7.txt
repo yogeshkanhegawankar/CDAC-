@@ -1,0 +1,499 @@
+--ranking
+select ename ,sal, dense_rank() over(order by sal desc) rank
+from emp;
+
+connect hr
+pass : hr
+
+---
+connect sys as sysdba
+pass : password
+--formatting command
+set linesize 130
+set pagesize 25
+
+select * from emp;
+
+--display the first 3 names for employees, who has the highest salary
+select * from 
+(select ename ,sal, dense_rank() over(order by sal desc) rank
+from emp)
+where rank <=3;
+
+--first 5 names having the highest salary
+select * from 
+(select ename ,sal, dense_rank() over(order by sal desc) rank
+from emp)
+where rank <=5;
+
+--name of the employee with 3rd highest salary
+select * from 
+(select ename ,sal, dense_rank() over(order by sal desc) rank
+from emp)
+where rank =3;
+
+--name of the employee with 3rd to 6th highest salary
+select * from 
+(select ename ,sal, dense_rank() over(order by sal desc) rank
+from emp)
+where rank between 3 and 6;
+
+=================
+PLSQL
+
+--retrieve the data from the table
+--store the max salary in a variable and display.
+select @max1:=max(sal) as maxsal from emp;
+		            |
+			  alias
+
+@max1	: plsql variable
+
+--note
+all the plsql variables are called as bind variables, bind varibles use ":"
+
+--eg --store the max, min, avg, sum salary in a variable and display for deptno 10
+select @max1:=max(sal) as maxsal,  
+ @min1:=min(sal) as minsal,
+ @avg1:=avg(sal) as avgsal,
+ @sum1:=sum(sal) as sumsal
+from emp
+where deptno=10;
+
+--store the max salary in a variable and display all the details of the emp having maximum salary.
+select @max1:=max(sal) as maxsal from emp;
+select * from emp where sal=@max1;
+
+--types of blocks
+1 anonymous block
+     no name is present
+     one time use
+	eg : bisleri water bottle
+
+2 named block
+      has the names eg : copper water bottle 
+      can be used mutiple times
+      it is also called as sub programs
+      reusablity of the code 
+      there are 3 named blocks
+	1. stored procedure
+	2. functions
+	3. triggers
+	
+--eg stored procedure
+delimiter $$
+create procedure getallemp()
+begin
+    select ename, sal, comm from emp
+     where deptno=10; 
+    #update..
+    # delete...
+    #select 
+      #update..
+    # delete...
+    #select 
+end;
+$$
+
+--to execute
+delimiter ;
+call getallemp();
+call getallemp();
+call getallemp();
+
+--to drop procedure
+drop procedure getallemp;
+
+-- create a procedure to display all the records from emp1, dept, 
+increase the salary by 1000 or empno 1 from emp1 
+delete the record from  empno 2 from emp1 table
+
+delimiter //
+create procedure proce1()
+begin
+  select 'changed';
+  select * from emp1;
+  select * from dept;
+  update emp1 set sal=sal + 1000 where empno=1;
+  delete from emp1  where empno=2;
+  #insert ,update, delete ...
+end;
+//
+--
+delimiter ;
+set autocommit=0;
+
+--to exe
+delimiter ;
+call proce1();
+rollback;
+
+-- to see all the names of all procedures
+delimiter ;
+select routine_name from information_schema.routines
+where routine_type='PROCEDURE'
+and routine_schema='lnt';         
+                     |
+		  database name 
+
+=========================
+--if condition 
+--1
+if condition then
+..
+..
+end if;
+
+--2
+if condition then
+..
+..
+else
+..
+..
+end if;
+
+--3
+if condition then
+..
+..
+elseif condition2 then
+..
+..
+elseif condition3 then
+..
+else
+..
+end if;
+===============================
+--eg store the value in 2 variables and compare the variables
+delimiter //
+create procedure compare_demo1()
+begin
+  declare result varchar(20);
+  #declare a int default 100;
+  #declare b int default 200;
+  set @a:=100;
+  set @b:=200;
+  set @c:=300;
+  if (@a > @b) and (@a > @c) then
+     set result='a is greatest';
+  elseif (@b > @a) and (@b > @c) then
+     set result='b is greatest';
+  else
+     set result='c is greatest...';
+  end if;
+  select result;
+end;
+//
+
+--to exe
+delimiter ;
+call compare_demo1();
+
+--types parameters
+1 in		: input	 	:default
+2 out		: output
+======================
+3 in out		: input and output : oracle
+
+
+--accept a number from the user and check , whether it is greater than 10
+i/p  pvar
+delimiter //
+create procedure input_demo(pvar int)
+begin
+  if pvar > 10 then
+     select 'the number is greater than 10';
+  else
+     select 'the number is lesser than 10';
+  end if;
+end;
+//
+
+--to exe
+delimiter ;
+call input_demo(23);
+
+
+--eg
+3. accept a empno from the user, check the salary of the emp, if the salary is <2000, delete the record
+i/p  : 
+
+delimiter //
+create procedure in_demo2(in peno int)
+begin
+   declare vsal int;
+   select sal into vsal from emp1 where empno=peno;
+   if vsal < 20000 then
+       delete from emp1 where empno=peno;
+       # update  ...
+       # insert ...
+       # select
+       select 'the record is deleted.....';
+   end if;
+end;
+//
+
+--to exe
+delimiter ;
+call in_demo2(1);
+select * from  emp1;
+rollback;
+
+
+--out parameter
+accept a empno and incremented value, update the salary for the same emp with the given incremented value and return the updated salary
+    7934         800			newsal 1300+ 800=2100
+i/p : pempno , pincr
+o/p : psal
+
+delimiter //
+create procedure out_demo(in pempno int , in pincr int, out psal int)
+begin
+    update emp set sal=sal +  pincr where empno= pempno;
+    select 'salary is updated';
+    select sal into psal from emp  where empno= pempno;
+end;
+//
+
+--to exe
+set autocommit=0;
+delimiter ;
+call out_demo(7934, 800, @psal);
+select @psal;
+select * from emp where empno=7934;
+rollback;
+
+===========
+loops
+1 while loop
+2 simple loop
+3 repeat .. until   ---> same as do while... loop
+
+
+--1 simple loop
+--syntax
+myloop: loop
+..
+..
+ if cond then
+   leave myloop;
+ end if;
+ end loop myloop;
+
+--display 1,2.......10
+delimiter //
+create procedure proce2()
+begin
+   set @counter:=1;
+   myloop: loop
+       select @counter;
+       set @counter:= @counter + 1;
+       if @counter >10 then
+            leave myloop;
+       end if;
+ end loop myloop;
+end;
+//
+
+--to exe
+delimiter ;
+call proce2();
+
+=============
+--2 repeat ---until loop
+--syntax
+repeat 
+..
+..
+until condition
+end repeat;
+
+====
+accept a number from the user and display the even numbers till the same number
+12
+2, 4...........12
+
+delimiter //
+create procedure repeat_demo2(in pnum int)
+begin
+   set @counter:=2;
+   repeat 
+	#select @counter;
+        insert into t1 values( @counter);
+        set @counter:= @counter + 2;
+    until @counter > pnum
+    end repeat; 
+    select * from t1;
+end;
+//
+
+--to exe
+delimiter ;
+call repeat_demo2(20);
+
+==========
+create table t1(
+c1 int);
+
+
+==============================
+-- first 10 odd numbers
+
+--while loop
+-syntax
+while condition
+do
+..
+..
+end while;
+
+delimiter //
+create procedure while_demo()
+begin 
+   set @counter := 1;
+   while (@counter < 20)
+   do
+      #select @counter;
+      insert into t1 values(@counter);
+      set @counter:= @counter + 2;   
+   end while;
+   select * from t1;
+end;
+//
+
+--to exe
+delimiter ;
+truncate table t1;
+call while_demo();
+
+--accept 2  values from user
+20  30
+20 22 , 24 ...30
+i/p:
+
+
+=======================
+sub programs
+	1. stored procedure
+	2. funtions
+	3. trigger
+
+--functions  
+   are the sub programs , used for storing complicated expression, or complex formula to store 
+   will always returns a value, will have at least 1 i/p parameter
+   we can have dml, dql commands
+
+--note
+deterministic
+   the parameters are not case sensitive
+
+create function cube_fun(num varchar(33))
+..
+..
+select cube_fun('priti');
+select cube_fun('PRITI');
+select cube_fun('pRITI');
+--create a function to accept a number from the user and  return a cube of a number
+i/p
+
+delimiter //
+create function cube_fun(num int)
+returns int
+deterministic
+  return num * num * num;
+//
+
+--to exe
+delimiter ;
+select cube_fun(4);
+select cube_fun(5);
+select cube_fun(6);
+
+--to see the list of all function names
+delimiter ;
+select routine_name from information_schema.routines
+where routine_type='FUNCTION'
+and routine_schema='lnt';         
+  
+--to drop a function
+drop function cube_fun;
+
+--EG create a function to accept a empno from the user and return the annual salary of the same employee
+i/p :   7369 
+return : annual sal 
+(sal + ifnull(comm,0)) * 12 |
+
+delimiter //
+create function annual_sal(pempno int)
+returns int
+deterministic
+begin
+  declare annsal numeric(10,2);
+  select  (sal + ifnull(comm,0)) * 12 into annsal from emp where empno=pempno;
+  return annsal;
+end;
+//
+
+--to exe
+delimiter ;
+select annual_sal(7369) as annsal;
+select annual_sal(7499) as annsal
+select annual_sal(7839) as annsal
+
+====================================
+
+--diff in procedure and function
+procedure:  to execute : call proce1
+function : to execute : select fun1
+
+procedure: may or mya not have parameters
+function : will always has atleast 1 i/p parameter
+
+procedure: is used to manipulate the record
+function :  used for storing complicated expression, or complex formula to store 
+
+procedure: may or may not return the value
+function : always returns a value
+
+procedure: not present
+function : deterministic  keyword is present 
+
+====================
+
+
+
+--assignment for procedure
+1.  accept a number from the user and check whether it is 1 digit, 2 digit or 3 digit or 4 digit number
+
+2. accept a number from the user and check whether it is +ve or -ve or 
+
+3. accept a empno from the user, check the salary of the emp, if the salary is <2000, increase the salary by 500 for the same emp, display the updated salary.
+
+4. accept a deptno and salary from the user
+display all the records of the employees from the same deptno and salary greater than the accepted salary
+
+
+=======================
+sql plsql 
+ref : Ivan Bayross
+
+---
+Oracle compleate ref by Oracle Press 
+
+========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+

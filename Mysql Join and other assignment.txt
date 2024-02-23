@@ -1,0 +1,56 @@
+q.1)display the employee name , and his commission and themanager name and manager commission
+(use self join).
+-->
+ select a.ename,a.
+q.2) the above query sort by ename.
+q.3)display the employee name and his hiredate and the manager name and manger hiredate (use self
+join).
+q.4)write a query for the inner join of the dept and emp table, display DEPTNO,DNAME, ename, comm
+q.5)display the ename, sal, dname and location using inner join
+q.6)using subquery :display the information from the emp table for all the employees for which the
+deptno is same as that of jones
+Q. 7) using subquery : display the information from the emp table for all the employees for which the
+deptno is same as that of miller
+q.8) using subquery :display the information from the emp table for all the employees whose sal is
+greater than the average sal of the same deptno.
+q.9) using subquery :display the information from the emp table for all the employees whose sal is
+greater than all the employees from department number 20
+q.10) perform the left outer join on department table, and display the columns empno, ename
+,hiredate,dname, loc
+q.11) perform the right outer join on department table, and display the columns empno, hiredate,
+dname
+q.12) using subquery :display the information from the emp table for all the employees whose sal is
+greater than any of the employees from department number 30
+q.13) using subquery : display the details from the department table where the employees exists in it
+q.14) using subquery : display the details from the department table where the employees do not exists
+in it
+q.15) using subquery : display the details from the department table where the employees do not exists
+in it
+q.16)using subquery : display the information from the emp table for all the employees for which the
+deptno is same as that of smith and blake
+
+
+
+
+
+delimiter $$
+create procedure check_digit(in num int)
+begin
+if(@num > 0 and @num < 10) then
+  select 'Number is 1 digit';
+else if(@num > 9 and @num < 100) then
+  select 'Number is 2 digit';
+else if(@num>99 and @num<1000) then
+  select 'Number is 3 digit';
+else 
+  select 'Number is 4 digit';
+end if;
+end $$
+
+accept a empno from user check the salary of the emp,if the 
+salary < 2000,increase the salary by 500 for the same emp,display
+the updated salry.
+-->
+
+delimiter //
+create procedure proc3()

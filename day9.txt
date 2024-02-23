@@ -1,0 +1,235 @@
+--methods to create an obj 
+//1
+ArrayList empList=new ArrayList();
+
+--2
+List empList = new ArrayList();
+//p                           c
+
+//3
+List<Emp> empList  =new ArrayList<Emp>();
+
+List<Student> studentList =  new ArrayList<Student>();
+	collection will be of Student class objects only 
+	we are providing the details to the compiler
+
+//4
+ArrayList<Emp> empList = new ArrayList<Emp>();
+==============================================
+--methods of collections
+1 add()		: to add obj
+2 get()
+3 remove()
+4 contains()
+5 clear()
+6 isEmpty()
+7 equals()		
+8 hashCode()
+9 removeAll()
+10 indexOf()
+11 lastIndexOf()
+list1.set(3, "kirthika");		--> to change the obj
+list1.add(3, "karan");			--> to add the obj at a specific position
+
+
+
+--TreeSet
+	it is homogeneous collection or primitive data types 
+	it is sorted 
+	Faster
+
+//TreeSet<Integer> tree1=new  TreeSet ();
+//TreeSet<Integer> tree1=new  TreeSet<Integer> ();
+	 
+=======================
+HashMap, HashTable 
+    are the collections which stores the key value value
+   displays the data in descending order 
+   duplication are not allowed
+   key , value can not be null
+
+  
+--eg
+key   value
+S	Smith
+W     Ward
+A     Allen
+M 	Miller
+..
+..
+
+--eg
+key   value
+1	  Niranjan
+2	  Hema
+3	  Priti
+..
+..
+
+--methods  HashTable , HashMap
+put()
+get()
+isEmpty();
+clear()
+..
+..
+
+==diff  HashTable , HashMap
+HashTable   : 
+     key  or value can not be null
+
+HashMap  : key can be null
+   only 1 key can be null
+   multiple values can be null for different keys
+
+--difference between hashmap and hashtable
+HashMap 
+      is non-syncronized and is not thread safe 
+	multi threading is possible
+
+HashTable 
+          is thread safe and is synchronized. 
+          HashMap allows one null key and values can be null whereas 
+	synchronized : means one thread will be running at a time 
+
+
+HashTable doesn't allow null key or value. 
+HashMap is faster than HashTable.
+
+--Garbage Collection(gc)
+    when we are using the "new" keyword , the object will occupy , the heap memory, which is eligible for Garbage Collection. JVM sees the objects which are not being used for some time interval. When we run low in memory , the unreachable objects will be deleted ,. The space will be reused
+gc is automatically called .
+it is memory clean up process.
+
+=================
+
+
+--final
+1 final variable   : can not change the value
+	constant variable
+2 final method : can not override the method
+	eg : protected final void display() {..}
+	
+3 final class : stops the inheritance
+	 can not create a sub class
+	eg : public final class Person {..}
+
+======================
+Boxing 
+  converting primitive data type to an obj
+  we can use all the methods which are associated
+
+Unboxing
+  converting an obj into primitive data type
+
+======================
+StringBuilder
+	 
+StringBuffer
+String
+
+=====================
+String
+	it is immutable class in java
+	can not be change 
+
+String str="priti";
+str="ritesh";
+str="yogesh";
+=====
+StringBuilder
+      mutable class in java
+      we can change the content
+
+StringBuffer
+
+======================
+diff in StringBuilder and StringBuffer 
+StringBuilder  :
+        not synchronized and not thread safe
+	multithreading can be possible 
+	faster than StringBuffer
+	
+StringBuffer   :  
+	it is thread safe , it is synchronized
+
+=====================
+Association
+  it is a relationship between the 2 objects
+
+Association can be 
+one to one
+one to many 
+many to may
+--eg
+dept    and the emp  -->   one to many 
+Bank   and the emp  -->   one to many 
+1                    4
+
+
+======================
+Aggregation
+  it is strong form of Association
+  relationship between 2 classes : 
+  "has a " relationship between parent and the child class
+  child can exist without the parent class 
+  emp has a address
+ " consist of "
+
+
+ Address
+  private String bldName;
+  private String city;
+  private int pincode;
+
+  Emp
+       private int empNo;
+       private String empName;	
+       private Address address;
+
+AggregationDemo
+    main
+
+==eg
+ mobile, simcard
+ olaApp, olaDriver
+room , laptop
+
+
+
+
+
+
+
+
+
+
+====================================
+Composition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

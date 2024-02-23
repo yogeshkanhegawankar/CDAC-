@@ -1,0 +1,536 @@
+1. accept details
+2. display details
+3. deposit amount
+4. withdraw amount
+5. transfer amount
+6. exit
+
+CUI : character user interface
+CLI  : command line interface 
+GUI : swing 
+
+==============
+Validation
+    correctness of the data
+
+email :	@, .		 priti@gmail.com
+name :  priti
+sal :   > 20000
+age :  > 0    < 100
+custid :   > 0
+password :  >=8 ch , special ch , num, ch
+contactnumber : 10 digit
+adhar :  no
+pan : ch no
+
+
+=====
+User
+     private String name;
+     private int userAge;
+     private double sal;
+
+     public void accept();
+     public void display()
+     public boolean checkAge()   
+		<18 			msg: you are not eligible to vote
+		> 18   		msg: you are eligible to vote
+
+     public boolean checkSal()
+		< 20000				msg: inalid sal  return false
+		else 				: valid sal : true
+TesUser			: 
+	main() method
+       create an obj
+       call the methods
+
+
+==================
+OOP
+object oriented progamming
+
+what is object ?
+it is an instance of the class
+it represents the real time entity or an event
+
+what is class
+blueprint
+template
+guide lines
+prototype
+collection of objects
+collection of attributes and methods
+factory of objects
+
+--basic pillars of OOP
+1 abstraction
+2 encapsulation
+3 enheritance
+4 polymorphism
+
+--abstraction
+process in which the deverlopers will fetch only the required details as per the business requirements
+getting the relavant information
+hiding the unneccesory details
+
+--eg buy a car:   marketing person will explain only details required by the customer , internal structure will be untold to customer
+
+buy a fan  : internal mechanism will be untold to customer
+atm card   : we do not know about the server name, ip add of the server
+
+Emp class
+empId
+name
+address
+carNumber			X
+favColor				X
+
+=========
+--encapsulation
+it is a process or wrapping the data into a single unit (class)
+decide the mv, mf
+creating a class
+related members will be put together
+
+EG :  laptop / pc : all the delicate components are put in a single unit : system unit
+office bag : 
+watch 
+dmart 
+toolkit
+geo box
+
+
+eg
+Emp		class
+empId
+name
+address
+sal
+accept()
+display()
+markAtteendance()
+applyLeave()
+
+--diff in encapsulation and abstraction
+encapsulation  : wrapping / forming / creating a class 
+abstraction : data hiding  , only showing the relavant  information
+
+=========================
+--inheritance
+ reusing the data members (mf, mv)
+ parent child relationship
+ all the mf, mv from the parent class will be inherited to the child class
+ it is called a extensibility of the code
+
+--eg
+				Emp  : parent class / base / super
+			        | mv :  name , address    : protected
+				| mf : accept(), display()  : protected
+				|
+	-----------------------------------------------------
+	|								|
+ TempEmp					  ConfiredEmp   child / derived / sub class
+ name , address					 name , address
+accept(), display()				accept(), display()
+   +									+
+visitingCard					idCard , empno, sal, loanAmt, bonus				
+travelAllowance
+
+specialization : uncommon mv, mf
+	eg: idCard , empno, sal, loanAmt, bonus		
+
+generalization : common mf, mv
+	eg name , address  , accept(), display()
+
+					   Account				parent class	
+						  |  mv : protected : accNo, accHolderName, mobile, bal
+						  |  mf: : protected : accept(), display()
+		-----------------------------------------------------------------------
+		|				 |						|
+  SavingAccount			 LoanAccount			   CurrentAccount  child classes
+accNo, accHolderName, mobile, bal   |					accNo, accHolderName, mobile, bal
+	accept(), display()			accNo, accHolderName, mobile, bal   accept(), display()
+							accept(), display()
+        +						+						     +
+isSalaried : boolean			loanNo, loanAmt, installmentAmt        gstNo, creditLimit 
+
+
+					vehicle						parent
+					 |  mv: color, modelno, price, make
+					 |  mf : start(), changeGear(), stop()
+		----------------------------------------------
+		|                   		|			  |
+		2wheeler		   3wheeler		4wheeler		child c;lass
+		+			+				+
+
+
+=================
+Polymorphism
+poly  : many
+morph : forms
+
+--Rohan
+1 son
+2 brother 
+3 friend 
+4 grandchild 
+5 nighbour
+6 student 
+7 employee 
+
+--eg
+Cricketer 
+1
+2
+3
+4
+
+--eg
+water
+1 ice
+2 liquid
+3 vapour
+
+--paper
+1 blotting paper
+2 drafting paper
+3 writting paper
+
+----types of Polymorphism
+1 static Polymorphism / compile time 
+eg function overloadding
+	  name of the function is same but the signature is different
+	eg 
+	add(int a, int b)
+	add(double a, int b)
+	add( int a, double b)
+	add(double a, double b)
+
+2 dynamic Polymorphism / runtime 
+can be achieved by function overriding or abstract class or interface
+eg function overriding 
+        if the parent class and the child class has the same function with the same signature 
+
+				parent class
+				|  mf: fun1(int a)
+				|
+				child class
+				|  mf: fun1(int a )
+
+   --in abstract class or interface
+		which function to be  called is decided at runtime 
+
+===
+types of inheritance
+1 single level inheritance  : supported
+Class1
+^
+|
+|
+Class2
+
+2 multilevel inheritance : supported
+Class1
+^
+|
+|
+Class2
+^
+|
+|
+Class3
+
+3. multiple inheritance  : not supported
+
+			fun1(){..}			fun1(){.............}
+			Class1			Class2
+			 |				  |
+			----------------------------
+					|
+					Class3
+				     fun1(){5 lines}
+				     fun1(){10 lines}
+
+--note
+we can not 2 functions in the class Class3 , with the same name, with different implementation
+
+4 . hierarchical inheritance  : supported
+				
+				Class1
+				 |
+		-------------------------------------
+		|						|
+		Class2					Class3
+
+
+5. Hybrid inheritance  : not supported
+  it is a combination of   hierarchical inheritance  and  mlultiple inheritance  
+
+				Class1
+				 |
+		-------------------------------------
+		|						|
+		Class2					Class3
+		|						|
+		------------------------------------
+				   |
+			    Class4
+
+===============================
+--function overloadding
+	  name of the function is same but the function signature is different each time
+
+   function signature is nothing to do with the return type
+
+	eg 
+	add(int a, int b)
+       add(int a, int b, int c)
+	add(double a, int b)
+	add( int a, double b)
+	add(double a, double b)
+
+--function signature
+1 number of parameters
+2 sequence of parameters
+3 datatype of the parameters
+
+---------not function overloadding  --> err
+public double add(double a, int b) {
+		return (a+b);
+	}
+
+public void add(double a, int b) {
+		sop (a+b);
+	}
+===
+
+can we overload the main()  --> yes 
+
+====
+---Object class
+  from java.lang  package
+  it is the top most class in  java
+  it is super class or parent class of all the classes
+  
+Object
+|
+OverloadMain
+
+Object 
+|
+Student
+
+--methods of Object class 
+1 hashCode()  : will return the integer representation of the memory address of obj
+2 getClass()  :  allows to access the mv, mf
+3 toString()  : coverts the object to String
+4 notify()   : will notify the thread  about the completion of the thread
+5 notifyAll()  :  will notify all the threads about the completion of the thread
+6 wait(1000)  : hault the thread
+7 finalize()  : to remove the obj from the memory
+8 clone()  : will create mirror copy of the obj
+9 equals()  : to compare the two objects
+
+==
+upward casting
+downword casting
+--eg
+double d=88.5;
+		int i=30;
+		double d2=i;//upward casting
+		//8       4
+		System.out.println(d2);  //30.0
+		//     d   int
+		double d1=30;
+		//double   int
+		System.out.println(d1);    //30.0   upward casting : auto
+		
+		System.out.println("=============================");
+		int a=(int)d;  //downward casting  : explicit
+		//4    8
+	//   int   double 
+==
+implicit conversion
+explicit conversion
+===============================
+Process Map Diagram / Memory map
+1 Stack	: local variables, reference will be stored
+		double d=88.5;  //stack
+		int i=30; //stack
+		Circle circle;   
+		
+2 Heap	the obj is stored 
+	Circle circle=new Circle();
+	when we use "new" keyword is used
+
+3 Code  
+	all the code of the methods are stored
+	accept(){..} , disaply(){..} , calArea(){..}
+
+4 Data
+	stores all the static variables
+        for static variables , only 1 copy will be created and it will be shared among all the objects
+
+--static variable
+eg : 
+static final double PI=3.14;	
+static : 1 copy
+final : constant 
+			
+					Circle
+					 |  mv: radius, area1,perimeter
+				  	 |  mf: accept(), calPerimeter(), display(), calArea()
+					 | static final double PI=3.14;	  //1 copy
+		--------------------------------------------------
+		|							|
+		circle1						circle2
+	radius=33.2					   radius=12.2
+area1=5555						  area1=4444
+perimeter=76767					  perimeter=8989
+
+accept(), calPerimeter(), display(), calArea()		accept(), calPerimeter(), display(), calArea()
+
+100objs
+
+--note
+every object will have his own copy of mv , mf 
+but PI will be 1 copy only for 100 objs
+eg : attendance sheet
+eg : notice board 
+eg: screen in classroom shared with all students
+
+
+===    
+             			Emp  : 
+			        | mv :  name , address    
+				| mf : accept(), display()  
+				| static final String comp="ofs";
+				| static  final String CEO="abc"
+      ----------------------------------------------
+	|						|
+	emp1 				emp1
+	name =ria			name =tia
+       address="pune"		address=mum
+accept(), display()		accept(), display()
+
+
+===
+		
+					   Account				
+						  |  mv :  : accNo, accHolderName, mobile, bal
+						  |  mf: :: accept(), display()
+						  | final static String IFSC="ICIC6565";
+						  | static : address, branchName, managerName
+				-------------------------------------------------
+				|								|
+			account1								account2
+
+--diff between mv and static variable
+mv  : there will be multiple copies  created for each object
+static variable  : only 1 copy will be created and it will be shared among all the objects
+
+=====================
+Arrays
+     collection of data of the same data types
+    faster to use
+
+priti	uma	  sia		ria		tia
+0	1	  2	     3			4
+
+--empmo
+45	66	88	77	99
+0	1	2	3	4
+
+--syntax
+int[] arr=new int[5];
+
+--types of array
+1 single dimentional array
+2 multi dimentional array
+
+--reference book
+Head first java : Kathy Ciera
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

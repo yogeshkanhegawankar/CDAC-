@@ -1,0 +1,115 @@
+1) display the name of employees whose salary is greater than all employees in dept 30.
+-->
+   select ename,sal from emp where sal =
+   (select  max(sal) from emp where deptno=30);
+
++-------+---------+
+| ename | sal     |
++-------+---------+
+| JONES | 2975.00 |
+| SCOTT | 3000.00 |
+| FORD  | 3000.00 |
+| KING  | 5000.00 |
++-------+---------+
+
+
+2)display the name of employees not working in DALLAS.
+-->
+  select ename from emp where deptno!=
+    ->   (select deptno from dept where loc='dallas');
++--------+
+| ename  |
++--------+
+| CLARK  |
+| KING   |
+| MILLER |
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| BLAKE  |
+| TURNER |
+| JAMES  |
++--------+
+
+display the name of the employee doing the same job as of ward.
+-->
+select ename from emp where job like
+    -> (select job from emp where ename='ward');
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| TURNER |
++--------+
+
+display the name of employee having the salary greater than the minimum salary.
+-->
+select ename from emp where sal >
+    -> (select min(sal) from emp);
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| JONES  |
+| MARTIN |
+| BLAKE  |
+| CLARK  |
+| SCOTT  |
+| KING   |
+| TURNER |
+| ADAMS  |
+| JAMES  |
+| FORD   |
+| MILLER |
++--------+
+
+display the name of employee working in sales department.
+--->
+select ename from emp where deptno=
+    -> (select deptno from dept where dname='sales');
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| BLAKE  |
+| TURNER |
+| JAMES  |
++--------+
+
+display the name of employee not working in dallas.
+-->
+ select ename from emp where deptno!=
+    -> (select deptno from dept where loc='dallas');
++--------+
+| ename  |
++--------+
+| CLARK  |
+| KING   |
+| MILLER |
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| BLAKE  |
+| TURNER |
+| JAMES  |
++--------+
+
+display the name of employee doing the same job as ward and scott.
+-->
+select ename from emp where job in
+    -> (select job from emp where ename in('ward','scott'));
++--------+
+| ename  |
++--------+
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| SCOTT  |
+| TURNER |
+| FORD   |
++--------+
